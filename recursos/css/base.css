@@ -1,0 +1,31 @@
+/* importar fuente */
+@font-face {
+    font-family: ;
+    src: url();
+}
+
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+}
+/*  */
+.root{
+    /* mostrar fuente */
+    font-family: ;
+    /* variables */
+
+}
+
+/* css header y footer */
+
+/* css index.html */
+
+
+
+/* css catalogo.html */
+
+/* css compra.html */
+
+/* css mayorista.html */
