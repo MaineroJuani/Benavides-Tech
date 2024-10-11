@@ -8,18 +8,54 @@
     box-sizing: border-box;
 }
 body{
+    display: flex;
+    flex-direction: column;
     margin: 0;
+
+    background-color: rebeccapurple;
 }
 /*  */
-.root{
+:root{
     /* mostrar fuente */
     font-family: ;
     /* variables */
-
+    --color-menu : rgb(226, 226, 226);
 }
 
 /* css header y footer */
 
+.encabezado{
+    position: sticky;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    background-color: var(--color-menu);
+    margin: 0;
+    height: 80px;
+    top: 0;
+
+}
+.encabezado a img {
+    align-items: center;
+    width: 120px;
+    margin: 0;
+    padding-right: 20px;
+}
+.encabezado nav{
+    width: 80%;
+    display: flex;
+    
+    align-items: center;
+    justify-content: space-between;
+}
+.encabezado nav a{
+    text-decoration: none;
+}
+.pie{
+    background-color: var();
+    margin: 0;
+    height: 120px;
+}
 /* css index.html */
 
 
