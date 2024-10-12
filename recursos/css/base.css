@@ -35,6 +35,10 @@ body{
 p{
     font-family: "Roboto";
 }
+/* imagenes automaticas */
+img{
+    height: 100%;
+}
 /* css header y footer */
 
 .encabezado{
@@ -109,9 +113,6 @@ p{
 .entrega-cuotas-imagen{
     height: 170px;
 }
-.entrega-cuotas-imagen img{
-    height: 100%;
-}
 .entrega-cuotas-texto{
     width: 350px;
     text-align: center;
@@ -128,7 +129,7 @@ p{
     /* height: 500px; */
 }
 .informacion-adicional-pie div{
-    width: 440px;
+    width: 25%;
 }
 
 .listado-pie{
@@ -142,10 +143,75 @@ p{
     list-style: none;
 }
 
+.informacion-adicional-pie div div{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+.contenedor-centrado-pie p{
+    background-color: aqua;
+    display: flex;
+    justify-content: start;
+    width: 100%;
+}
+.logo-pie{
+    height: 140px;
+    width: 330px;
+}
+
+.sucursal-principal{
+    height: 140px;
+    padding: 0px 40px 0px 0px;
+    overflow: hidden;
+}
+.sucursal-principal iframe{
+    height: 100%;
+    width: 100%;
+}
+
+.contenedor-centrado-pie{
+    display: flex;
+    justify-content: start;
+    width: 100%;
+}
+.contenedor-centrado-pie div{
+    display: flex;
+    width: 100%;
+}
+
+
+.formulario-ofertas{
+    width: 100%;
+    
+}
+.elementos-centrados-pie{
+    background-color: aqua;
+    width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: row;
+    /* corregir esto xd */
+}
+.correo-ofertas{
+    flex: 1;
+}
+.boton{
+    cursor: pointer;
+}
+
+
+
+.redes-sociales-pie{
+    height: 100px;
+    width: 100px;
+    /* modificar con % cuando se pongan en linea */
+}
+
 /* css index.html */
 
 .contenedor_banner img{
-    height: 100%;
     width: 100%;
 }
 
