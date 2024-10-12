@@ -16,10 +16,14 @@ body{
 }
 /*  */
 :root{
-    /* mostrar fuente */
+    /* ajustes fuente */
     font-family: ;
+    font-size: 18px;
     /* variables */
     --color-header : rgb(226, 226, 226);
+    --color-fondo: rgb(226, 220, 207);
+    --color-morado-oscuro : rgb(14, 11, 23);
+    --color-morado-claro: rgb(47, 31, 88);
 }
 
 /* css header y footer */
@@ -42,23 +46,44 @@ body{
     padding-right: 20px;
 }
 .encabezado nav{
-    width: 80%;
+    width: 100%;
     display: flex;
     
     align-items: center;
     justify-content: space-between;
+    /* borrar cuando se agregue la lupa */
+    padding-left: 100px;
+    padding-right: 100px;
 }
 .encabezado nav a{
     text-decoration: none;
+    
 }
+
 .pie{
-    background-color: var();
     margin: 0;
     height: 120px;
 }
+.marcas-pie{
+    background-color: aqua;
+    width: 100%;
+    height: 120px;
+    display: flex;
+    
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.marcas-pie a{
+    padding: 0px, 100px, 0px, 100px;
+}
+
 /* css index.html */
 
-
+.contenedor_banner img{
+    height: 100%;
+    width: 100%;
+}
 
 /* css catalogo.html */
 
