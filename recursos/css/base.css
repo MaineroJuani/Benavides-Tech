@@ -1,12 +1,17 @@
 /* importar fuente */
 @font-face {
-    font-family: ;
-    src: url();
+    font-family: "Poppins";
+    src: url(fuentes/Poppins-Regular.ttf);
+}
+@font-face {
+    font-family: "Roboto";
+    src: url(fuentes/Roboto-Regular.ttf);
 }
 
 *{
     box-sizing: border-box;
 }
+
 body{
     display: flex;
     flex-direction: column;
@@ -14,28 +19,33 @@ body{
 
     background-color: rebeccapurple;
 }
-/*  */
+
 :root{
     /* ajustes fuente */
-    font-family: ;
-    font-size: 18px;
+    font-family: "Poppins";
     /* variables */
     --color-header : rgb(226, 226, 226);
     --color-fondo: rgb(226, 220, 207);
     --color-morado-oscuro : rgb(14, 11, 23);
     --color-morado-claro: rgb(47, 31, 88);
-}
 
+    --fuente-blanca: rgb(255, 255, 255);
+}
+/* fuente parrafo*/
+p{
+    font-family: "Roboto";
+}
 /* css header y footer */
 
 .encabezado{
-    position: sticky;
+    position: fixed;
     display: flex;
     align-items: center;
     justify-content:space-between;
     background-color: var(--color-header);
     margin: 0;
     height: 80px;
+    width: 100%;
     top: 0;
 
 }
@@ -54,18 +64,20 @@ body{
     /* borrar cuando se agregue la lupa */
     padding-left: 100px;
     padding-right: 100px;
+    margin: 50px;
 }
 .encabezado nav a{
     text-decoration: none;
-    
+    font-size: 20px;
 }
 
 .pie{
     margin: 0;
     height: 120px;
 }
+/* marcas pie */
 .marcas-pie{
-    background-color: aqua;
+    background-color: var(--color-morado-oscuro);
     width: 100%;
     height: 120px;
     display: flex;
@@ -75,7 +87,59 @@ body{
     
 }
 .marcas-pie a{
-    padding: 0px, 100px, 0px, 100px;
+    margin: 50px;
+}
+/* informacion de entregas y cuotas pie */
+
+.pie-entrega-cuotas{
+    background-color: var(--color-morado-claro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 250px;
+    font-size: 30px;
+}
+.pie-entrega-cuotas div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+.entrega-cuotas-imagen{
+    height: 170px;
+}
+.entrega-cuotas-imagen img{
+    height: 100%;
+}
+.entrega-cuotas-texto{
+    width: 350px;
+    text-align: center;
+    color: var(--fuente-blanca);
+}
+
+/* informacion adicional pie */
+
+.informacion-adicional-pie{
+    background-color: var(--color-fondo);
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    /* height: 500px; */
+}
+.informacion-adicional-pie div{
+    width: 440px;
+}
+
+.listado-pie{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+.listado-pie ul{
+    padding: 0;
+    list-style: none;
 }
 
 /* css index.html */
