@@ -1,4 +1,4 @@
-/* importar fuente */
+/* Fuentes */
 @font-face {
     font-family: "Poppins";
     src: url(fuentes/Poppins-Regular.ttf);
@@ -28,6 +28,8 @@ body{
     --color-fondo: rgb(226, 220, 207);
     --color-morado-oscuro : rgb(14, 11, 23);
     --color-morado-claro: rgb(47, 31, 88);
+
+    --color-contenedor: rgb() 
 
     --fuente-blanca: rgb(255, 255, 255);
 }
@@ -210,13 +212,17 @@ img{
 .redes-sociales-pie{
     height: 100px;
     width: 100px;
-    /* modificar con % cuando se pongan en linea */
 }
 
 /* css index.html */
 
 .contenedor_banner img{
     width: 100%;
+}
+
+.contenedor_destacados{
+    height: 430px;
+    background-color: var(--color-fondo);
 }
 
 /* css catalogo.html */
