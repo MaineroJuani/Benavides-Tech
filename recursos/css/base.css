@@ -121,15 +121,24 @@ img{
 
 /* informacion adicional pie */
 
+/* Listados */
 .informacion-adicional-pie{
     background-color: var(--color-fondo);
     display: flex;
     align-items: start;
     justify-content: space-between;
-    /* height: 500px; */
 }
-.informacion-adicional-pie div{
+.informacion-adicional-pie div{ /* Los contenedores que dividen en 4 */
     width: 25%;
+    margin-top: 10px;;
+    margin-bottom: 10px;
+}
+.informacion-adicional-pie div div{ /* Los verdaderos contenedores */
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    width: 100%;
 }
 
 .listado-pie{
@@ -143,14 +152,8 @@ img{
     list-style: none;
 }
 
-.informacion-adicional-pie div div{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-}
+/* Resto */
 .contenedor-centrado-pie p{
-    background-color: aqua;
     display: flex;
     justify-content: start;
     width: 100%;
@@ -183,16 +186,13 @@ img{
 
 .formulario-ofertas{
     width: 100%;
-    
 }
-.elementos-centrados-pie{
-    background-color: aqua;
+.contenedor-centrado-pie .elementos-centrados-pie{
     width: 100%;
     display: flex;
-    align-items: start;
-    justify-content: start;
+    align-items: center;
+    justify-content: space-between;
     flex-direction: row;
-    /* corregir esto xd */
 }
 .correo-ofertas{
     flex: 1;
