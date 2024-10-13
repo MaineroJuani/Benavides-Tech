@@ -185,6 +185,7 @@ img{
 
 
 .formulario-ofertas{
+    display: flex;
     width: 100%;
 }
 .contenedor-centrado-pie .elementos-centrados-pie{
@@ -194,8 +195,11 @@ img{
     justify-content: space-between;
     flex-direction: row;
 }
+.formulario-ofertas .elementos-centrados-pie{
+    justify-content: start;
+}
 .correo-ofertas{
-    flex: 1;
+    width: 50%;
 }
 .boton{
     cursor: pointer;
