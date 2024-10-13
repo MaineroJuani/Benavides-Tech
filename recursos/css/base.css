@@ -260,6 +260,7 @@ img{
     height: 100%;
     width: 100%;
     background-color: var(--color-morado-claro);
+    overflow: hidden;
 }
 .imagen_computadora a{
     height: 100%;
@@ -273,8 +274,36 @@ img{
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    width: auto;
-    height: auto;
+}
+
+.contenedor-categorias{
+    display: flex;
+    justify-content: space-evenly; 
+    align-items: center;
+    flex-direction: column;
+    height: 900px;
+    width: 100%;
+    margin-top: 80px;
+    background-color: var(--color-contenedor);
+}
+.subcontenedor-categorias{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.categoria{
+    height: 390px;
+    width: 390px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.categoria div{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 /* css catalogo.html */
