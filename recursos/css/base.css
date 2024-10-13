@@ -17,7 +17,7 @@ body{
     flex-direction: column;
     margin: 0;
 
-    background-color: rebeccapurple;
+    background-color: var(--color-fondo);
 }
 
 :root{
@@ -29,9 +29,9 @@ body{
     --color-morado-oscuro : rgb(14, 11, 23);
     --color-morado-claro: rgb(47, 31, 88);
 
-    --color-contenedor: rgb() 
+    --color-contenedor: rgb(231, 21, 21); /* modificar colores más tarde */
 
-    --fuente-blanca: rgb(255, 255, 255);
+    --fuente-blanca: rgb(255, 255, 255); 
 }
 /* fuente parrafo*/
 p{
@@ -125,7 +125,6 @@ img{
 
 /* Listados */
 .informacion-adicional-pie{
-    background-color: var(--color-fondo);
     display: flex;
     align-items: start;
     justify-content: space-between;
@@ -220,9 +219,62 @@ img{
     width: 100%;
 }
 
-.contenedor_destacados{
+.contenedor-destacados-mayor{
     height: 430px;
-    background-color: var(--color-fondo);
+    margin-top: 20px;
+    background-color: var(--color-contenedor);
+
+    display: flex;
+}
+.imagen-destacados{
+    height: 100%;
+    width: 350px;
+}
+.contenedor_destacados{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 110px;
+}
+.computadoras{
+    height: 350px;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.computadoras div{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.nombre_computadora{
+    height: 60px;
+    width: 100%;
+    background-color: var(--color-morado-oscuro);
+    color: var(--fuente-blanca);
+}
+.imagen_computadora{
+    height: 100%;
+    width: 100%;
+    background-color: var(--color-morado-claro);
+}
+.imagen_computadora a{
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imagen_computadora a img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    width: auto;
+    height: auto;
 }
 
 /* css catalogo.html */
