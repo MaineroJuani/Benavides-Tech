@@ -1,0 +1,16 @@
+/*.contenedor-tienda{
+    display: flex;
+}
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    height: 100%;
+    width: 900px;
+    background-color: var(--color-morado-claro);
+    color: var(--fuente-blanca);
+} */
+
+
