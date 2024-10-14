@@ -17,7 +17,7 @@
 
         <p class="terminos-mayoristas">
             Terminos Mayoristas
-            <ol>
+            <ul>
                 <li>
                     <p>Pedido Mínimo: El pedido mínimo es de 5 notebooks por compra.</p>
                 </li>
@@ -39,48 +39,58 @@
                 <li>
                     <p>Política de Privacidad: La información personal se utiliza únicamente para procesar pedidos.</p>
                 </li>
-            </ol>
+            </ul>
         </p>
 
-        <h2>Contactanos</h2>
+        <div class="titulo-formulario-mayorista">
+            <h2>Contactanos</h2>
+        </div>
 
-        <form action="mayorista.html" method="post">
-            <div class="nombre-apellido">
-                <label for="id-nombre-apellido">
-                    Nombre y Apellido:
+        <form action="mayorista.html" method="post" class="formulario-mayorista">
+
+            <div class="contenedor-formulario-mayorista">
+
+                <div class="nombre-apellido">
+                    <label for="id-nombre-apellido">
+                        Nombre y Apellido:
+                    </label>
                     <input type="text" name="nombre" id="id_nombre-apellido" placeholder="Ingrese Nombre y Apellido" required/>
-                </label>
-            </div>
-
-            <div class="email">
-                <label for="id-email">
-                    E-mail:
+                </div>
+    
+                <div class="email">
+                    <label for="id-email">
+                        E-mail:
+                    </label>
                     <input type="email" name="email" id="id-email" required>
-                </label>
-            </div>
-
-            <div class="numero-telefono">
-                <label for="id-numero-telefono">
-                    Numero de Telefono
+                </div>
+    
+                <div class="numero-telefono">
+                    <label for="id-numero-telefono">
+                        Numero de Telefono
+                    </label>
                     <input type="number" name="nombre" id="id-numero-telefono" placeholder="Ingrese su Numero de Telefono" required/>
-                </label>
+                </div>
+
             </div>
 
-            <div class="dejar-mensaje">
-                <label for="id-dejar-mensaje">
-                    Dejanos un mensaje para conocerte a vos y a tu negocio:
-                    <br>
+            <div class="contenedor-formulario-mayorista">
+
+                <div class="dejar-mensaje">
+                    <label for="id-dejar-mensaje">
+                        Dejanos un mensaje para conocerte a vos y a tu negocio:
+                        <br>
+                    </label>
                     <textarea name="Mensaje" id="id-dejar-mensaje" required> </textarea>
-                </label>
+                </div>
+    
+                <div class="enviar">
+                    <button type="submit">
+                        Enviar
+                    </button>
+                </div>
+
             </div>
 
-            <div class="enviar">
-                <button type="submit">
-                    Enviar
-                </button>
-            </div>
-
-            
         </form>
 
 

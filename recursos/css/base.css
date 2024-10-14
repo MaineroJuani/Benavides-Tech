@@ -363,6 +363,38 @@ img{
 .terminos-mayoristas{
     text-align: justify;
 }
-.terminos-mayoristas ol li{
-    list-style: none;
+
+.titulo-formulario-mayorista{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+}
+.formulario-mayorista{
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+
+    width: 90%;
+}
+.contenedor-formulario-mayorista{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    width: 50%;
+    background-color: blue;
+}
+.contenedor-formulario-mayorista div{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    width: 100%;
+    background-color: aqua;
+}
+.contenedor-formulario-mayorista div input{
+    width: 80%;
+    height: 50px;
+    border: 10px solid var(--color-morado-oscuro);
 }
