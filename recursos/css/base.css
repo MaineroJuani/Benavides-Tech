@@ -270,6 +270,7 @@ img{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 20px;
 }
 .imagen_computadora a img {
     max-width: 100%;
