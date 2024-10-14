@@ -310,6 +310,59 @@ img{
 
 /* css catalogo.html */
 
+
+.contenedor-tienda{
+    display: flex;
+}
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    height: 100%;
+    width: 900px;
+    background-color: var(--color-morado-claro);
+    color: var(--fuente-blanca);
+}
+
+
+
+
+
+
+
+
 /* css compra.html */
 
 /* css mayorista.html */
+
+.contenedor-mayorista{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    padding: 25px 100px 100px 100px;
+
+    font-size: 18px;
+}
+
+.titulo-mayorista{
+    background-color: var(--color-morado-claro);
+    color: var(--fuente-blanca);
+    font-size: 53px;
+    text-align: center;
+    text-decoration: underline;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 135px;
+    width: 100%;
+}
+.terminos-mayoristas{
+    text-align: justify;
+}
+.terminos-mayoristas ol li{
+    list-style: none;
+}
