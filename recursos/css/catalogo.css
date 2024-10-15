@@ -129,6 +129,67 @@ body{
 
 /*catalogo notebooks*/
 
+/* Cambios en el contenedor de la tienda */
+.contenedor-tienda {
+    display: flex; /* Utilizar flexbox para el diseño */
+    background-color: aqua;
+    padding: 20px; /* Espaciado alrededor del contenido */
+}
+
+/* Ajustes en la barra lateral */
+.sidebar {
+    width: 250px; /* Ancho de la barra lateral */
+    height: 100%; /* Altura completa */
+}
+
+/* Estilos para el catálogo */
+.catalogo {
+    flex: 1; /* Esto hará que el catálogo ocupe el espacio restante */
+    display: flex;
+    flex-wrap: wrap; /* Permitir que los elementos se ajusten en varias filas */
+    gap: 20px; /* Espacio entre los productos */
+}
+
+/* Estilos para cada producto */
+.producto {
+    background-color: #ffffff; /* Fondo blanco para los productos */
+    border: 1px solid #ddd; /* Borde suave alrededor del producto */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 10px; /* Espacio interno */
+    width: calc(33.33% - 20px); /* Ancho del 33.33% menos el espacio entre productos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    text-align: center; /* Centrar el contenido dentro del producto */
+}
+
+.imagen-producto {
+    width: 100%; /* Ajustar la imagen al ancho del producto */
+    height: auto; /* Mantener la relación de aspecto */
+}
+
+.nombre-producto {
+    font-size: 18px; /* Tamaño de la fuente del nombre */
+    margin: 10px 0; /* Espacio arriba y abajo */
+}
+
+.precio-producto {
+    font-size: 16px; /* Tamaño de la fuente del precio */
+    color: #333; /* Color del texto del precio */
+    margin: 10px 0; /* Espacio arriba y abajo */
+}
+
+.boton-comprar {
+    background-color: #007BFF; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px 15px; /* Espaciado interno */
+    cursor: pointer; /* Cursor de mano al pasar el ratón */
+}
+
+.boton-comprar:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el ratón */
+}
+
 
 
 
