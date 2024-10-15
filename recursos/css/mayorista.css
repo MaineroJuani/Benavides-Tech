@@ -27,7 +27,6 @@
     align-items: center;
     width: 100%;
     padding: 20px;
-
     border-radius: 18px;
     background-color: var(--color-contenedor);
 }
@@ -39,7 +38,7 @@
 .titulo-formulario-mayorista{
     display: flex;
     justify-content: start;
-    align-items: center;
+    align-items: flex-end;
     width: 100%;
 }
 .formulario-mayorista{
