@@ -129,26 +129,31 @@ body{
 
 /*catalogo notebooks*/
 
-/* Cambios en el contenedor de la tienda */
 .contenedor-tienda {
-    display: flex; /* Utilizar flexbox para el diseño */
+    display: flex; /* Utiliza flexbox para el diseño */
     background-color: aqua;
     padding: 20px; /* Espaciado alrededor del contenido */
 }
 
-/* Ajustes en la barra lateral */
 .sidebar {
     width: 250px; /* Ancho de la barra lateral */
-    height: 100%; /* Altura completa */
+    background-color: #2f1f58; /* Color de fondo */
+    padding: 20px 10px; /* Espaciado interno */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Sombra */
+    overflow-y: auto; /* Permitir el desplazamiento vertical si el contenido es largo */
+    border-radius: 3px; /* Bordes redondeados */
+    min-height: 100vh; /* Asegura que el sidebar siempre tenga al menos la altura completa de la ventana */
 }
 
-/* Estilos para el catálogo */
 .catalogo {
-    flex: 1; /* Esto hará que el catálogo ocupe el espacio restante */
+    flex: 1; /* Ocupa el espacio restante */
     display: flex;
-    flex-wrap: wrap; /* Permitir que los elementos se ajusten en varias filas */
+    flex-wrap: wrap; /* Permite el ajuste de los elementos */
     gap: 20px; /* Espacio entre los productos */
+    margin-left: 20px; /* Separación del sidebar */
+    padding: 20px; /* Opcional: Añadir padding interno para separar los productos del borde */
 }
+
 
 /* Estilos para cada producto */
 .producto {
@@ -161,22 +166,28 @@ body{
     text-align: center; /* Centrar el contenido dentro del producto */
 }
 
+/* Estilos para el nombre del producto */
+.nombre-producto {
+    background-color: #f2f2f2; /* Fondo separado para el nombre */
+    padding: 10px; /* Espacio interno */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-bottom: 10px; /* Espacio debajo del nombre */
+}
+
+/* Estilos para la imagen del producto */
 .imagen-producto {
     width: 100%; /* Ajustar la imagen al ancho del producto */
     height: auto; /* Mantener la relación de aspecto */
 }
 
-.nombre-producto {
-    font-size: 18px; /* Tamaño de la fuente del nombre */
-    margin: 10px 0; /* Espacio arriba y abajo */
-}
-
+/* Estilos para el precio del producto */
 .precio-producto {
     font-size: 16px; /* Tamaño de la fuente del precio */
     color: #333; /* Color del texto del precio */
     margin: 10px 0; /* Espacio arriba y abajo */
 }
 
+/* Estilos para el botón de comprar */
 .boton-comprar {
     background-color: #007BFF; /* Color de fondo del botón */
     color: white; /* Color del texto del botón */
@@ -189,6 +200,12 @@ body{
 .boton-comprar:hover {
     background-color: #0056b3; /* Color de fondo al pasar el ratón */
 }
+
+/* Estilo adicional para el espacio en la parte inferior */
+.producto {
+    margin-bottom: 30px; /* Espacio adicional en la parte inferior de cada producto */
+}
+
 
 
 
