@@ -34,6 +34,8 @@ body{
 
     --fuente-blanca: rgb(255, 255, 255); 
 }
+
+/* cosas globales */
 /* fuente parrafo*/
 p{
     font-family: "Roboto";
@@ -42,6 +44,14 @@ p{
 img{
     height: 100%;
 }
+/* bordeado de contenedores */
+.bordeado{
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+
+
 /* css header y footer */
 
 .encabezado{

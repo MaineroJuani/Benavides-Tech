@@ -27,7 +27,6 @@
     align-items: center;
     width: 100%;
     padding: 20px;
-    border-radius: 18px;
     background-color: var(--color-contenedor);
 }
 .terminos-mayoristas{
@@ -40,6 +39,13 @@
     justify-content: start;
     align-items: flex-end;
     width: 100%;
+}
+.titulo-h2-mayorista{
+    display: flex;
+    justify-content: start;
+    align-items: flex-end;
+    margin-top: 30px;
+    margin-bottom: 0px;
 }
 .formulario-mayorista{
     display: flex;
