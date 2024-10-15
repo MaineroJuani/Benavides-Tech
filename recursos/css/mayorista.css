@@ -21,8 +21,19 @@
     height: 135px;
     width: 100%;
 }
+.contenedor-mayorista .subcontenedor-mayorista{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+
+    border-radius: 18px;
+    background-color: var(--color-contenedor);
+}
 .terminos-mayoristas{
     text-align: justify;
+    margin: 0;
 }
 
 .titulo-formulario-mayorista{
@@ -46,6 +57,7 @@
     flex-direction: column;
     width: 50%;
     min-height: 280px;
+    padding-left: 40px;
 }
 .contenedor-formulario-mayorista div{
     display: flex;
