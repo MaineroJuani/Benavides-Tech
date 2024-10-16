@@ -26,11 +26,11 @@ body{
     font-family: "Poppins";
     /* variables */
     --color-header : rgb(226, 226, 226);
-    --color-fondo: rgb(226, 220, 207);
+    --color-fondo: rgb(255, 255, 255);
     --color-morado-oscuro : rgb(14, 11, 23);
     --color-morado-claro: rgb(47, 31, 88);
 
-    --color-contenedor: rgb(231, 21, 21); /* modificar colores más tarde */
+    --color-contenedor: rgb(78, 55, 138); /* modificar colores más tarde */
 
     --fuente-blanca: rgb(255, 255, 255); 
 }

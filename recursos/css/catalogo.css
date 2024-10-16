@@ -33,14 +33,12 @@
 body{
     margin: 0;
     font-family: Poppins;
-    
+    background-color: white;
 }
 
 
 /*Sidebar */
-.contenedor-tienda{
-    background-color: aqua;
-}
+
 .sidebar{
     width: 250px;
     height: 100%;
@@ -131,7 +129,7 @@ body{
 
 .contenedor-tienda {
     display: flex; /* Utiliza flexbox para el diseño */
-    background-color: aqua;
+
     padding: 20px; /* Espaciado alrededor del contenido */
 }
 
@@ -164,14 +162,21 @@ body{
     width: calc(33.33% - 20px); /* Ancho del 33.33% menos el espacio entre productos */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
     text-align: center; /* Centrar el contenido dentro del producto */
+    
+}
+
+.link-compra{
+    text-decoration: none;
 }
 
 /* Estilos para el nombre del producto */
 .nombre-producto {
-    background-color: #f2f2f2; /* Fondo separado para el nombre */
+    background-color: var(--color-morado-oscuro); /* Fondo separado para el nombre */
     padding: 10px; /* Espacio interno */
     border-radius: 5px; /* Bordes redondeados */
     margin-bottom: 10px; /* Espacio debajo del nombre */
+    color: var(--fuente-blanca);
+    
 }
 
 /* Estilos para la imagen del producto */
@@ -185,6 +190,7 @@ body{
     font-size: 16px; /* Tamaño de la fuente del precio */
     color: #333; /* Color del texto del precio */
     margin: 10px 0; /* Espacio arriba y abajo */
+    
 }
 
 /* Estilos para el botón de comprar */
@@ -204,6 +210,7 @@ body{
 /* Estilo adicional para el espacio en la parte inferior */
 .producto {
     margin-bottom: 30px; /* Espacio adicional en la parte inferior de cada producto */
+    
 }
 
 
