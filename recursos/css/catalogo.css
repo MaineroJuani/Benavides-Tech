@@ -48,7 +48,6 @@ body{
     overflow-x: hidden;
     transition: transform 0.3s ease;
     border-radius: 3px;
-    
 }
 
 .titulo-menu{
@@ -155,15 +154,34 @@ body{
 
 /* Estilos para cada producto */
 .producto {
-    background-color: #ffffff; /* Fondo blanco para los productos */
-    border: 1px solid #ddd; /* Borde suave alrededor del producto */
-    border-radius: 8px; /* Bordes redondeados */
-    padding: 10px; /* Espacio interno */
-    width: calc(33.33% - 20px); /* Ancho del 33.33% menos el espacio entre productos */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    text-align: center; /* Centrar el contenido dentro del producto */
     
+    /*background-color: #e20d0d; /* Fondo blanco para los productos */
+    /*border: 1px solid #ddd; /* Borde suave alrededor del producto */
+    /*border-radius: 8px; /* Bordes redondeados */
+    /*padding: 10px; /* Espacio interno */
+    /*width: calc(33.33% - 20px); /* Ancho del 33.33% menos el espacio entre productos */
+    /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    /*text-align: center; /* Centrar el contenido dentro del producto */
+
+    background-color: white; 
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 10px;
+    width: calc(33.33% - 20px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    /* trancision */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; 
 }
+
+/*-- movimiento --*/
+
+.producto:hover {
+    transform: translateY(-5px); /* mueve la imagen */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* sombra */
+    border: 1px solid rgb(78, 55, 138); /* borde brillante cuando paso el mouse */
+}
+
 
 .link-compra{
     text-decoration: none;
@@ -176,7 +194,21 @@ body{
     border-radius: 5px; /* Bordes redondeados */
     margin-bottom: 10px; /* Espacio debajo del nombre */
     color: var(--fuente-blanca);
+
+    /* brillo del nombre*/
+    transition: color 0.3s ease; /* Transición suave */
+
     
+}
+    /* brillo del nombre*/
+.producto:hover .nombre-producto {
+    color: white; /* Cambia el color a un verde brillante */
+    text-shadow: 0 0 5px rgba(245, 245, 245, 0.436); /* Agrega un brillo sutil */
+}
+
+
+.nombre-producto h2{
+    font-size: 18px;
 }
 
 /* Estilos para la imagen del producto */
@@ -190,12 +222,11 @@ body{
     font-size: 16px; /* Tamaño de la fuente del precio */
     color: #333; /* Color del texto del precio */
     margin: 10px 0; /* Espacio arriba y abajo */
-    
 }
 
 /* Estilos para el botón de comprar */
 .boton-comprar {
-    background-color: #007BFF; /* Color de fondo del botón */
+    background-color: var(--color-morado-oscuro); /* Color de fondo del botón */
     color: white; /* Color del texto del botón */
     border: none; /* Sin borde */
     border-radius: 5px; /* Bordes redondeados */
@@ -204,7 +235,7 @@ body{
 }
 
 .boton-comprar:hover {
-    background-color: #0056b3; /* Color de fondo al pasar el ratón */
+    background-color: var(--color-morado-claro); /* Color de fondo al pasar el ratón */
 }
 
 /* Estilo adicional para el espacio en la parte inferior */
