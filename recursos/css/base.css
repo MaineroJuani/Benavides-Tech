@@ -240,22 +240,23 @@ img{
     height: 100%;
     width: 350px;
 }
-.contenedor_destacados{
+.contenedor_destacados {
     width: fit-content;
     position: relative;
     display: flex;
     align-items: center;
     max-width: 80%;
     overflow: hidden;
-}
-
-.carrusel-track{
+  }
+  
+  .carrusel-track {
     display: flex;
     transition: transform 0.5s ease-in-out;
     position: relative;
     left: 0;
-}
-.flecha-carrusel {
+  }
+  
+  .flecha-carrusel {
     border-radius: 30px;
     background-color: #ffffff;
     z-index: 1;
@@ -264,26 +265,27 @@ img{
     text-align: center;
     border: 0;
     cursor: pointer;
-}
-.flecha-carrusel:focus{
+  }
+  
+  .flecha-carrusel:focus {
     outline: 0;
-}
-.flecha-carrusel{
-    width: 12px;
-}
-.flecha-carrusel svg{
+  }
+  
+  .flecha-carrusel svg {
     width: 24px;
     height: 100%;
     color: rgb(0, 0, 0);
-}
-.carrusel-prev{
+  }
+  
+  .carrusel-prev {
     left: 0px;
-}
-.carrusel-next{
+  }
+  
+  .carrusel-next {
     right: 0px;
-}
-
-.computadoras{
+  }
+  
+  .computadoras {
     position: relative;
     height: 350px;
     width: 210px;
@@ -291,38 +293,43 @@ img{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-}
-.computadoras div{
+  }
+  
+  .computadoras div {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-}
-.nombre_computadora{
+  }
+  
+  .nombre_computadora {
     height: 60px;
     width: 100%;
     background-color: var(--color-morado-oscuro);
     color: var(--fuente-blanca);
-}
-.imagen_computadora{
+  }
+  
+  .imagen_computadora {
     height: 100%;
     width: 100%;
     background-color: var(--color-morado-claro);
     overflow: hidden;
-}
-.imagen_computadora a{
+  }
+  
+  .imagen_computadora a {
     height: 100%;
     width: 100%;
-
+    
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 20px;
-}
-.imagen_computadora a img {
+  }
+  
+  .imagen_computadora a img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-}
+  }
 
 .contenedor-categorias{
     display: flex;

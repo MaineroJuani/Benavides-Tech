@@ -37,32 +37,38 @@
 //     }
 // }
 
-function App() {
-    window.onload = function(event) {
-        var app = new App();
-        window.app = app;
-    }
+// JavaScript para el carrusel
 
-    App.prototype.processingButton = function(event) {
-        const btn = event.currentTarget;
-        const track = document.querySelector('#track');
-        const carruselItems = track.querySelectorAll('.computadoras');
-        const carruselWidth = carruselItems[0].offsetWidth;
+const track = document.getElementById('track'); // Identificamos el carrusel
+const slides = Array.from(track.children); // Obtenemos todas las diapositivas
 
-        // Obtenemos la posición actual del track
-        let leftPosition = parseFloat(getComputedStyle(track).left) || 0;
+const prevButton = document.getElementById('button-prev'); // Botón de retroceso
+const nextButton = document.getElementById('button-next'); // Botón siguiente
 
-        // Si es la flecha de anterior, movemos hacia la izquierda
-        if (btn.dataset.button === "button-prev") {
-            if (leftPosition < 0) {
-                track.style.left = `${leftPosition + carruselWidth}px`;
-            }
-        }
-        // Si es la flecha de siguiente, movemos hacia la derecha
-        else if (btn.dataset.button === "button-next") {
-            if (Math.abs(leftPosition) < (carruselWidth * (carruselItems.length - 1))) {
-                track.style.left = `${leftPosition - carruselWidth}px`;
-            }
-        }
-    }
+let currentIndex = 0; // Posición actual del carrusel
+
+// Función para mover el carrusel a la diapositiva indicada
+function moveToSlide(index) {
+  const slideWidth = slides[0].getBoundingClientRect().width; // Ancho de la diapositiva
+  track.style.transform = `translateX(-${index * slideWidth}px)`; // Desplazamos el carrusel
 }
+
+// Evento para botón "next"
+nextButton.addEventListener('click', () => {
+  if (currentIndex < slides.length - 1) {
+    currentIndex++; // Avanza al siguiente slide
+  } else {
+    currentIndex = 0; // Si es el último, vuelve al inicio
+  }
+  moveToSlide(currentIndex); // Llamamos a la función para mover el carrusel
+});
+
+// Evento para botón "prev"
+prevButton.addEventListener('click', () => {
+  if (currentIndex > 0) {
+    currentIndex--; // Retrocede al slide anterior
+  } else {
+    currentIndex = slides.length - 1; // Si es el primero, vuelve al último
+  }
+  moveToSlide(currentIndex); // Llamamos a la función para mover el carrusel
+});
