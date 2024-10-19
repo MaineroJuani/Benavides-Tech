@@ -183,7 +183,7 @@
 
         // Define cuántas computadoras se mostrarán según el ancho de la pantalla
         if (document.body.clientWidth > 765) {
-            CantidadComputadoras = 2;
+            CantidadComputadoras = 3;
         }
 
         document.querySelector('.prev-button').addEventListener('click', () => {
@@ -202,13 +202,18 @@
             currentIndex = (currentIndex + direction + totalImages) % totalImages;
 
             // Asegúrate de que el índice no permita que las últimas dos imágenes sean visibles al inicio
-            if (currentIndex >= totalImages - CantidadComputadoras) {
-                currentIndex = totalImages - CantidadComputadoras; // Ajusta el índice para que no muestre las últimas dos imágenes
+            // Maneja el caso de ir del inicio al final
+            if (currentIndex < 0 && direction === -1) {
+                currentIndex = totalImages - CantidadComputadoras; // Ir al final
+            } 
+            // Maneja el caso de ir del final al inicio
+            else if (currentIndex >= totalImages - CantidadComputadoras && direction === 1) {
+                currentIndex = 0; // Ir al inicio
             }
 
-            // Reiniciar el índice a 0 si se llega al final
-            if (currentIndex === totalImages - CantidadComputadoras) {
-                currentIndex = 0; // Reiniciar al inicio
+            // Asegúrate de que el índice no permita que las últimas dos imágenes sean visibles al inicio
+            if (currentIndex > totalImages - CantidadComputadoras) {
+                currentIndex = totalImages - CantidadComputadoras; // Ajusta el índice para que no muestre las últimas dos imágenes
             }
 
             const offset = -currentIndex * anchoTotalComputadora; // Calcula el desplazamiento basado en el índice actual
