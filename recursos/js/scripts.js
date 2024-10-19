@@ -39,36 +39,34 @@
 
 // JavaScript para el carrusel
 
-const track = document.getElementById('track'); // Identificamos el carrusel
-const slides = Array.from(track.children); // Obtenemos todas las diapositivas
+const track = document.getElementById('track');
+let index = 0;
+const itemsToShow = 3; // Número de elementos que se mostrarán a la vez
 
-const prevButton = document.getElementById('button-prev'); // Botón de retroceso
-const nextButton = document.getElementById('button-next'); // Botón siguiente
+function updateCarrusel() {
+  const itemWidth = document.querySelector('.computadoras').clientWidth;
+  const trackWidth = track.scrollWidth;
+  const visibleArea = document.querySelector('.contenedor_destacados').clientWidth;
 
-let currentIndex = 0; // Posición actual del carrusel
+  // Calcula el desplazamiento máximo
+  const maxIndex = Math.floor(trackWidth / itemWidth) - itemsToShow;
 
-// Función para mover el carrusel a la diapositiva indicada
-function moveToSlide(index) {
-  const slideWidth = slides[0].getBoundingClientRect().width; // Ancho de la diapositiva
-  track.style.transform = `translateX(-${index * slideWidth}px)`; // Desplazamos el carrusel
+  // Limita el índice dentro de los rangos válidos
+  if (index < 0) index = 0;
+  if (index > maxIndex) index = maxIndex;
+
+  // Actualiza la posición del carrusel
+  const translateX = -index * itemWidth;
+  track.style.transform = `translateX(${translateX}px)`;
 }
 
-// Evento para botón "next"
-nextButton.addEventListener('click', () => {
-  if (currentIndex < slides.length - 1) {
-    currentIndex++; // Avanza al siguiente slide
-  } else {
-    currentIndex = 0; // Si es el último, vuelve al inicio
-  }
-  moveToSlide(currentIndex); // Llamamos a la función para mover el carrusel
+// Manejadores de evento para las flechas
+document.getElementById('button-prev').addEventListener('click', () => {
+  index--;
+  updateCarrusel();
 });
 
-// Evento para botón "prev"
-prevButton.addEventListener('click', () => {
-  if (currentIndex > 0) {
-    currentIndex--; // Retrocede al slide anterior
-  } else {
-    currentIndex = slides.length - 1; // Si es el primero, vuelve al último
-  }
-  moveToSlide(currentIndex); // Llamamos a la función para mover el carrusel
+document.getElementById('button-next').addEventListener('click', () => {
+  index++;
+  updateCarrusel();
 });
