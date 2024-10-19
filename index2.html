@@ -69,7 +69,83 @@
                             </a>
                         </div>
                     </div>
-    
+
+                    <div class="computadoras">
+                        <div class="nombre_computadora">
+                            <p>Victus Core i7</p>
+                        </div>
+                        <div class="imagen_computadora">
+                            <a href="compra.html">
+                                <img src="recursos/imagenes/notebooks/hp/victus_core_i7.png" alt="Victus Core i7">
+                            </a>
+                        </div>
+                    </div>
+        
+                    <div class="computadoras">
+                        <div class="nombre_computadora">
+                            <p>Lenovo Ide Pad3 Slim</p>
+                        </div>
+                        <div class="imagen_computadora">
+                            <a href="compra.html">
+                                <img src="recursos/imagenes/notebooks/lenovo/ide_pad3_slim.png" alt="Lenovo Ide Pad3 Slim">
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="computadoras">
+                        <div class="nombre_computadora">
+                            <p>Macbook PRO M1</p>
+                        </div>
+                        <div class="imagen_computadora">
+                            <a href="compra.html">
+                                <img src="recursos/imagenes/notebooks/apple/macbook_pro_m1.png" alt="Macbook PRO M1">
+                            </a>
+                        </div>
+                    </div>
+        
+                    <div class="computadoras">
+                        <div class="nombre_computadora">
+                            <p>Victus Core i7</p>
+                        </div>
+                        <div class="imagen_computadora">
+                            <a href="compra.html">
+                                <img src="recursos/imagenes/notebooks/hp/victus_core_i7.png" alt="Victus Core i7">
+                            </a>
+                        </div>
+                    </div>
+        
+                    <div class="computadoras">
+                        <div class="nombre_computadora">
+                            <p>Lenovo Ide Pad3 Slim</p>
+                        </div>
+                        <div class="imagen_computadora">
+                            <a href="compra.html">
+                                <img src="recursos/imagenes/notebooks/lenovo/ide_pad3_slim.png" alt="Lenovo Ide Pad3 Slim">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="computadoras">
+                        <div class="nombre_computadora">
+                            <p>Victus Core i7</p>
+                        </div>
+                        <div class="imagen_computadora">
+                            <a href="compra.html">
+                                <img src="recursos/imagenes/notebooks/hp/victus_core_i7.png" alt="Victus Core i7">
+                            </a>
+                        </div>
+                    </div>
+        
+                    <div class="computadoras">
+                        <div class="nombre_computadora">
+                            <p>Lenovo Ide Pad3 Slim</p>
+                        </div>
+                        <div class="imagen_computadora">
+                            <a href="compra.html">
+                                <img src="recursos/imagenes/notebooks/lenovo/ide_pad3_slim.png" alt="Lenovo Ide Pad3 Slim">
+                            </a>
+                        </div>
+                    </div>
                     
                 </div>
 
@@ -95,25 +171,50 @@
 
 
     <script>
-        let currentIndex = 0;
+        let currentIndex = 0; // Índice actual del carrusel
+        const computadoras = document.querySelectorAll('.computadoras'); // Selecciona todos los elementos con la clase 'computadoras'
+        const anchoComputadora = computadoras[0].offsetWidth; // Ancho de cada computadora (elemento)
         
-        document.querySelector('.prev-button').addEventListener('click', () => {
-           navigate(-1);
-        });
-        
-        document.querySelector('.next-button').addEventListener('click', () => {
-           navigate(1);
-        });
-        
-        function navigate(direction) {
-           const galleryContainer = document.querySelector('.carrusel-track');
-           const totalImages = document.querySelectorAll('.computadoras').length;
-        
-           currentIndex = (currentIndex + direction + totalImages) % totalImages;
-           const offset = -currentIndex * 100;
-        
-           galleryContainer.style.transform = `translateX(${offset}%)`;
+        const computedStyle = getComputedStyle(computadoras[0]);
+        const margenIzquierdo = parseFloat(computedStyle.marginLeft)
+        const anchoTotalComputadora = anchoComputadora + margenIzquierdo
+
+        let CantidadComputadoras = 0;
+
+        // Define cuántas computadoras se mostrarán según el ancho de la pantalla
+        if (document.body.clientWidth > 765) {
+            CantidadComputadoras = 2;
         }
+
+        document.querySelector('.prev-button').addEventListener('click', () => {
+            navigate(-1); // Navega hacia atrás
+        });
+
+        document.querySelector('.next-button').addEventListener('click', () => {
+            navigate(1); // Navega hacia adelante
+        });
+
+        function navigate(direction) {
+            const galleryContainer = document.querySelector('.carrusel-track'); // Selecciona el contenedor del carrusel
+            const totalImages = document.querySelectorAll('.computadoras').length; // Total de imágenes (elementos) en el carrusel
+
+            // Calcula el nuevo índice
+            currentIndex = (currentIndex + direction + totalImages) % totalImages;
+
+            // Asegúrate de que el índice no permita que las últimas dos imágenes sean visibles al inicio
+            if (currentIndex >= totalImages - CantidadComputadoras) {
+                currentIndex = totalImages - CantidadComputadoras; // Ajusta el índice para que no muestre las últimas dos imágenes
+            }
+
+            // Reiniciar el índice a 0 si se llega al final
+            if (currentIndex === totalImages - CantidadComputadoras) {
+                currentIndex = 0; // Reiniciar al inicio
+            }
+
+            const offset = -currentIndex * anchoTotalComputadora; // Calcula el desplazamiento basado en el índice actual
+
+            galleryContainer.style.transform = `translateX(${offset}px)`; // Aplica la transformación para mostrar la imagen correspondiente
+            }
     </script>
 
     <script>

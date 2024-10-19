@@ -287,7 +287,8 @@ img{
     
       .computadoras {
         height: 380px;
-        width: 380px;
+        width: 500px;
+        margin-left: 50px;
       }    
       .nombre_computadora {
         height: 70px;
