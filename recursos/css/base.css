@@ -16,7 +16,6 @@ body{
     display: flex;
     flex-direction: column;
     margin: 0;
-    padding-top: 80px;
 
     background-color: var(--color-fondo);
 }
@@ -51,25 +50,25 @@ img{
 }
 
 
-
 /* css header y footer */
+        
 
 .encabezado{
-    position: fixed;
     display: flex;
     align-items: center;
     justify-content:space-between;
     background-color: var(--color-header);
     margin: 0;
-    height: 80px;
+    height: 60px;
     width: 100%;
     top: 0;
 }
+/* cambiar tamaño despues */
 .encabezado a img {
     align-items: center;
-    width: 120px;
+    width: 60px;
     margin: 0;
-    padding-right: 20px;
+    padding-right: 5px;
 }
 .encabezado nav{
     width: 100%;
@@ -84,18 +83,17 @@ img{
 }
 .encabezado nav a{
     text-decoration: none;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .pie{
     margin: 0;
-    height: 120px;
 }
 /* marcas pie */
 .marcas-pie{
     background-color: var(--color-morado-oscuro);
     width: 100%;
-    height: 120px;
+    height: 80px;
     display: flex;
     
     align-items: center;
@@ -103,7 +101,9 @@ img{
     
 }
 .marcas-pie a{
-    margin: 50px;
+    margin: 0px 15px;
+    height: 25px;
+    overflow: hidden;
 }
 /* informacion de entregas y cuotas pie */
 
@@ -241,15 +241,52 @@ img{
     width: 350px;
 }
 .contenedor_destacados{
-    width: 100%;
+    width: fit-content;
+    position: relative;
     display: flex;
-    justify-content: space-around;
     align-items: center;
-    padding: 110px;
+    max-width: 80%;
+    overflow: hidden;
 }
+
+.carrusel-track{
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    position: relative;
+    left: 0;
+}
+.flecha-carrusel {
+    border-radius: 30px;
+    background-color: #ffffff;
+    z-index: 1;
+    width: 48px;
+    height: 48px;
+    text-align: center;
+    border: 0;
+    cursor: pointer;
+}
+.flecha-carrusel:focus{
+    outline: 0;
+}
+.flecha-carrusel{
+    width: 12px;
+}
+.flecha-carrusel svg{
+    width: 24px;
+    height: 100%;
+    color: rgb(0, 0, 0);
+}
+.carrusel-prev{
+    left: 0px;
+}
+.carrusel-next{
+    right: 0px;
+}
+
 .computadoras{
+    position: relative;
     height: 350px;
-    width: 25%;
+    width: 210px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -315,6 +352,255 @@ img{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+}
+
+
+/* Mobile First */
+@media (min-width: 768px){
+    /* css header y footer */
+    .encabezado{
+        height: 80px;
+        width: 100%;
+        top: 0;
+    }
+    .encabezado a img {
+        width: 120px;
+        padding-right: 20px;
+    }
+    .encabezado nav{
+        width: 100%;
+        /* borrar cuando se agregue la lupa */
+        padding-left: 100px;
+        padding-right: 100px;
+        margin: 50px;
+    }
+    .encabezado nav a{
+        font-size: 20px;
+    }
+    
+    .pie{
+        height: 120px;
+    }
+    /* marcas pie */
+    .marcas-pie{
+        width: 100%;
+        height: 120px;        
+    }
+    .marcas-pie a{
+        margin: 0px 40px;
+        height: 30px;
+    }
+    /* informacion de entregas y cuotas pie */
+    
+    .pie-entrega-cuotas{
+        background-color: var(--color-morado-claro);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 250px;
+        font-size: 30px;
+    }
+    .pie-entrega-cuotas div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 20px;
+    }
+    
+    .entrega-cuotas-imagen{
+        height: 170px;
+    }
+    .entrega-cuotas-texto{
+        width: 350px;
+        text-align: center;
+        color: var(--fuente-blanca);
+    }
+    
+    /* informacion adicional pie */
+    
+    /* Listados */
+    .informacion-adicional-pie{
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+    }
+    .informacion-adicional-pie div{ /* Los contenedores que dividen en 4 */
+        width: 25%;
+        margin-top: 10px;;
+        margin-bottom: 10px;
+    }
+    .informacion-adicional-pie div div{ /* Los verdaderos contenedores */
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .listado-pie{
+        display: flex;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+    }
+    .listado-pie ul{
+        padding: 0;
+        list-style: none;
+    }
+    
+    /* Resto */
+    .contenedor-centrado-pie p{
+        display: flex;
+        justify-content: start;
+        width: 100%;
+    }
+    .logo-pie{
+        height: 140px;
+        width: 330px;
+    }
+    
+    .sucursal-principal{
+        height: 140px;
+        padding: 0px 40px 0px 0px;
+        overflow: hidden;
+    }
+    .sucursal-principal iframe{
+        height: 100%;
+        width: 100%;
+    }
+    
+    .contenedor-centrado-pie{
+        display: flex;
+        justify-content: start;
+        width: 100%;
+    }
+    .contenedor-centrado-pie div{
+        display: flex;
+        width: 100%;
+    }
+    
+    
+    .formulario-ofertas{
+        display: flex;
+        width: 100%;
+    }
+    .contenedor-centrado-pie .elementos-centrados-pie{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+    .formulario-ofertas .elementos-centrados-pie{
+        justify-content: start;
+    }
+    .correo-ofertas{
+        width: 50%;
+    }
+    .boton{
+        cursor: pointer;
+    }
+    
+    
+    
+    .redes-sociales-pie{
+        height: 100px;
+        width: 100px;
+    }
+    
+    /* css index.html */
+    
+    .contenedor_banner img{
+        width: 100%;
+    }
+    
+    .contenedor-destacados-mayor{
+        height: 430px;
+        margin-top: 20px;
+        background-color: var(--color-contenedor);
+    
+        display: flex;
+    }
+    .imagen-destacados{
+        height: 100%;
+        width: 350px;
+    }
+    .contenedor_destacados{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 110px;
+    }
+    .computadoras{
+        height: 350px;
+        width: 25%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .computadoras div{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .nombre_computadora{
+        height: 60px;
+        width: 100%;
+        background-color: var(--color-morado-oscuro);
+        color: var(--fuente-blanca);
+    }
+    .imagen_computadora{
+        height: 100%;
+        width: 100%;
+        background-color: var(--color-morado-claro);
+        overflow: hidden;
+    }
+    .imagen_computadora a{
+        height: 100%;
+        width: 100%;
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px;
+    }
+    .imagen_computadora a img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+    
+    .contenedor-categorias{
+        display: flex;
+        justify-content: space-evenly; 
+        align-items: center;
+        flex-direction: column;
+        height: 900px;
+        width: 100%;
+        margin-top: 80px;
+        background-color: var(--color-contenedor);
+    }
+    .subcontenedor-categorias{
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .categoria{
+        height: 390px;
+        width: 390px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .categoria div{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
 }
 
 /* css catalogo.html */
