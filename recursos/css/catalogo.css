@@ -1,18 +1,3 @@
-/*.contenedor-tienda{
-    display: flex;
-}
-.sidebar{
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-
-    height: 100%;
-    width: 900px;
-    background-color: var(--color-morado-claro);
-    color: var(--fuente-blanca);
-} */
-
 /* Fuentes */
 @font-face {
     font-family: "Poppins";
@@ -52,7 +37,7 @@ body{
 
 .titulo-menu{
     color: white;
-    font-size: 12px;
+    font-size: 18px;
     letter-spacing: 1px;
     margin-bottom: 15px;
     text-transform: uppercase;
