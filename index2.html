@@ -163,7 +163,74 @@
 
         </div>
 
+        <div class="contenedor-categorias">
 
+            <div class="subcontenedor-categorias">
+
+                <div class="categoria">
+                    <div class="nombre_computadora">
+                        <p>GAMER</p>
+                    </div>
+                    <div class="imagen_computadora">
+                        <a href="catalogo.html">
+                            <img src="recursos/imagenes/notebooks/msi/creator_m16_b13ve-642ar.png" alt="MSI CREATOR M16">
+                        </a>
+                    </div>
+                </div>
+    
+                <div class="categoria">
+                    <div class="nombre_computadora">
+                        <p>OFICINA</p>
+                    </div>
+                    <div class="imagen_computadora">
+                        <a href="catalogo.html">
+                            <img src="recursos/imagenes/notebooks/hp/victus_core_i5-8gb.png" alt="Victus Core i5 8gb">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="subcontenedor-categorias">
+
+                <div class="categoria">
+                    <div class="nombre_computadora">
+                        <p>ESTUDIO</p>
+                    </div>
+                    <div class="imagen_computadora">
+                        <a href="catalogo.html">
+                            <img src="recursos/imagenes/notebooks/lenovo/ide_pad3_slim.png" alt="Lenovo Ide Pad3 Slim">
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="categoria">
+                    <div class="nombre_computadora">
+                        <p>ARQUITECTURA</p>
+                    </div>
+                    <div class="imagen_computadora">
+                        <a href="catalogo.html">
+                            <img src="recursos/imagenes/notebooks/apple/macbook_pro_m2.png" alt="Macbook PRO M2">
+                        </a>
+                    </div>
+                </div>
+    
+                <div class="categoria">
+                    <div class="nombre_computadora">
+                        <p>DISEÑO/EDICIÓN</p>
+                    </div>
+                    <div class="imagen_computadora">
+                        <a href="catalogo.html">
+                            <img src="recursos/imagenes/notebooks/msi/ge78hx_13vg_raider.png" alt="MSI GE78HX 13VG RAIDER">
+                        </a>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+        </div>
 
     </main>
 
@@ -179,9 +246,8 @@
         const margenIzquierdo = parseFloat(computedStyle.marginLeft)
         const anchoTotalComputadora = anchoComputadora + margenIzquierdo
 
-        let CantidadComputadoras = 0;
+        let CantidadComputadoras = 1;
 
-        // Define cuántas computadoras se mostrarán según el ancho de la pantalla
         if (document.body.clientWidth > 765) {
             CantidadComputadoras = 3;
         }
@@ -195,30 +261,25 @@
         });
 
         function navigate(direction) {
-            const galleryContainer = document.querySelector('.carrusel-track'); // Selecciona el contenedor del carrusel
-            const totalImages = document.querySelectorAll('.computadoras').length; // Total de imágenes (elementos) en el carrusel
+            const galleryContainer = document.querySelector('.carrusel-track');
+            const totalImages = document.querySelectorAll('.computadoras').length;
 
-            // Calcula el nuevo índice
             currentIndex = (currentIndex + direction + totalImages) % totalImages;
 
-            // Asegúrate de que el índice no permita que las últimas dos imágenes sean visibles al inicio
-            // Maneja el caso de ir del inicio al final
             if (currentIndex < 0 && direction === -1) {
-                currentIndex = totalImages - CantidadComputadoras; // Ir al final
+                currentIndex = totalImages - CantidadComputadoras;
             } 
-            // Maneja el caso de ir del final al inicio
             else if (currentIndex >= totalImages - CantidadComputadoras && direction === 1) {
                 currentIndex = 0; // Ir al inicio
             }
 
-            // Asegúrate de que el índice no permita que las últimas dos imágenes sean visibles al inicio
             if (currentIndex > totalImages - CantidadComputadoras) {
-                currentIndex = totalImages - CantidadComputadoras; // Ajusta el índice para que no muestre las últimas dos imágenes
+                currentIndex = totalImages - CantidadComputadoras;
             }
 
-            const offset = -currentIndex * anchoTotalComputadora; // Calcula el desplazamiento basado en el índice actual
+            const offset = -currentIndex * anchoTotalComputadora;
 
-            galleryContainer.style.transform = `translateX(${offset}px)`; // Aplica la transformación para mostrar la imagen correspondiente
+            galleryContainer.style.transform = `translateX(${offset}px)`;
             }
     </script>
 
@@ -226,9 +287,9 @@
         let autoplayInterval = null;
         
         function startAutoplay(interval) {
-        stopAutoplay(); // Detiene cualquier autoplay anterior para evitar múltiples intervalos.
+        stopAutoplay();
         autoplayInterval = setInterval(() => {
-            navigate(1); // Navega a la siguiente imagen cada intervalo de tiempo.
+            navigate(1);
         }, interval);
         }
         
@@ -236,10 +297,8 @@
         clearInterval(autoplayInterval);
         }
         
-        // Iniciar autoplay con un intervalo de 3 segundos.
         startAutoplay(3000);
         
-        // Opcional: Detener autoplay cuando el usuario interactúa con los botones de navegación.
         document.querySelectorAll('.nav-button').forEach(button => {
             button.addEventListener('click', stopAutoplay);
         });
