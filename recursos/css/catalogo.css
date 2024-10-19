@@ -148,7 +148,7 @@ body{
     flex-wrap: wrap; /* Permite el ajuste de los elementos */
     gap: 20px; /* Espacio entre los productos */
     margin-left: 20px; /* Separación del sidebar */
-    padding: 20px; /* Opcional: Añadir padding interno para separar los productos del borde */
+    padding: 0px 20px 20px 20px; /* Opcional: Añadir padding interno para separar los productos del borde */
 }
 
 
@@ -163,7 +163,7 @@ body{
     /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
     /*text-align: center; /* Centrar el contenido dentro del producto */
 
-    background-color: white; 
+    background-color: red; 
     border: 1px solid transparent;
     border-radius: 8px;
     padding: 10px;
