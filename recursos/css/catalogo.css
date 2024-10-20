@@ -148,7 +148,7 @@ body{
     /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
     /*text-align: center; /* Centrar el contenido dentro del producto */
 
-    background-color: red; 
+    background-color: white; 
     border: 1px solid transparent;
     border-radius: 8px;
     padding: 10px;
@@ -259,3 +259,7 @@ body{
         font-size: 24px;
     }
 }
+
+
+
+

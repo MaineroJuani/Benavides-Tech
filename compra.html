@@ -6,27 +6,32 @@
     <title>Compra BenavidezTech</title>
     <link rel="shortcut icon" href="/recursos/imagenes/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="recursos/css/base.css">
+    <link rel="stylesheet" href="recursos/css/compra.css">
     
 </head>
 <body>
     <header id="id-encabezado"></header>
 
-    <main class="contenedor-compra">
-        <div class="imagen">
-            <img src="/recursos/imagenes/notebooks/apple/macbook_air_m2.png" alt="MacBook Air M2">
-        </div>
-        <div class="precio-compra">
-            <p>$1.900.000</p>
-        </div>
-        <div class="comprar">
-            <button>
-                comprar
-            </button>
-        </div>
+    <main>
 
         <h2>MacBook Air M2</h2>
 
-        <div class="caracteristicas">
+        <section class="informacion-compra">
+            <div class="imagen">
+                <img src="/recursos/imagenes/notebooks/apple/macbook_air_m2.png" alt="MacBook Air M2">
+            </div>
+            <div class="precio-compra">
+                <p>$1.900.000</p>
+            </div>
+            <div class="comprar">
+                <button>
+                    comprar
+                </button>
+            </div>
+        </section>
+
+
+        <section class="caracteristicas">
             <div class="marca">
                 <img src="recursos/imagenes/caracteristicas/marca.png" alt="Icono Etiqueta">
                 <h3>Marca:</h3>
@@ -62,27 +67,11 @@
             <div class="descripcion-compra">
                 <p>La MacBook Air M2 es la última versión de la popular laptop ultradelgada de Apple, lanzada en 2022. Está equipada con el chip M2 de Apple, que ofrece un rendimiento notablemente mejorado en comparación con su predecesora, junto con una eficiencia energética superior. Presenta una pantalla Retina de 13.6 pulgadas, un diseño más delgado y liviano, y una batería que puede durar hasta 18 horas. Ideal para usuarios que buscan potencia en un formato compacto y portátil.</p>
             </div>
-        </div>
+        </section>
     </main>
 
     <footer id="id-pie"></footer>
 
-    <script> // Cargar header y footer automaticamente
-        document.addEventListener('DOMContentLoaded', function () {
-            fetch('recursos/plantillas/header.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('id-encabezado').innerHTML = data;
-                })
-                .catch(error => console.error('Error al cargar el header:', error));
-    
-            fetch('recursos/plantillas/footer.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('id-pie').innerHTML = data;
-                })
-                .catch(error => console.error('Error al cargar el footer:', error));
-        });
-    </script>
+    <script src="/recursos/js/scripts.js"></script>
 </body>
 </html>
