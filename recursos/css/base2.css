@@ -148,14 +148,15 @@ img{
 .contenedor-destacados-mayor{
     height: 300px;
     margin-top: 20px;
+    margin-bottom: 20px;
     background-color: var(--color-contenedor);
 
     display: flex;
     align-items: center;
 }
 .imagen-destacados{
-    height: 100%;
-    width: 300px;
+    height: 300px;
+    width: 150px;
 }
 .imagen-destacados img{
     width: 100%;
@@ -164,7 +165,7 @@ img{
     object-position: left;
 }
 .contenedor_destacados {
-    flex-grow: 1;
+    flex: 1;
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -210,15 +211,19 @@ img{
     right: 10px;
   }
 
-  .computadoras {
-    position: relative;
-    height: 250px;
-    width: 210px;
-    padding: 0px 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.computadoras {
+  position: relative;
+  height: 250px;
+  width: 210px;
+  margin: 0px 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
   }
   .computadoras div {
     display: flex;
@@ -260,10 +265,12 @@ img{
 @media (min-width: 768px){
     .contenedor-destacados-mayor{
         height: 430px;
-        margin-top: 20px;
+        margin-top: 40px;
+        margin-bottom: 0px;
     }
     .imagen-destacados{
-        width: 250px;
+        height: 430px;
+        width: 240px;
     }
       .carrusel-track {
         flex-grow: 2;
@@ -287,7 +294,7 @@ img{
     
       .computadoras {
         height: 380px;
-        width: 500px;
+        width: 490px;
         margin-left: 50px;
       }    
       .nombre_computadora {
@@ -303,7 +310,6 @@ img{
   justify-content: start;
   height: 450px;
   width: 100%;
-  margin-top: 80px;
   background-color: var(--color-contenedor);
   overflow: hidden;
   margin: 0;
@@ -313,9 +319,14 @@ img{
 .categoria{
   height: 390px;
   width: 390px;
+  margin: 15px;
   display: flex;
   align-items: center;
   flex-direction: column;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
 }
 .categoria div{
   display: flex;
@@ -368,7 +379,7 @@ right: 10px;
     justify-content: space-evenly; 
     flex-direction: column;
     height: 900px;
-    margin-top: 80px;
+    margin-top: 40px;
   }
   .subcontenedor-categorias{
     width: 100%;
@@ -379,6 +390,7 @@ right: 10px;
   .categoria{
     height: 390px;
     width: 390px;
+    margin: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
