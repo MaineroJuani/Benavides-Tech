@@ -50,9 +50,8 @@ img{
 }
 
 
-/* css header y footer */
-        
 
+/* Encabezado */
 .encabezado{
     display: flex;
     align-items: center;
@@ -62,6 +61,9 @@ img{
     height: 60px;
     width: 100%;
     top: 0;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    overflow: hidden;
 }
 /* cambiar tamaño despues */
 .encabezado a img {
@@ -76,189 +78,112 @@ img{
     
     align-items: center;
     justify-content: space-between;
-    /* borrar cuando se agregue la lupa */
-    padding-left: 100px;
-    padding-right: 100px;
-    margin: 50px;
 }
 .encabezado nav a{
     text-decoration: none;
     font-size: 18px;
 }
 
-.pie{
-    margin: 0;
+@media (min-width: 768px){
+    .encabezado{
+        height: 80px;
+    }
+    .encabezado a img {
+        width: 120px;
+        padding-right: 20px;
+    }
+    .encabezado nav{
+        width: 100%;
+        /* borrar cuando se agregue la lupa */
+        padding-left: 100px;
+        padding-right: 100px;
+        margin: 50px;
+    }
+    .encabezado nav a{
+        font-size: 20px;
+    }   
 }
-/* marcas pie */
-.marcas-pie{
-    background-color: var(--color-morado-oscuro);
-    width: 100%;
-    height: 80px;
-    display: flex;
-    
-    align-items: center;
-    justify-content: space-between;
-    
-}
-.marcas-pie a{
-    margin: 0px 15px;
-    height: 25px;
-    overflow: hidden;
-}
-/* informacion de entregas y cuotas pie */
 
-.pie-entrega-cuotas{
+
+.titulo-principal{
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+}
+
+.contenedor_banner {
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+
     background-color: var(--color-morado-claro);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 250px;
-    font-size: 30px;
 }
-.pie-entrega-cuotas div{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 20px;
-}
-
-.entrega-cuotas-imagen{
-    height: 170px;
-}
-.entrega-cuotas-texto{
-    width: 350px;
-    text-align: center;
-    color: var(--fuente-blanca);
-}
-
-/* informacion adicional pie */
-
-/* Listados */
-.informacion-adicional-pie{
-    display: flex;
-    align-items: start;
-    justify-content: space-between;
-}
-.informacion-adicional-pie div{ /* Los contenedores que dividen en 4 */
-    width: 25%;
-    margin-top: 10px;;
-    margin-bottom: 10px;
-}
-.informacion-adicional-pie div div{ /* Los verdaderos contenedores */
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    flex-direction: column;
+.contenedor_banner img {
     width: 100%;
-}
-
-.listado-pie{
-    display: flex;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
-}
-.listado-pie ul{
-    padding: 0;
-    list-style: none;
-}
-
-/* Resto */
-.contenedor-centrado-pie p{
-    display: flex;
-    justify-content: start;
-    width: 100%;
-}
-.logo-pie{
-    height: 140px;
-    width: 330px;
-}
-
-.sucursal-principal{
-    height: 140px;
-    padding: 0px 40px 0px 0px;
-    overflow: hidden;
-}
-.sucursal-principal iframe{
     height: 100%;
-    width: 100%;
+    object-fit: cover;
+    object-position: center;      /* Debatible */
 }
 
-.contenedor-centrado-pie{
-    display: flex;
-    justify-content: start;
-    width: 100%;
-}
-.contenedor-centrado-pie div{
-    display: flex;
-    width: 100%;
-}
+@media (min-width: 768px) {
+    .titulo-principal{
+        font-size: 35px;
+        padding: 10px;
+    }
 
-
-.formulario-ofertas{
-    display: flex;
-    width: 100%;
-}
-.contenedor-centrado-pie .elementos-centrados-pie{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
-}
-.formulario-ofertas .elementos-centrados-pie{
-    justify-content: start;
-}
-.correo-ofertas{
-    width: 50%;
-}
-.boton{
-    cursor: pointer;
+    .contenedor_banner {
+        height: 480px;
+        display: flex;
+        justify-content: center;
+    }
+    .contenedor_banner img {
+        height: 100%;
+        width: auto;
+        object-position: center;      /* Debatible */
+    }
 }
 
 
-
-.redes-sociales-pie{
-    height: 100px;
-    width: 100px;
-}
-
-/* css index.html */
-
-.contenedor_banner img{
-    width: 100%;
-}
 
 .contenedor-destacados-mayor{
-    height: 430px;
+    height: 300px;
     margin-top: 20px;
+    margin-bottom: 20px;
     background-color: var(--color-contenedor);
 
     display: flex;
+    align-items: center;
 }
 .imagen-destacados{
+    height: 300px;
+    width: 150px;
+}
+.imagen-destacados img{
+    width: 100%;
     height: 100%;
-    width: 350px;
+    object-fit: cover;
+    object-position: left;
 }
 .contenedor_destacados {
+    flex: 1;
     display: flex;
     align-items: center;
-    justify-content: center;
-    max-width: 80%;
     overflow: hidden;
-    margin: 0 auto;
+    margin: 0;
     position: relative;
+    transition: transform 0.5s ease-in-out;
   }
   
   .carrusel-track {
+    flex-grow: 2;
     display: flex;
+    justify-content: space-around;
     transition: transform 0.5s ease-in-out;
     position: relative;
-    width: fit-content;
-    left: 0;
   }
   
-  .flecha-carrusel {
+  
+.nav-button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -268,34 +193,38 @@ img{
     z-index: 2;
   }
   
-  .flecha-carrusel:focus {
+  .nav-button:focus {
     outline: 0;
   }
   
-  .flecha-carrusel svg {
+  .nav-button svg {
     width: 24px;
     height: 100%;
     color: rgb(0, 0, 0);
   }
   
-  .carrusel-prev {
+  .prev-button {
     left: 10px;
   }
   
-  .carrusel-next {
+  .next-button {
     right: 10px;
   }
-  
-  .computadoras {
-    position: relative;
-    height: 500px;
-    width: 210px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+
+.computadoras {
+  position: relative;
+  height: 250px;
+  width: 210px;
+  margin: 0px 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
   }
-  
   .computadoras div {
     display: flex;
     justify-content: space-evenly;
@@ -332,61 +261,294 @@ img{
     object-fit: contain;
   }
 
+
+@media (min-width: 768px){
+    .contenedor-destacados-mayor{
+        height: 430px;
+        margin-top: 40px;
+        margin-bottom: 0px;
+    }
+    .imagen-destacados{
+        height: 430px;
+        width: 240px;
+    }
+      .carrusel-track {
+        flex-grow: 2;
+        display: flex;
+        justify-content: space-around;
+        transition: transform 0.5s ease-in-out;
+        position: relative;
+      }
+      
+      
+    .nav-button {
+        height: 30px;
+        width: 30px;
+      }
+      .prev-button {
+        left: 20px;
+      }
+      .next-button {
+        right: 20px;
+      }
+    
+      .computadoras {
+        height: 380px;
+        width: 490px;
+        margin-left: 50px;
+      }    
+      .nombre_computadora {
+        height: 70px;
+        width: 100%;
+      }
+}
+
+
 .contenedor-categorias{
-    display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  height: 450px;
+  width: 100%;
+  background-color: var(--color-contenedor);
+  overflow: hidden;
+  margin: 0;
+  position: relative;
+  transition: transform 0.5s ease-in-out;
+}
+.categoria{
+  height: 390px;
+  width: 390px;
+  margin: 15px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+.categoria div{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+
+.carrusel-track-categoria {
+flex-grow: 2;
+display: flex;
+justify-content: space-around;
+transition: transform 0.5s ease-in-out;
+position: relative;
+}
+
+
+.nav-button2 {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+background-color: #ffffff;
+border: 0;
+cursor: pointer;
+z-index: 2;
+}
+
+.nav-button2:focus {
+outline: 0;
+}
+
+.nav-button2 svg {
+width: 24px;
+height: 100%;
+color: rgb(0, 0, 0);
+}
+
+.prev-button2 {
+left: 10px;
+}
+
+.next-button2 {
+right: 10px;
+}
+
+
+
+@media (min-width: 768px){
+  .contenedor-categorias{
     justify-content: space-evenly; 
-    align-items: center;
     flex-direction: column;
     height: 900px;
-    width: 100%;
-    margin-top: 20px;
-    background-color: var(--color-contenedor);
-}
-.subcontenedor-categorias{
+    margin-top: 40px;
+  }
+  .subcontenedor-categorias{
     width: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-}
-.categoria{
+  }
+  .categoria{
     height: 390px;
     width: 390px;
+    margin: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+  }
 }
-.categoria div{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+
+.pie{
+  margin: 20px 0 0 0;
+}
+/* marcas pie */
+.marcas-pie{
+  background-color: var(--color-morado-oscuro);
+  width: 100%;
+  height: 80px;
+  display: flex;
+  
+  align-items: center;
+  justify-content: space-between;
+  
+}
+
+.marcas-pie a{
+  margin: 0px 15px;
+  height: 25px;
+  overflow: hidden;
+}
+/* informacion de entregas y cuotas pie */
+
+.pie-entrega-cuotas{
+  background-color: var(--color-morado-claro);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  height: auto;
+  width: 100%;
+  font-size: 20px;
+}
+.pie-entrega-cuotas div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+}
+
+.entrega-cuotas-imagen{
+  height: 170px;
+}
+.entrega-cuotas-texto{
+  flex: 1;
+  text-align: center;
+  color: var(--fuente-blanca);
+}
+
+/* informacion adicional pie */
+
+/* Listados */
+.informacion-adicional-pie{
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: start;
+  justify-content: space-between;
+  padding: 0px 20px;
+}
+.informacion-adicional-pie div{ /* Los contenedores que dividen en 4 */
+  width: 100%;
+  margin-top: 10px;;
+  margin-bottom: 10px;
+}
+.informacion-adicional-pie div div{ /* Los verdaderos contenedores */
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  width: 100%;
+}
+
+.listado-pie{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+.listado-pie ul{
+  padding: 0;
+  list-style: none;
+}
+
+/* Resto */
+.subcontenedor-grande-footer{
+  display: flex;
+  flex-direction: column-reverse;
+}
+.contenedor-centrado-pie h2{
+  display: flex;
+  justify-content: start;
+  width: 100%;
+}
+.logo-pie{
+  height: 140px;
+  width: 330px;
+}
+
+.sucursal-principal{
+  height: 140px;
+  overflow: hidden;
+}
+.sucursal-principal iframe{
+  height: 100%;
+  width: 100%;
+}
+
+.contenedor-centrado-pie{
+  display: flex;
+  justify-content: start;
+  width: 100%;
+}
+.contenedor-centrado-pie div{
+  display: flex;
+  width: 100%;
 }
 
 
-/* Mobile First */
+.formulario-ofertas{
+  display: flex;
+  width: 100%;
+}
+.contenedor-centrado-pie .elementos-centrados-pie{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.formulario-ofertas .elementos-centrados-pie{
+  justify-content: start;
+}
+.correo-ofertas{
+  width: 50%;
+}
+.boton{
+  cursor: pointer;
+}
+
+
+
+.redes-sociales-pie{
+  height: 100px;
+  width: 100px;
+}
+
+
+
+
 @media (min-width: 768px){
-    /* css header y footer */
-    .encabezado{
-        height: 80px;
-        width: 100%;
-        top: 0;
-    }
-    .encabezado a img {
-        width: 120px;
-        padding-right: 20px;
-    }
-    .encabezado nav{
-        width: 100%;
-        /* borrar cuando se agregue la lupa */
-        padding-left: 100px;
-        padding-right: 100px;
-        margin: 50px;
-    }
-    .encabezado nav a{
-        font-size: 20px;
-    }
-    
     .pie{
+      padding-top: 40px;
         height: 120px;
     }
     /* marcas pie */
@@ -398,229 +560,54 @@ img{
         margin: 0px 40px;
         height: 30px;
     }
-    /* informacion de entregas y cuotas pie */
-    
-    .pie-entrega-cuotas{
-        background-color: var(--color-morado-claro);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 250px;
-        font-size: 30px;
-    }
-    .pie-entrega-cuotas div{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 20px;
-    }
-    
-    .entrega-cuotas-imagen{
-        height: 170px;
-    }
-    .entrega-cuotas-texto{
-        width: 350px;
-        text-align: center;
-        color: var(--fuente-blanca);
-    }
-    
-    /* informacion adicional pie */
-    
-    /* Listados */
-    .informacion-adicional-pie{
-        display: flex;
-        align-items: start;
-        justify-content: space-between;
-    }
-    .informacion-adicional-pie div{ /* Los contenedores que dividen en 4 */
-        width: 25%;
-        margin-top: 10px;;
-        margin-bottom: 10px;
-    }
-    .informacion-adicional-pie div div{ /* Los verdaderos contenedores */
-        display: flex;
-        align-items: center;
-        justify-content: start;
-        flex-direction: column;
-        width: 100%;
-    }
-    
-    .listado-pie{
-        display: flex;
-        align-items: center;
-        text-align: center;
-        flex-direction: column;
-    }
-    .listado-pie ul{
-        padding: 0;
-        list-style: none;
-    }
-    
-    /* Resto */
-    .contenedor-centrado-pie p{
-        display: flex;
-        justify-content: start;
-        width: 100%;
-    }
-    .logo-pie{
-        height: 140px;
-        width: 330px;
-    }
-    
-    .sucursal-principal{
-        height: 140px;
-        padding: 0px 40px 0px 0px;
-        overflow: hidden;
-    }
-    .sucursal-principal iframe{
-        height: 100%;
-        width: 100%;
-    }
-    
-    .contenedor-centrado-pie{
-        display: flex;
-        justify-content: start;
-        width: 100%;
-    }
-    .contenedor-centrado-pie div{
-        display: flex;
-        width: 100%;
-    }
-    
-    
-    .formulario-ofertas{
-        display: flex;
-        width: 100%;
-    }
-    .contenedor-centrado-pie .elementos-centrados-pie{
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-direction: row;
-    }
-    .formulario-ofertas .elementos-centrados-pie{
-        justify-content: start;
-    }
-    .correo-ofertas{
-        width: 50%;
-    }
-    .boton{
-        cursor: pointer;
-    }
-    
-    
-    
-    .redes-sociales-pie{
-        height: 100px;
-        width: 100px;
-    }
-    
-    /* css index.html */
-    
-    .contenedor_banner img{
-        width: 100%;
-    }
-    
-    .contenedor-destacados-mayor{
-        height: 430px;
-        margin-top: 20px;
-        background-color: var(--color-contenedor);
-    
-        display: flex;
-    }
-    .imagen-destacados{
-        height: 100%;
-        width: 350px;
-    }
-    .contenedor_destacados{
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        padding: 110px;
-    }
-    .computadoras{
-        height: 300px;
-        width: 210px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-    .computadoras div{
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-    }
-    .nombre_computadora{
-        height: 60px;
-        width: 100%;
-        background-color: var(--color-morado-oscuro);
-        color: var(--fuente-blanca);
-    }
-    .imagen_computadora{
-        height: 100%;
-        width: 100%;
-        background-color: var(--color-morado-claro);
-        overflow: hidden;
-    }
-    .imagen_computadora a{
-        height: 100%;
-        width: 100%;
-    
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 20px;
-    }
-    .imagen_computadora a img {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
-    }
-    
-    .contenedor-categorias{
-        display: flex;
-        justify-content: space-evenly; 
-        align-items: center;
-        flex-direction: column;
-        height: 900px;
-        width: 100%;
-        margin-top: 80px;
-        background-color: var(--color-contenedor);
-    }
-    .subcontenedor-categorias{
-        width: 100%;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-    }
-    .categoria{
-        height: 390px;
-        width: 390px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-    .categoria div{
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-    }
+    .pie{
+      margin: 0;
+  }
+  /* informacion de entregas y cuotas pie */
+  
+  .pie-entrega-cuotas{
+      flex-direction: row;
+      justify-content: center;
+      height: 250px;
+      font-size: 30px;
+  }
+  .pie-entrega-cuotas div{
+      margin: 20px;
+  }
+  
+  .entrega-cuotas-imagen{
+      height: 170px;
+  }
+  .entrega-cuotas-texto{
+      width: 350px;
+      text-align: center;
+      color: var(--fuente-blanca);
+  }
+  
+  /* informacion adicional pie */
+  
+  /* Listados */
+  .informacion-adicional-pie{
+      flex-direction: row;
+      padding: 0px;
+  }
+  .informacion-adicional-pie div{ /* Los contenedores que dividen en 4 */
+      width: 25%;
+  }
+  
+  /* Resto */
+  .subcontenedor-grande-footer{
+    flex-direction: column;
+  }
+  
+  .sucursal-principal{
+      padding: 0px 40px 0px 0px;
+  }
+  
+  
+  .formulario-ofertas{
+      display: flex;
+      width: 100%;
+  }
+  
 }
-
-/* css catalogo.html */
-
-
-
-
-
-
-
-
-/* css compra.html */
-
-/* css mayorista.html */
-
