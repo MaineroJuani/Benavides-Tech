@@ -109,6 +109,97 @@ body{
     line-height: 0;
 }
 
+@media (min-width: 768px){    
+    /*Sidebar */
+    
+    .sidebar{
+        width: 250px;
+        height: 100%;
+        background-color: #2f1f58;
+        padding: 20px 10px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+        overflow-x: hidden;
+        transition: transform 0.3s ease;
+        border-radius: 3px;
+    }
+    
+    .titulo-menu{
+        color: white;
+        font-size: 18px;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+    }
+    
+    .lista-menu{
+        list-style-type: none;
+        padding: 0;
+    }
+    
+    .lista-menu li{
+        margin-bottom: 10px;
+        list-style: none;
+    }
+    
+    .lista-menu li a{
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 8px;
+        transition: background 0.3s ease;
+    }
+    
+    /*color cuando paso el mouse sobre un li*/
+    
+    .lista-menu li a:hover{  
+        background-color: #110a23;
+    }
+    
+    .icon{
+        margin-right: 15px;
+        font-size: 18px;
+    }
+    
+    .text{
+        flex-grow: 1;
+    }
+    
+    .arrow{
+        font-size: 16px;
+    }
+    
+    .dropdown-content{
+        display: none;
+        padding-left: 20px;
+    }
+    
+    .dropdown-content li a{
+        padding: 8px 0;
+        font-size: 14px;
+        color: #bbbbbb;
+        display: flex;
+        align-items: center;
+    }
+    
+    .dropdown-content li a:hover {
+        color: #FFFFFF;
+    }
+    
+    .dropdown:hover .dropdown-content{
+        display: block;
+    }
+    
+    .dot{
+        margin-right: 10px;
+        font-size: 35px;
+        line-height: 0;
+    }
+}
+
+
+
 /*catalogo notebooks*/
 
 .contenedor-tienda {
@@ -199,6 +290,14 @@ body{
 .imagen-producto {
     width: 100%; /* Ajusta la imagen al ancho del producto */
     height: auto;
+}
+
+.tamaño-imagen{
+    display: flex;
+    width: 100%;
+    height: 350px;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Estilos para el precio del producto */
