@@ -127,6 +127,12 @@ body{
     min-height: 100vh; /* sidebar ocupa la altura de la ventana(? */
 }
 
+/* media query sidebar */
+
+
+
+
+/* catalgo */
 .catalogo {
     flex: 1; 
     display: flex;
