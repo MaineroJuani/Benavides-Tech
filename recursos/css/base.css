@@ -153,6 +153,8 @@ img{
 
     display: flex;
     align-items: center;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 .imagen-destacados{
     height: 300px;
@@ -172,6 +174,7 @@ img{
     margin: 0;
     position: relative;
     transition: transform 0.5s ease-in-out;
+
   }
   
   .carrusel-track {
