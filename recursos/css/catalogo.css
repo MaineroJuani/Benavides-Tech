@@ -63,7 +63,7 @@ body{
     transition: background 0.3s ease;
 }
 
-/*color cuando me poso sobre un li*/
+/*color cuando paso el mouse sobre un li*/
 
 .lista-menu li a:hover{  
     background-color: #110a23;
@@ -112,42 +112,33 @@ body{
 /*catalogo notebooks*/
 
 .contenedor-tienda {
-    display: flex; /* Utiliza flexbox para el diseño */
+    display: flex; 
 
-    padding: 20px; /* Espaciado alrededor del contenido */
+    padding: 20px; 
 }
 
 .sidebar {
-    width: 250px; /* Ancho de la barra lateral */
-    background-color: #2f1f58; /* Color de fondo */
-    padding: 20px 10px; /* Espaciado interno */
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Sombra */
-    overflow-y: auto; /* Permitir el desplazamiento vertical si el contenido es largo */
-    border-radius: 3px; /* Bordes redondeados */
-    min-height: 100vh; /* Asegura que el sidebar siempre tenga al menos la altura completa de la ventana */
+    width: 250px; /* ancho del sidebar */
+    background-color: #2f1f58; 
+    padding: 20px 10px; 
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); 
+    overflow-y: auto; 
+    border-radius: 3px; 
+    min-height: 100vh; /* sidebar ocupa la altura de la ventana(? */
 }
 
 .catalogo {
-    flex: 1; /* Ocupa el espacio restante */
+    flex: 1; 
     display: flex;
-    flex-wrap: wrap; /* Permite el ajuste de los elementos */
+    flex-wrap: wrap; 
     gap: 20px; /* Espacio entre los productos */
     margin-left: 20px; /* Separación del sidebar */
-    padding: 0px 20px 20px 20px; /* Opcional: Añadir padding interno para separar los productos del borde */
+    padding: 0px 20px 20px 20px;
 }
 
 
 /* Estilos para cada producto */
 .producto {
-    
-    /*background-color: #e20d0d; /* Fondo blanco para los productos */
-    /*border: 1px solid #ddd; /* Borde suave alrededor del producto */
-    /*border-radius: 8px; /* Bordes redondeados */
-    /*padding: 10px; /* Espacio interno */
-    /*width: calc(33.33% - 20px); /* Ancho del 33.33% menos el espacio entre productos */
-    /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    /*text-align: center; /* Centrar el contenido dentro del producto */
-
     background-color: white; 
     border: 1px solid transparent;
     border-radius: 8px;
@@ -155,11 +146,12 @@ body{
     width: calc(33.33% - 20px);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     text-align: center;
+
     /* trancision */
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; 
 }
 
-/*-- movimiento --*/
+/*-- movimiento = hover --*/
 
 .producto:hover {
     transform: translateY(-5px); /* mueve la imagen */
@@ -169,15 +161,15 @@ body{
 
 
 .link-compra{
-    text-decoration: none;
+    text-decoration: none; /* saca la linea de <a> */
 }
 
 /* Estilos para el nombre del producto */
 .nombre-producto {
-    background-color: var(--color-morado-oscuro); /* Fondo separado para el nombre */
-    padding: 10px; /* Espacio interno */
-    border-radius: 5px; /* Bordes redondeados */
-    margin-bottom: 10px; /* Espacio debajo del nombre */
+    background-color: var(--color-morado-oscuro); /* Fondo de color para el nombre */
+    padding: 10px; 
+    border-radius: 5px; 
+    margin-bottom: 10px; /* Espacio abajo del nombre */
     color: var(--fuente-blanca);
 
     /* brillo del nombre*/
@@ -187,8 +179,8 @@ body{
 }
     /* brillo del nombre*/
 .producto:hover .nombre-producto {
-    color: white; /* Cambia el color a un verde brillante */
-    text-shadow: 0 0 5px rgba(245, 245, 245, 0.436); /* Agrega un brillo sutil */
+    color: white;
+    text-shadow: 0 0 5px rgba(245, 245, 245, 0.436); /*brillo sutil */
 }
 
 
@@ -197,67 +189,36 @@ body{
 }
 
 /* Estilos para la imagen del producto */
+
 .imagen-producto {
-    width: 100%; /* Ajustar la imagen al ancho del producto */
-    height: auto; /* Mantener la relación de aspecto */
+    width: 100%; /* Ajusta la imagen al ancho del producto */
+    height: auto;
 }
 
 /* Estilos para el precio del producto */
 .precio-producto {
-    font-size: 16px; /* Tamaño de la fuente del precio */
-    color: #333; /* Color del texto del precio */
+    font-size: 16px; 
+    color: #333; 
     margin: 10px 0; /* Espacio arriba y abajo */
 }
 
 /* Estilos para el botón de comprar */
 .boton-comprar {
-    background-color: var(--color-morado-oscuro); /* Color de fondo del botón */
-    color: white; /* Color del texto del botón */
-    border: none; /* Sin borde */
-    border-radius: 5px; /* Bordes redondeados */
-    padding: 10px 15px; /* Espaciado interno */
-    cursor: pointer; /* Cursor de mano al pasar el ratón */
+    background-color: var(--color-morado-oscuro); 
+    color: white; 
+    border: none; 
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer; /* Cursor de mano al pasar el mouse */
 }
 
 .boton-comprar:hover {
-    background-color: var(--color-morado-claro); /* Color de fondo al pasar el ratón */
+    background-color: var(--color-morado-claro); /* Color de fondo al pasar el mouse */
 }
 
-/* Estilo adicional para el espacio en la parte inferior */
+
 .producto {
-    margin-bottom: 30px; /* Espacio adicional en la parte inferior de cada producto */
-    
-}
-
-
-
-
-
-@media screen and (max-width:768px) {
-    .sidebar{
-        width: 100px;
-        height: auto;
-        position: relative;
-
-    }
-    .lista-menu li a{
-        justify-content: center;
-        padding: 10px 0;
-    }
-
-    .icon{
-        margin-right: 0;
-        font-size: 24px;
-    }
-
-    .dropdown-content{
-        position: relative;
-        padding-left: 0;
-    }
-
-    .dot{
-        font-size: 24px;
-    }
+    margin-bottom: 30px; 
 }
 
 
