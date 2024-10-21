@@ -173,8 +173,8 @@ img{
     overflow: hidden;
     margin: 0;
     position: relative;
+    
     transition: transform 0.5s ease-in-out;
-
   }
   
   .carrusel-track {
@@ -232,7 +232,7 @@ img{
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; 
   }
 
-  .producto:hover {
+  .computadoras:hover {
     transform: translateY(-5px); /* mueve la imagen */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* sombra */
     border: 1px solid rgb(78, 55, 138); /* borde brillante cuando paso el mouse */
@@ -335,10 +335,19 @@ img{
   display: flex;
   align-items: center;
   flex-direction: column;
+
   border: 1px solid transparent;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   overflow: hidden;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; 
+}
+
+.categoria:hover {
+    transform: translateY(-5px); /* mueve la imagen */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* sombra */
+    border: 1px solid rgb(78, 55, 138); /* borde brillante cuando paso el mouse */
 }
 .categoria div{
   display: flex;
