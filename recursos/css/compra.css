@@ -27,7 +27,7 @@ main {
 .imagen {
     border: 2px solid #6200ea; /* Borde morado alrededor de la imagen */
     border-radius: 10px; /* Bordes redondeados */
-    padding: 10px; /* Espacio interno */
+    padding: 5px; /* Espacio interno */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
