@@ -100,6 +100,7 @@ main {
 .caracteristicas h3 {
     margin: 0; /* Elimina márgenes del encabezado */
     font-size: 1em; /* Tamaño de fuente para el encabezado */
+    margin-right: 5px;
 }
 
 .caracteristicas p {
@@ -221,6 +222,7 @@ main {
 .caracteristicas h3 {
     margin: 0; /* Elimina márgenes del encabezado */
     font-size: 1em; /* Tamaño de fuente para el encabezado */
+    margin-right: 8px;
 }
 
 .caracteristicas p {
