@@ -4,6 +4,7 @@
 main {
     display: flex; /* Activa el uso de flexbox */
     justify-content: space-between; /* Espacio entre los elementos */
+    flex-direction: column;
     margin: 20px; /* Margen general para el contenedor */
 }
 
@@ -125,6 +126,7 @@ main {
 main {
     display: flex; /* Activa el uso de flexbox */
     justify-content: space-between; /* Espacio entre los elementos */
+    flex-direction: row;
     margin: 20px; /* Margen general para el contenedor */
 }
 
