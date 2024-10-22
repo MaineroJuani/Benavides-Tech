@@ -12,6 +12,7 @@ main {
     margin: 10px; /* Espacio entre las secciones */
 }
 
+
 /* fin posicionamiento*/
 
 
@@ -116,8 +117,126 @@ main {
     text-align: left; /* Alinea el texto a la izquierda */
 }
 
+/* izquierda */
+
+@media (min-width: 768px){
+    /* posicionamiento*/
+
+main {
+    display: flex; /* Activa el uso de flexbox */
+    justify-content: space-between; /* Espacio entre los elementos */
+    margin: 20px; /* Margen general para el contenedor */
+}
+
+.izquierda, .derecha {
+    flex: 1; /* Permite que cada sección ocupe el mismo espacio */
+    margin: 10px; /* Espacio entre las secciones */
+}
+
+/* fin posicionamiento*/
 
 
+.general {
+    display: flex;
+    flex-direction: column; /* Coloca los elementos en una columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+    margin: 20px; /* Margen para separar de otros elementos */
+}
+
+.imagen {
+    border: 2px solid #6200ea; /* Borde morado alrededor de la imagen */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 10px; /* Espacio interno */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.imagen img {
+    max-width: 370px; /* Cambia este valor según el tamaño deseado */
+    height: auto; /* Mantiene la proporción de la imagen */
+    outline: none; /* Elimina el contorno al hacer clic */
+}
+
+
+.precio-compra, 
+.boton-comprar {
+    width: 200px; /* Ancho fijo para el precio y el botón */
+    text-align: center; /* Centra el texto dentro del div */
+    margin: 10px 0; /* Espacio arriba y abajo */
+}
+
+.precio-compra p {
+    background-color: var(--color-morado-oscuro); /* Fondo morado para el precio */
+    color: white; /* Color del texto */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px; /* Espacio interno */
+    font-size: 1.5em; /* Tamaño de fuente */
+}
+
+.boton-comprar button {
+    background-color: var(--color-morado-oscuro); /* Fondo morado para el botón */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 8px; /* Espacio interno ajustado */
+    font-size: 1.2em; /* Igualar tamaño de fuente con el precio */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: background-color 0.3s; /* Transición para el hover */
+    width: 100%; /* Hace que el botón ocupe todo el ancho de su contenedor */
+}
+
+.boton-comprar button:hover {
+    background-color: var(--color-morado-claro); /* Color de fondo al pasar el ratón */
+
+    /* brillo para hover*/
+    text-shadow: 0 0 5px rgba(245, 245, 245, 0.436); /* brillo */
+}
+
+
+/* Caracteristicas */
+
+.caracteristicas {
+    display: flex; /* Para alinear los elementos en fila */
+    flex-direction: column; /* Cambia la dirección a columna */
+    gap: 20px; /* Espacio entre las características */
+    margin: 10px 0; /* Espacio arriba y abajo de la sección */
+}
+
+.caracteristicas div {
+    display: flex; /* Para alinear la imagen y el texto en línea */
+    align-items: center; /* Centra verticalmente el contenido */
+}
+
+.caracteristicas img {
+    width: 30px; /* Tamaño de la imagen más pequeño */
+    height: 30px; /* Tamaño de la imagen más pequeño */
+    border-radius: 50%; /* Hace la imagen circular */
+    background-color: #6200ea; /* Fondo morado para el círculo */
+    padding: 8px; /* Espacio interno alrededor de la imagen */
+    margin-right: 10px; /* Espacio entre la imagen y el texto */
+}
+
+
+.caracteristicas h3 {
+    margin: 0; /* Elimina márgenes del encabezado */
+    font-size: 1em; /* Tamaño de fuente para el encabezado */
+}
+
+.caracteristicas p {
+    margin: 0; /* Elimina márgenes del párrafo */
+    font-size: 0.9em; /* Tamaño de fuente para el texto */
+}
+
+.descripcion-compra {
+    border: 1px solid #6200ea; /* Borde fino morado */
+    padding: 10px; /* Espacio interno alrededor del texto */
+    border-radius: 4px; /* Bordes redondeados para un mejor estilo */
+    margin-top: 10px; /* Espacio superior para separar del resto del contenido */
+    max-width: 600px; /* Limita el ancho máximo del contenedor */
+    margin: 10px 0; /* Margen arriba y abajo para separación */
+    margin-left: 0; /* Alinea a la izquierda */
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+}
 
 
 
