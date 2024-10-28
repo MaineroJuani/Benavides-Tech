@@ -229,6 +229,7 @@ body{
     border: 1px solid transparent;
     border-radius: 8px;
     padding: 10px;
+    margin-bottom: 30px; 
     width: 100%; /* Cada producto ocupa todo el ancho */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     text-align: center;
@@ -277,8 +278,9 @@ body{
 /* Estilos para la imagen del producto */
 
 .imagen-producto {
-    width: 100%; /* Ajusta la imagen al ancho del producto */
-    height: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .tamaño-imagen{
@@ -310,10 +312,6 @@ body{
     background-color: var(--color-morado-claro); /* Color de fondo al pasar el mouse */
 }
 
-
-.producto {
-    margin-bottom: 30px; 
-}
 
 @media (min-width: 768px){
     /*catalogo notebooks*/
@@ -391,8 +389,9 @@ body{
 /* Estilos para la imagen del producto */
 
 .imagen-producto {
-    width: 100%; /* Ajusta la imagen al ancho del producto */
-    height: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .tamaño-imagen{
@@ -422,11 +421,6 @@ body{
 
 .boton-comprar:hover {
     background-color: var(--color-morado-claro); /* Color de fondo al pasar el mouse */
-}
-
-
-.producto {
-    margin-bottom: 30px; 
 }
 }
 
