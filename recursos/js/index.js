@@ -17,4 +17,3 @@ document.addEventListener('DOMContentLoaded', () => {
     inicializarCarrusel('.categoria','.prev-button2','.next-button2','.carrusel-track-categoria','.nav-button2',1);
 });
 
-

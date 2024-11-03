@@ -36,9 +36,6 @@ export function auto_categorias(categoriasId){
 export function inicializarCarrusel(elemento, prev, next,contenedor,nav,CantidadComputadoras){
     let currentIndex = 0; // Índice actual del carrusel
     const computadoras = document.querySelectorAll(elemento); // Selecciona todos los elementos con la clase 'computadoras'
-
-    console.log(elemento)
-    console.log(computadoras)
     
     const anchoComputadora = computadoras[0].offsetWidth; // Ancho de cada computadora (elemento)
 
