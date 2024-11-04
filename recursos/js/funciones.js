@@ -1,23 +1,3 @@
-// Cargar el encabezado
-export function auto_header(headerId) {
-    fetch('/recursos/plantillas/header.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById(headerId).innerHTML = data;
-        })
-        .catch(error => console.error('Error al cargar el header:', error));
-}
-
-// Cargar el footer
-export function auto_footer(footerId){
-    fetch('/recursos/plantillas/footer.html')
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById(footerId).innerHTML = data;
-    })
-    .catch(error => console.error('Error al cargar el footer:', error));
-}
-
 // Cargar las categorias
 export function auto_categorias(categoriasId){
     if (document.body.clientWidth > 765) {

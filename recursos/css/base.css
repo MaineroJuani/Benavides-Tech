@@ -41,7 +41,9 @@ p{
 }
 /* imagenes automaticas */
 img{
-    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 /* bordeado de contenedores */
 .bordeado{
@@ -236,10 +238,15 @@ img{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: #ffffff;
+    background-color: rgb(226, 226, 226,0.1);
     border: 0;
     cursor: pointer;
     z-index: 2;
+
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  .nav-button:hover{
+    background-color: #ffffff;
   }
   
   .nav-button:focus {
@@ -416,10 +423,14 @@ position: relative;
 position: absolute;
 top: 50%;
 transform: translateY(-50%);
-background-color: #ffffff;
+background-color: rgb(226, 226, 226,0.1);
 border: 0;
 cursor: pointer;
 z-index: 2;
+transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.nav-button2:hover{
+  background-color: #ffffff;
 }
 
 .nav-button2:focus {
@@ -664,10 +675,17 @@ right: 10px;
   }
   
   /* Resto */
-  .subcontenedor-grande-footer{
+  .subcontenedor-grande-footer .contenedor-centrado-pie{
+    margin-top: 0px;
     flex-direction: column;
   }
   
+  .logo-pie{
+    height: 140px;
+    width: 100%;
+    padding-right: 40px;
+  }
+
   .sucursal-principal{
       padding: 0px 40px 0px 0px;
   }
@@ -676,6 +694,9 @@ right: 10px;
   .formulario-ofertas{
       display: flex;
       width: 100%;
+  }
+  .correo-ofertas{
+    width: 60%;
   }
 
   .redes-sociales-pie{
