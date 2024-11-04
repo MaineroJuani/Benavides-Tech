@@ -201,6 +201,7 @@ img{
 .imagen-destacados{
     height: 300px;
     width: 150px;
+    min-width: 150px;
 }
 .imagen-destacados img{
     width: 100%;
@@ -212,7 +213,7 @@ img{
     flex: 1;
     display: flex;
     align-items: center;
-    overflow: hidden;
+    overflow-x: hidden;
     margin: 0;
     position: relative;
     
@@ -325,6 +326,7 @@ img{
     .imagen-destacados{
         height: 430px;
         width: 240px;
+        min-width: 240px;
     }
       .carrusel-track {
         flex-grow: 2;
