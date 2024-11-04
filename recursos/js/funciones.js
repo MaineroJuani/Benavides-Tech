@@ -36,10 +36,9 @@ export function auto_categorias(categoriasId){
 export function inicializarCarrusel(elemento, prev, next,contenedor,nav,CantidadComputadoras){
     let currentIndex = 0; // Índice actual del carrusel
     const computadoras = document.querySelectorAll(elemento); // Selecciona todos los elementos con la clase 'computadoras'
-    
-    const anchoComputadora = computadoras[0].offsetWidth; // Ancho de cada computadora (elemento)
 
     const computedStyle = getComputedStyle(computadoras[0]);
+    const anchoComputadora = parseFloat(computedStyle.width) // Ancho de cada computadora (elemento)
     const margenIzquierdo = parseFloat(computedStyle.marginLeft)
     const margenDerecho = parseFloat(computedStyle.marginRight)
     const anchoTotalComputadora = anchoComputadora + margenIzquierdo + margenDerecho //Tamaño total del elemento

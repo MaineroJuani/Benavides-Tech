@@ -372,8 +372,8 @@ img{
 }
 .categoria{
   height: 390px;
-  width: 390px;
-  margin: 15px;
+  width: 90vw;
+  margin: 0 5vw;
   display: flex;
   align-items: center;
   flex-direction: column;
