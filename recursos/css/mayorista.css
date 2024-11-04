@@ -39,7 +39,7 @@
     text-align: justify;
     margin: 0;
 }
-span{
+.terminos-mayoristas li span{
     text-decoration: underline;
     font-weight: bold;
 }
