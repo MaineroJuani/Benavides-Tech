@@ -211,9 +211,10 @@ img{
 }
 .contenedor_destacados {
     flex: 1;
+    height: 100%;
     display: flex;
     align-items: center;
-    overflow-x: hidden;
+    overflow: hidden;
     margin: 0;
     position: relative;
     
@@ -222,7 +223,9 @@ img{
   
   .carrusel-track {
     flex-grow: 2;
+    height: 100%;
     display: flex;
+    align-items: center;
     justify-content: space-around;
     transition: transform 0.5s ease-in-out;
     position: relative;
