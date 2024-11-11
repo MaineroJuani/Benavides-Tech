@@ -50,34 +50,39 @@ img{
     border-radius: 18px;
     overflow: hidden;
 }
+/* Tipos de contenedores */
+.contenedor-centrado{
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
 
 
 
 /* Encabezado */
 .encabezado{
-    display: flex;
-    align-items: center;
-    justify-content:space-between;
-    background-color: var(--color-header);
-    margin: 0;
-    height: 60px;
-    width: 100%;
-    top: 0;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-    overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  background-color: var(--color-header);
+  margin: 0;
+  height: 60px;
+  width: 100%;
+  top: 0;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  overflow: hidden;
 }
 /* cambiar tamaño despues */
-.encabezado a img {
+.logo-encabezado img {
     align-items: center;
     width: 60px;
     margin: 0;
-    padding-right: 5px;
+    padding-left: 5px;
 }
 .encabezado nav{
     width: 100%;
-    display: flex;
-    
+    display: flex;   
     align-items: center;
     justify-content: space-between;
 }
@@ -100,9 +105,6 @@ img{
 .contenedor-lupa{
   height: 100%;
   gap: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .imagen-lupa{
   height: 100%;
@@ -124,9 +126,9 @@ img{
     .encabezado{
         height: 80px;
     }
-    .encabezado a img {
+    .logo-encabezado img {
         width: 120px;
-        padding-right: 20px;
+        padding-left: 20px;
     }
     .encabezado nav{
         flex: 1;
@@ -137,11 +139,7 @@ img{
     }
 
     .contenedor-lupa{
-      height: 100%;
       gap: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
     .imagen-lupa{
       height: 100%;
@@ -170,7 +168,6 @@ img{
   width: 100%;
   height: 80px;
   display: flex;
-  
   align-items: center;
   justify-content: space-around;
   
@@ -194,9 +191,6 @@ img{
   font-size: 20px;
 }
 .pie-entrega-cuotas div{
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin: 5px;
 }
 
@@ -233,8 +227,6 @@ img{
 }
 
 .listado-pie{
-  display: flex;
-  align-items: center;
   text-align: center;
   flex-direction: column;
 }
