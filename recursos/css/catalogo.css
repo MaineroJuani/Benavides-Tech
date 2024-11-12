@@ -215,7 +215,6 @@ body{
     border: none; 
     border-radius: 5px;
     padding: 10px 15px;
-    cursor: pointer; /* Cursor de mano al pasar el mouse */
 }
 
 .boton-comprar:hover {
@@ -326,7 +325,6 @@ body{
     border: none; 
     border-radius: 5px;
     padding: 10px 15px;
-    cursor: pointer; /* Cursor de mano al pasar el mouse */
 }
 
 .boton-comprar:hover {

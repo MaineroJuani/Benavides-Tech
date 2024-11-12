@@ -45,6 +45,9 @@ img{
     height: 100%;
     object-fit: contain;
 }
+button{
+  cursor: pointer;
+}
 /* bordeado de contenedores */
 .bordeado{
     border-radius: 18px;
@@ -119,6 +122,14 @@ img{
 .filtro-modelo{
   width: 250px;
   resize: none;
+}
+.imagen-carrito{
+  height: 100%;
+  width: 80px;
+  padding: 20px;
+  background-color: transparent;
+  border: 0;
+  border-radius: 100%;                  
 }
 
 
@@ -379,4 +390,18 @@ img{
     height: 100px;
     width: 100px;
   }
+}
+
+/* Pop-up */
+.popup-carro{
+  position:fixed;
+  margin:0;
+  inset: unset;
+  right:0;
+  bottom:0;
+  top:0;
+  width:50%;
+  min-width: 400px;
+  min-height:100dvh;
+  border:none;
 }

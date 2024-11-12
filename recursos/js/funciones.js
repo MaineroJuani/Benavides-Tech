@@ -1,3 +1,17 @@
+// Abrir/Cerrar Pop-up
+export function abrir_popup(boton, popup){
+    const botonAbrirPopup = document.querySelector(`#${boton}`)
+    botonAbrirPopup.addEventListener("click", () => {
+        const popupCarro = document.querySelector(`#${popup}`)
+        if (popupCarro.open) {
+            popupCarro.close();
+        }else{
+            popupCarro.showModal();
+        }
+    })
+}
+
+
 // Cargar las categorias
 export function auto_categorias(categoriasId){
     if (document.body.clientWidth > 765) {
