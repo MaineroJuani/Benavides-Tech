@@ -9,14 +9,14 @@ const computadoras = tienda.computadoras
 computadoras.forEach((computadora)=>{
     contenidoHtml +=  `
         <div class="producto">
-          <a href="/compra.html" class="link-compra">
+        <a href="/compra.html" class="link-compra">
             <div class="nombre-producto"><h2>${computadora.modelo}</h2></div>
             <div class="tamaño-imagen">
-              <img src="${computadora.imagen}" alt="${computadora.detalle_imagen}" class="imagen-producto" />
+            <img src="${computadora.imagen}" alt="${computadora.detalle_imagen}" class="imagen-producto" />
             </div>
             <div class="precio-producto">$${computadora.precio.toLocaleString("es-ES")}</div>
             <button class="boton-comprar">Comprar</button>
-          </a>
+        </a>
         </div>
     `
 })
