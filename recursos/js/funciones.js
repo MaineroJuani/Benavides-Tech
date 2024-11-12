@@ -99,35 +99,5 @@ export function cargarComputadoras_Catalogo(contenedor){
         
             contenedor.innerHTML = contenidoHtml
         })
-           
-
-
-    // -----------------------------------------------------------
-    // Eventos
-
-    // const botonFiltrar = document.getElementById('boton-filtrar')
-    const campoTexto = document.getElementById('filtro-modelo')
-
-    campoTexto.addEventListener('input',()=>{
-        const productosFiltrados = productos.filter((producto)=>{
-            const nombreMinusculas = producto.nombre.toLowerCase()
-            const textoUsuarioMinusculas = campoTexto.value.toLowerCase()
-
-            return nombreMinusculas.includes(textoUsuarioMinusculas)
-        })
-
-        let contenidoFiltrado = ''
-        productosFiltrados.forEach((producto)=>{
-            contenidoFiltrado +=  `
-                <h2>${producto.nombre}</h2>
-                <ul>
-                    <li>Precio: ${producto.precio}</li>
-                    <li>Stock: ${producto.stock}</li>
-                </ul>
-            `
-        })
-
-        contenedor.innerHTML = contenidoFiltrado
-    })
 }
  
