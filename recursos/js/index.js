@@ -1,5 +1,5 @@
 // Funciones importadas
-import {abrir_popup, auto_categorias, inicializarCarrusel} from "./funciones.js"
+import {auto_categorias, inicializarCarrusel} from "./funciones.js"
 
 // Cargar header y footer automaticamente
 document.addEventListener('DOMContentLoaded', () => {
