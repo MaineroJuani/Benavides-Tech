@@ -109,7 +109,7 @@
     width: 100%;
     
 }
-.enviar button{
+.enviar .boton-enviar{
     background-color: var(--color-morado-oscuro); 
     color: white; 
     border: none; 
@@ -118,7 +118,7 @@
     cursor: pointer; /* Cursor de mano al pasar el mouse */
     font-size: 20px;
 }
-button:hover {
+.boton-enviar:hover {
     background-color: var(--color-morado-claro); /* Color de fondo al pasar el mouse */
 }
 
