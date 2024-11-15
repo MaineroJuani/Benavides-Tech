@@ -1,6 +1,6 @@
-import {abrir_popup, cargarComputadoras_Catalogo} from "./funciones.js"
+import {cargarComputadoras_Popup, cargarComputadoras_Catalogo} from "./funciones.js"
 
-// Cargar header y footer automaticamente
+// Renderizar todos los productos
 document.addEventListener('DOMContentLoaded', () => {
     // Cargar computadoras en catalogo
     const contenedor = document.querySelector('.catalogo');
@@ -15,5 +15,8 @@ botonAbrirPopup.addEventListener("click", () => {
         popupCarro.close();
     }else{
         popupCarro.showModal();
+        // Cargar los productos al carrito
+        const popupProductos = document.querySelector("#contenedor-carro")
+        cargarComputadoras_Popup(popupProductos)
     }
 })

@@ -1,17 +1,3 @@
-// Abrir/Cerrar Pop-up
-export function abrir_popup(boton, popup){
-    const botonAbrirPopup = document.querySelector(`#${boton}`)
-    botonAbrirPopup.addEventListener("click", () => {
-        const popupCarro = document.querySelector(`#${popup}`)
-        if (popupCarro.open) {
-            popupCarro.close();
-        }else{
-            popupCarro.showModal();
-        }
-    })
-}
-
-
 // Cargar las categorias
 export function auto_categorias(categoriasId){
     if (document.body.clientWidth > 765) {
@@ -130,9 +116,13 @@ export function cargarComputadoras_Popup(contenedor){
                                 <img src="${computadora.imagen}" alt="${computadora.detalle_imagen}" class="imagen-producto" />
                             </div>
                         </a>
-                            <div class="nombre-producto-popup"><h2>${computadora.modelo}</h2></div>
-                            <div class="precio-producto">$${computadora.precio.toLocaleString("es-ES")}</div>
-                            <button class="boton-comprar">Comprar</button>
+                            <div class="nombre-popup"><h2>${computadora.modelo}</h2></div>
+                            <input type="number">
+                            <div class="precio-producto-popup">
+                                <button class="boton-comprar">Ver Más</button>
+                                <button class="boton-comprar">Ver Más</button>
+                            </div>
+                            <div class="precio-popup"></div>
                     </article>
                 `
             })
