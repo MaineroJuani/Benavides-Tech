@@ -87,10 +87,8 @@ export function inicializarCarrusel(elemento, prev, next,contenedor,nav,Cantidad
 }
 
 export function cargarComputadoras_Catalogo(contenedor){
-    // creamos una variable que contendra el HTML
     let contenidoHtml = ``
 
-    // iteramos con forEach
     fetch('/recursos/js/productos.json')
         .then(response => response.json())
         .then(data => {
@@ -114,4 +112,31 @@ export function cargarComputadoras_Catalogo(contenedor){
             contenedor.innerHTML = contenidoHtml
         })
 }
- 
+
+
+export function cargarComputadoras_Popup(contenedor){
+    let contenidoHtml = ``
+
+    fetch('/recursos/js/productos.json')
+        .then(response => response.json())
+        .then(data => {
+            const computadoras = data
+            console.log(computadoras);
+            computadoras.computadoras.forEach((computadora)=>{
+                contenidoHtml +=  `
+                    <div class="producto">
+                    <a href="/compra.html" class="link-compra">
+                        <div class="nombre-producto"><h2>${computadora.modelo}</h2></div>
+                        <div class="tamaño-imagen">
+                        <img src="${computadora.imagen}" alt="${computadora.detalle_imagen}" class="imagen-producto" />
+                        </div>
+                        <div class="precio-producto">$${computadora.precio.toLocaleString("es-ES")}</div>
+                        <button class="boton-comprar">Comprar</button>
+                    </a>
+                    </div>
+                `
+            })
+        
+            contenedor.innerHTML = contenidoHtml
+        })
+}

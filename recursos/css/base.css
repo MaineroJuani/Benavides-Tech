@@ -47,6 +47,8 @@ img{
 }
 button{
   cursor: pointer;
+  background-color: transparent;
+  border: 0;
 }
 /* bordeado de contenedores */
 .bordeado{
@@ -109,10 +111,11 @@ button{
   height: 100%;
   gap: 5px;
 }
-.imagen-lupa{
+.elemento-header{
   height: 100%;
   width: 80px;
   padding: 20px;
+  border-radius: 100%; 
 }
 .imagen-lupa a{
   width: 100%;
@@ -122,14 +125,6 @@ button{
 .filtro-modelo{
   width: 250px;
   resize: none;
-}
-.imagen-carrito{
-  height: 100%;
-  width: 80px;
-  padding: 20px;
-  background-color: transparent;
-  border: 0;
-  border-radius: 100%;                  
 }
 
 
