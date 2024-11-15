@@ -62,6 +62,47 @@ button{
   justify-content:center;
 }
 
+.banner-inicio{
+  position: relative;
+  width: 100%;
+}
+
+.banner{
+  width: 100%;
+  height: 635px;
+  object-fit: cover;
+}
+
+.titulo-principal{
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.boton-scroll {
+  position: absolute;
+  top: 27%; /* Ajusta para colocar el botón en la imagen */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent; /* Cambia el color a tu preferencia */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); 
+  transition: background-color 0.3s;
+}
+
+.boton-scroll:hover {
+  background-color: var(--color-morado-claro); 
+}
 
 
 /* Encabezado */
@@ -123,8 +164,13 @@ button{
   object-fit: contain;
 }
 .filtro-modelo{
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-morado-claro);
   width: 250px;
   resize: none;
+  color: var(--color-morado-claro);
+  font-size: 18px;
 }
 
 
@@ -162,7 +208,6 @@ button{
       resize: none;
     }
 }
-
 
 /* footer */
 .pie{
