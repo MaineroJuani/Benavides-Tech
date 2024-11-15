@@ -109,7 +109,7 @@
     width: 100%;
     
 }
-.enviar .boton-enviar{
+.boton-enviar{
     background-color: var(--color-morado-oscuro); 
     color: white; 
     border: none; 
