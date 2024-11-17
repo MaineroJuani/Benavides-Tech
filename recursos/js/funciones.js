@@ -156,7 +156,7 @@ function cargarComputadoras_BarraBusqueda(contenedor, textareaTexto){
                 const modeloComputadora = computadora.modelo.toLowerCase();
                 if (modeloComputadora.includes(textoBusqueda)) {
                     contenidoHtml +=  `
-                        <a href="/compra.html" class="elemento-resultado">
+                        <a href="compra.html" class="elemento-resultado">
                             <picture class="imagen-resultado">
                             <img src="${computadora.imagen}" alt="${computadora.detalle_imagen}" >
                             </picture>

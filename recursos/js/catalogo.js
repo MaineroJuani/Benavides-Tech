@@ -24,17 +24,28 @@ botonAbrirPopup.addEventListener("click", () => {
 // Abrir resultados de busqueda
 const textareaBuscador = document.querySelector("#id-filtro-modelo")
 const resultadosBusqueda = document.querySelector(".filtro-resultados")
+let perdidaFoco = false;
 
+// Entrada del foco
 textareaBuscador.addEventListener("focus", () => {
+    perdidaFoco = false;
     verificarBusqueda(resultadosBusqueda,textareaBuscador.value)
 })
 
+// Perdida del foco
 textareaBuscador.addEventListener("blur", () => {
-    setTimeout(() => {
-        resultadosBusqueda.innerHTML = ""
-    },80)
+    perdidaFoco = true;
+});
+// Se deja de presionar click
+document.addEventListener("mouseup", () => {
+    if (perdidaFoco == true) {
+        setTimeout(() => {
+            resultadosBusqueda.innerHTML = ""
+        },100)
+    }
 });
 
+// Cuando se escribe
 textareaBuscador.addEventListener("input", () => {
     verificarBusqueda(resultadosBusqueda,textareaBuscador.value)
 })
