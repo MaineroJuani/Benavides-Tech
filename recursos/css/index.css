@@ -34,6 +34,7 @@
   cursor: pointer;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); 
   transition: background-color 0.3s;
+  z-index: 1;
 }
 
 .boton-scroll:hover {
@@ -74,6 +75,7 @@
     height: 300px;
     margin-top: 20px;
     margin-bottom: 20px;
+    
     background-color: var(--color-contenedor);
 
     display: flex;
