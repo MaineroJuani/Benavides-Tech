@@ -1,4 +1,4 @@
-import {cargarComputadoras_Popup, cargarComputadoras_Catalogo} from "./funciones.js"
+import {cargarComputadoras_Popup, cargarComputadoras_Catalogo, verificarBusqueda} from "./funciones.js"
 
 // Renderizar todos los productos
 document.addEventListener('DOMContentLoaded', () => {
@@ -19,4 +19,22 @@ botonAbrirPopup.addEventListener("click", () => {
         const popupProductos = document.querySelector("#contenedor-carro")
         cargarComputadoras_Popup(popupProductos)
     }
+})
+
+// Abrir resultados de busqueda
+const textareaBuscador = document.querySelector("#id-filtro-modelo")
+const resultadosBusqueda = document.querySelector(".filtro-resultados")
+
+textareaBuscador.addEventListener("focus", () => {
+    verificarBusqueda(resultadosBusqueda,textareaBuscador.value)
+})
+
+textareaBuscador.addEventListener("blur", () => {
+    setTimeout(() => {
+        resultadosBusqueda.innerHTML = ""
+    },80)
+});
+
+textareaBuscador.addEventListener("input", () => {
+    verificarBusqueda(resultadosBusqueda,textareaBuscador.value)
 })

@@ -11,7 +11,6 @@ export function auto_categorias(categoriasId){
     }
 }
 
-
 // Carruseles
 export function inicializarCarrusel(elemento, prev, next,contenedor,nav,CantidadComputadoras){
     let currentIndex = 0; // Índice actual del carrusel
@@ -72,6 +71,11 @@ export function inicializarCarrusel(elemento, prev, next,contenedor,nav,Cantidad
     });
 }
 
+
+
+
+// Renderizados
+
 export function cargarComputadoras_Catalogo(contenedor){
     let contenidoHtml = ``
 
@@ -79,7 +83,6 @@ export function cargarComputadoras_Catalogo(contenedor){
         .then(response => response.json())
         .then(data => {
             const computadoras = data
-            console.log(computadoras);
             computadoras.computadoras.forEach((computadora)=>{
                 contenidoHtml +=  `
                     <div class="producto">
@@ -107,7 +110,6 @@ export function cargarComputadoras_Popup(contenedor){
         .then(response => response.json())
         .then(data => {
             const computadoras = data
-            console.log(computadoras);
             computadoras.computadoras.forEach((computadora)=>{
                 contenidoHtml +=  `
                     <article class="producto-popup">
@@ -126,6 +128,47 @@ export function cargarComputadoras_Popup(contenedor){
                     </article>
                 `
             })
+        
+            contenedor.innerHTML = contenidoHtml
+        })
+}
+
+export function verificarBusqueda(resultadosBusqueda,textareaBuscadorTexto){
+    if (textareaBuscadorTexto !== "") {
+        cargarComputadoras_BarraBusqueda(resultadosBusqueda,textareaBuscadorTexto)
+    }
+    else {
+        resultadosBusqueda.innerHTML = ""
+    }
+}
+
+function cargarComputadoras_BarraBusqueda(contenedor, textareaTexto){
+    let contenidoHtml = ``
+
+    fetch('/recursos/js/productos.json')
+        .then(response => response.json())
+        .then(data => {
+            const computadoras = data
+            const textoBusqueda = textareaTexto.toLowerCase();
+            let cantidadElementos = 3;
+            for (let i = 0; i < computadoras.computadoras.length; i++) {
+                const computadora = computadoras.computadoras[i];
+                const modeloComputadora = computadora.modelo.toLowerCase();
+                if (modeloComputadora.includes(textoBusqueda)) {
+                    contenidoHtml +=  `
+                        <a href="/compra.html" class="elemento-resultado">
+                            <picture class="imagen-resultado">
+                            <img src="${computadora.imagen}" alt="${computadora.detalle_imagen}" >
+                            </picture>
+                            <h2 class="descripcion-resultado">${computadora.modelo}</h2>
+                        </a>
+                    `
+                    cantidadElementos--;
+                }
+                if (cantidadElementos == 0){
+                    break;
+                }
+            }
         
             contenedor.innerHTML = contenidoHtml
         })
