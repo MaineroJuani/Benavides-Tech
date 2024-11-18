@@ -87,7 +87,7 @@ button{
 } */
  .encabezado{
   background-color: var(--color-header);
-  display: grid; /* Activa el grid */
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 40px); 
   gap: 10px;
@@ -125,6 +125,7 @@ button{
   position: relative;
   height: 100%;
   gap: 5px;
+  padding-left: 5px;
 }
 .elemento-header{
   height: 100%;
@@ -194,6 +195,7 @@ button{
   }
 
   .contenedor-lupa{
+    padding-left: 0px;
     gap: 20px;
   }
   .imagen-lupa{

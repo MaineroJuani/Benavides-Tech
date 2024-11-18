@@ -11,12 +11,14 @@
 
 .titulo-principal{
   position: absolute;
-  top: 17%;
+  top: 13%;
   left: 50%;
+  width: 80%;
   transform: translate(-50%, -50%);
   color: white;
   text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+  font-size: 18px;
 }
 
 .boton-scroll {
@@ -55,15 +57,14 @@
   }
   
   .titulo-principal{
-    position: absolute;
+    width: auto;
     top: 10%;
-    left: 50%;
-    
+    font-size: 32px;
   }
   
   .boton-scroll {
     position: absolute;
-    top: 27%; /* Ajusta para colocar el botón en la imagen */
+    top: 27%;
     left: 50%;
     padding: 10px 20px;
   }
