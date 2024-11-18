@@ -39,9 +39,7 @@ textareaBuscador.addEventListener("blur", () => {
 // Se deja de presionar click
 document.addEventListener("mouseup", () => {
     if (perdidaFoco == true) {
-        setTimeout(() => {
-            resultadosBusqueda.innerHTML = ""
-        },100)
+        resultadosBusqueda.innerHTML = ""
     }
 });
 

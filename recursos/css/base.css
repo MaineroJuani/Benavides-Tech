@@ -147,6 +147,7 @@ button{
   height: auto;
   width: 250px;
   background-color: white;
+  z-index: 2;
 }
 
 .elemento-resultado{
