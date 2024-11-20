@@ -115,7 +115,6 @@
     border: none; 
     border-radius: 5px;
     padding: 10px 15px;
-    cursor: pointer; /* Cursor de mano al pasar el mouse */
     font-size: 20px;
 }
 .boton-enviar:hover {

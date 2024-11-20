@@ -113,18 +113,18 @@ export function cargarComputadoras_Popup(contenedor){
             computadoras.computadoras.forEach((computadora)=>{
                 contenidoHtml +=  `
                     <article class="producto-popup">
-                        <a href="/compra.html" class="link-compra">
-                            <div class="tamaño-imagen">
+                        <a href="/compra.html" class="link-compra-carrito">
+                            <div class="imagen-producto-carrito">
                                 <img src="${computadora.imagen}" alt="${computadora.detalle_imagen}" class="imagen-producto" />
                             </div>
-                        </a>
                             <div class="nombre-popup"><h2>${computadora.modelo}</h2></div>
-                            <input type="number">
-                            <div class="precio-producto-popup">
-                                <button class="boton-comprar">Ver Más</button>
-                                <button class="boton-comprar">Ver Más</button>
-                            </div>
-                            <div class="precio-popup"></div>
+                        </a>
+                        <div class="cantidad-producto-popup">
+                            <button class="boton-quitar boton-carrito">-</button>
+                            <div class="cantidad-popup">1</div>
+                            <button class="boton-agregar boton-carrito">+</button>
+                        </div>
+                        <div class="precio-popup">10500</div>
                     </article>
                 `
             })
