@@ -124,7 +124,7 @@ export function cargarComputadoras_Popup(contenedor){
                             <div class="cantidad-popup">1</div>
                             <button class="boton-agregar boton-carrito">+</button>
                         </div>
-                        <div class="precio-popup">10500</div>
+                        <div class="precio-popup">$ ${computadora.precio.toLocaleString("es-ES")}</div>
                     </article>
                 `
             })

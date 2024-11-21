@@ -472,7 +472,7 @@ button{
   right:0;
   bottom:0;
   top:0;
-  width:50%;
+  width:90%;
   min-height:100dvh;
   border:none;
 }
@@ -496,19 +496,19 @@ button{
 .producto-popup{
   display: flex;
   width: 100%;
-  padding: 0px 20px;
+  padding: 0px 10px;
   justify-content: space-between;
 }
 .link-compra-carrito{
   display: flex;
-  width: 50%;
+  width: 100%;
   gap: 20px;
 }
 .imagen-producto-carrito{
-  min-height: 120px;
-  min-width: 120px;
-  height: 120px;
-  width: 120px;
+  min-height: 70px;
+  min-width: 70px;
+  height: 70px;
+  width: 70px;
 }
 .nombre-popup{
   display: flex;
@@ -561,6 +561,7 @@ button{
   display: flex;
   justify-content: start;
   align-items: center;
+  width: 20%;
 }
 
 @media (min-width: 768px){
@@ -600,7 +601,7 @@ button{
   }
   .link-compra-carrito{
     display: flex;
-    width: 50%;
+    width: 55%;
     gap: 20px;
   }
   .imagen-producto-carrito{
@@ -660,5 +661,6 @@ button{
     display: flex;
     justify-content: start;
     align-items: center;
+    width: 20%;
   }
 }
