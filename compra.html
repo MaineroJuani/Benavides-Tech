@@ -7,10 +7,17 @@
     <link rel="shortcut icon" href="/recursos/imagenes/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="recursos/css/base.css">
     <link rel="stylesheet" href="recursos/css/compra.css">
-    <script src="/recursos/js/auto-head-foot.js"></script>
+    <script type="module" src="recursos/js/compra.js"></script>
     
 </head>
 <body>
+    <dialog class="popup-carro" id="popup-carro">
+        <form class="formulario-carrito" method="dialog">
+            <button class="cerrar-popup elemento-header">CERRAR</button>
+        </form>
+        <h2 class="titulo-carrito">CARRITO</h2>
+        <section id="contenedor-carro"></section>
+    </dialog>
     <header id="id-encabezado" class="encabezado">
         <a href="index.html" class="logo-encabezado">
             <img src="/recursos/imagenes/benavidez_logo.png" alt="logo" width="100px">

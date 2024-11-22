@@ -1,5 +1,5 @@
 // Funciones importadas
-import {auto_categorias, inicializarCarrusel, verificarBusqueda} from "./funciones.js"
+import {auto_categorias, inicializarCarrusel, funciones_comunes} from "./funciones.js"
 
 // Cargar header y footer automaticamente
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,29 +15,4 @@ document.addEventListener('DOMContentLoaded', () => {
     inicializarCarrusel('.computadoras','.prev-button','.next-button','.carrusel-track','.nav-button',CantidadComputadoras);
 });
 
-// Abrir resultados de busqueda
-const textareaBuscador = document.querySelector("#id-filtro-modelo")
-const resultadosBusqueda = document.querySelector(".filtro-resultados")
-let perdidaFoco = false;
-
-// Entrada del foco
-textareaBuscador.addEventListener("focus", () => {
-    perdidaFoco = false;
-    verificarBusqueda(resultadosBusqueda,textareaBuscador.value)
-})
-
-// Perdida del foco
-textareaBuscador.addEventListener("blur", () => {
-    perdidaFoco = true;
-});
-// Se deja de presionar click
-document.addEventListener("mouseup", () => {
-    if (perdidaFoco == true) {
-        resultadosBusqueda.innerHTML = ""
-    }
-});
-
-// Cuando se escribe
-textareaBuscador.addEventListener("input", () => {
-    verificarBusqueda(resultadosBusqueda,textareaBuscador.value)
-})
+funciones_comunes();

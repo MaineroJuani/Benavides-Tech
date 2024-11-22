@@ -1,3 +1,89 @@
+// Funciones comunes
+export function funciones_comunes(){
+    // Abrir pop-up
+    const botonAbrirPopup = document.querySelector("#id-popup-carrito")
+    botonAbrirPopup.addEventListener("click", () => {
+        const popupCarro = document.querySelector("#popup-carro")
+        if (popupCarro.open) {
+            popupCarro.close();
+        }else{
+            popupCarro.showModal();
+            // Cargar los productos al carrito
+            const popupProductos = document.querySelector("#contenedor-carro")
+            cargarComputadoras_Popup(popupProductos)
+        }
+    })
+
+    
+    // Abrir resultados de busqueda
+    const textareaBuscador = document.querySelector("#id-filtro-modelo")
+    const resultadosBusqueda = document.querySelector(".filtro-resultados")
+    let perdidaFoco = false;
+
+    // Entrada del foco
+    textareaBuscador.addEventListener("focus", () => {
+        perdidaFoco = false;
+        verificarBusqueda(resultadosBusqueda,textareaBuscador.value)
+    })
+
+    // Perdida del foco
+    textareaBuscador.addEventListener("blur", () => {
+        perdidaFoco = true;
+    });
+    // Se deja de presionar click
+    document.addEventListener("mouseup", () => {
+        if (perdidaFoco == true) {
+            resultadosBusqueda.innerHTML = ""
+        }
+    });
+
+    // Cuando se escribe
+    textareaBuscador.addEventListener("input", () => {
+        verificarBusqueda(resultadosBusqueda,textareaBuscador.value)
+    })
+}
+
+function verificarBusqueda(resultadosBusqueda,textareaBuscadorTexto){
+    if (textareaBuscadorTexto !== "") {
+        cargarComputadoras_BarraBusqueda(resultadosBusqueda,textareaBuscadorTexto)
+    }
+    else {
+        resultadosBusqueda.innerHTML = ""
+    }
+}
+
+function cargarComputadoras_BarraBusqueda(contenedor, textareaTexto){
+    let contenidoHtml = ``
+
+    fetch('/recursos/js/productos.json')
+        .then(response => response.json())
+        .then(data => {
+            const computadoras = data
+            const textoBusqueda = textareaTexto.toLowerCase();
+            let cantidadElementos = 3;
+            for (let i = 0; i < computadoras.computadoras.length; i++) {
+                const computadora = computadoras.computadoras[i];
+                const modeloComputadora = computadora.modelo.toLowerCase();
+                if (modeloComputadora.includes(textoBusqueda)) {
+                    contenidoHtml +=  `
+                        <a href="compra.html" class="elemento-resultado">
+                            <picture class="imagen-resultado">
+                            <img src="${computadora.imagen}" alt="${computadora.detalle_imagen}" >
+                            </picture>
+                            <h2 class="descripcion-resultado">${computadora.modelo}</h2>
+                        </a>
+                    `
+                    cantidadElementos--;
+                }
+                if (cantidadElementos == 0){
+                    break;
+                }
+            }
+        
+            contenedor.innerHTML = contenidoHtml
+        })
+}
+
 // Cargar las categorias
 export function auto_categorias(categoriasId){
     if (document.body.clientWidth > 765) {
@@ -116,60 +202,19 @@ export function cargarComputadoras_Popup(contenedor){
                         <a href="/compra.html" class="link-compra-carrito">
                             <div class="imagen-producto-carrito">
                                 <img src="${computadora.imagen}" alt="${computadora.detalle_imagen}" class="imagen-producto" />
-                            </div>
-                            <div class="nombre-popup"><h2>${computadora.modelo}</h2></div>
-                        </a>
-                        <div class="cantidad-producto-popup">
-                            <button class="boton-quitar boton-carrito">-</button>
-                            <div class="cantidad-popup">1</div>
-                            <button class="boton-agregar boton-carrito">+</button>
-                        </div>
-                        <div class="precio-popup">$ ${computadora.precio.toLocaleString("es-ES")}</div>
-                    </article>
-                `
-            })
-        
-            contenedor.innerHTML = contenidoHtml
-        })
-}
-
-export function verificarBusqueda(resultadosBusqueda,textareaBuscadorTexto){
-    if (textareaBuscadorTexto !== "") {
-        cargarComputadoras_BarraBusqueda(resultadosBusqueda,textareaBuscadorTexto)
-    }
-    else {
-        resultadosBusqueda.innerHTML = ""
-    }
-}
-
-function cargarComputadoras_BarraBusqueda(contenedor, textareaTexto){
-    let contenidoHtml = ``
-
-    fetch('/recursos/js/productos.json')
-        .then(response => response.json())
-        .then(data => {
-            const computadoras = data
-            const textoBusqueda = textareaTexto.toLowerCase();
-            let cantidadElementos = 3;
-            for (let i = 0; i < computadoras.computadoras.length; i++) {
-                const computadora = computadoras.computadoras[i];
-                const modeloComputadora = computadora.modelo.toLowerCase();
-                if (modeloComputadora.includes(textoBusqueda)) {
-                    contenidoHtml +=  `
-                        <a href="compra.html" class="elemento-resultado">
-                            <picture class="imagen-resultado">
-                            <img src="${computadora.imagen}" alt="${computadora.detalle_imagen}" >
-                            </picture>
-                            <h2 class="descripcion-resultado">${computadora.modelo}</h2>
-                        </a>
-                    `
-                    cantidadElementos--;
-                }
-                if (cantidadElementos == 0){
-                    break;
-                }
-            }
-        
+                                </div>
+                                <div class="nombre-popup"><h2>${computadora.modelo}</h2></div>
+                                </a>
+                                <div class="cantidad-producto-popup">
+                                <button class="boton-quitar boton-carrito">-</button>
+                                <div class="cantidad-popup">1</div>
+                                <button class="boton-agregar boton-carrito">+</button>
+                                </div>
+                                <div class="precio-popup">$${computadora.precio.toLocaleString("es-ES")}</div>
+                                </article>
+                                `
+                            })
+                            
             contenedor.innerHTML = contenidoHtml
         })
 }
