@@ -84,6 +84,36 @@ function cargarComputadoras_BarraBusqueda(contenedor, textareaTexto){
         })
 }
 
+function cargarComputadoras_Popup(contenedor){
+    let contenidoHtml = ``
+
+    fetch('/recursos/js/productos.json')
+        .then(response => response.json())
+        .then(data => {
+            const computadoras = data
+            computadoras.computadoras.forEach((computadora)=>{
+                contenidoHtml +=  `
+                    <article class="producto-popup">
+                        <a href="/compra.html" class="link-compra-carrito">
+                            <div class="imagen-producto-carrito">
+                                <img src="${computadora.imagen}" alt="${computadora.detalle_imagen}" class="imagen-producto" />
+                            </div>
+                            <div class="nombre-popup"><h2>${computadora.modelo}</h2></div>
+                        </a>
+                        <div class="cantidad-producto-popup">
+                            <button class="boton-quitar boton-carrito">-</button>
+                            <div class="cantidad-popup">1</div>
+                            <button class="boton-agregar boton-carrito">+</button>
+                        </div>
+                        <div class="precio-popup">$${computadora.precio.toLocaleString("es-ES")}</div>
+                    </article>
+                `
+                })
+                            
+            contenedor.innerHTML = contenidoHtml
+        })
+}
+
 // Cargar las categorias
 export function auto_categorias(categoriasId){
     if (document.body.clientWidth > 765) {
@@ -162,6 +192,34 @@ export function inicializarCarrusel(elemento, prev, next,contenedor,nav,Cantidad
 
 // Renderizados
 
+export function cargarBotonesCatalogo(contenedor,marcas){
+    let contenidoHtml = ``
+
+    fetch('/recursos/js/productos.json')
+        .then(response => response.json())
+        .then(data => {
+            let categorias;
+            let clase;
+
+            if (marcas == true){
+                categorias = data.marcas;
+                clase = "filtro-marcas";
+            }
+            else{
+                categorias = data.categorias;
+                clase = "filtro-categorias";
+            }
+
+            categorias.forEach((categoria)=>{
+                contenidoHtml +=  `
+                    <li> <a href="#" class="${clase}" data-id=${categoria.id}> <span class="dot" style="color:#bb64e0">•</span>${categoria.nombre}</a> </li>
+                `
+            })
+        
+            contenedor.innerHTML = contenidoHtml
+        })
+}
+
 export function cargarComputadoras_Catalogo(contenedor){
     let contenidoHtml = ``
 
@@ -188,33 +246,3 @@ export function cargarComputadoras_Catalogo(contenedor){
         })
 }
 
-
-export function cargarComputadoras_Popup(contenedor){
-    let contenidoHtml = ``
-
-    fetch('/recursos/js/productos.json')
-        .then(response => response.json())
-        .then(data => {
-            const computadoras = data
-            computadoras.computadoras.forEach((computadora)=>{
-                contenidoHtml +=  `
-                    <article class="producto-popup">
-                        <a href="/compra.html" class="link-compra-carrito">
-                            <div class="imagen-producto-carrito">
-                                <img src="${computadora.imagen}" alt="${computadora.detalle_imagen}" class="imagen-producto" />
-                                </div>
-                                <div class="nombre-popup"><h2>${computadora.modelo}</h2></div>
-                                </a>
-                                <div class="cantidad-producto-popup">
-                                <button class="boton-quitar boton-carrito">-</button>
-                                <div class="cantidad-popup">1</div>
-                                <button class="boton-agregar boton-carrito">+</button>
-                                </div>
-                                <div class="precio-popup">$${computadora.precio.toLocaleString("es-ES")}</div>
-                                </article>
-                                `
-                            })
-                            
-            contenedor.innerHTML = contenidoHtml
-        })
-}
