@@ -1,4 +1,4 @@
-import {cargarBotonesCatalogo,cargarComputadoras_Catalogo, funciones_comunes} from "./funciones.js"
+import {cargar_catalogo,cargarBotonesCatalogo,filtradoBoton_catalogo, funciones_comunes} from "./funciones.js"
 
 funciones_comunes();
 
@@ -6,7 +6,7 @@ funciones_comunes();
 document.addEventListener('DOMContentLoaded', () => {
     // Cargar computadoras en catalogo
     const contenedor = document.querySelector('.catalogo');
-    cargarComputadoras_Catalogo(contenedor);
+    cargar_catalogo(contenedor);
 
     // Cargar Boton Marcas
     const contenedorMarcas = document.querySelector(".contenido-marcas");
@@ -15,6 +15,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // Cargar Boton Categorias
     const contenedorCategorias = document.querySelector(".contenido-categorias");
     cargarBotonesCatalogo(contenedorCategorias,false);
-
-    
 });

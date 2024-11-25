@@ -217,32 +217,56 @@ export function cargarBotonesCatalogo(contenedor,marcas){
             })
         
             contenedor.innerHTML = contenidoHtml
+
+            // eventos de filtrado por botones
+            const botonMarcas = document.querySelectorAll(`.${clase}`);
+            botonMarcas.forEach(boton => {
+                boton.addEventListener("click", () => {
+                    filtradoBoton_catalogo(boton,contenedor);
+        })
+    })
         })
 }
 
-export function cargarComputadoras_Catalogo(contenedor){
-    let contenidoHtml = ``
-
+export function cargar_catalogo(contenedor){
     fetch('/recursos/js/productos.json')
         .then(response => response.json())
         .then(data => {
             const computadoras = data
-            computadoras.computadoras.forEach((computadora)=>{
-                contenidoHtml +=  `
-                    <div class="producto">
-                    <a href="/compra.html" class="link-compra">
-                        <div class="nombre-producto"><h2>${computadora.modelo}</h2></div>
-                        <div class="tamaño-imagen">
-                        <img src="${computadora.imagen}" alt="${computadora.detalle_imagen}" class="imagen-producto" />
-                        </div>
-                        <div class="precio-producto">$${computadora.precio.toLocaleString("es-ES")}</div>
-                        <button class="boton-comprar">Ver Más</button>
-                    </a>
-                    </div>
-                `
-            })
-        
-            contenedor.innerHTML = contenidoHtml
+            renderizado_catalogo(contenedor,computadoras.computadoras)
         })
 }
 
+export function filtradoBoton_catalogo(boton,contenedor){
+    fetch('/recursos/js/productos.json')
+        .then(response => response.json())
+        .then(data => {
+            const computadoras = data
+            const computadorasFiltradas = computadoras.computadoras.filter(computadora =>{
+                return computadora.marca == boton.dataset.id
+            })
+            console.log(computadorasFiltradas)
+            console.log(contenedor)
+            renderizado_catalogo(contenedor,computadorasFiltradas)
+        })
+}
+
+function renderizado_catalogo(contenedor, computadoras){
+    let contenidoHtml = ``
+    computadoras.forEach((computadora)=>{
+        contenidoHtml +=  `
+            <div class="producto">
+            <a href="/compra.html" class="link-compra">
+                <div class="nombre-producto"><h2>${computadora.modelo}</h2></div>
+                <div class="tamaño-imagen">
+                <img src="${computadora.imagen}" alt="${computadora.detalle_imagen}" class="imagen-producto" />
+                </div>
+                <div class="precio-producto">$${computadora.precio.toLocaleString("es-ES")}</div>
+                <button class="boton-comprar">Ver Más</button>
+            </a>
+            </div>
+        `
+    })
+
+    contenedor.innerHTML = contenidoHtml
+}
