@@ -247,8 +247,9 @@ export function filtradoBoton_catalogo(boton,catalogo){
             const computadorasFiltradas = computadoras.computadoras.filter(computadora =>{
                 console.log(computadora.categoria)
                 console.log(boton.dataset.id)
-                return computadora.categoria == boton.dataset.id
+                return computadora.categoria.includes(Number(boton.dataset.id))
             })
+            console.log(computadorasFiltradas)
             renderizado_catalogo(catalogo,computadorasFiltradas)
         })
 }
