@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BenavidezTech | Tienda online </title>
@@ -10,86 +10,88 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     <script src="recursos/js/catalogo.js" type="module"></script>
-  </head>
-  <body>
+</head>
+<body>
+    
     <dialog class="popup-carro" id="popup-carro">
-      <form class="formulario-carrito" method="dialog">
-          <button class="cerrar-popup elemento-header">CERRAR</button>
-      </form>
-      <h2 class="titulo-carrito">CARRITO</h2>
-      <section id="contenedor-carro"></section>
-  </dialog>
+    <form class="formulario-carrito" method="dialog">
+        <button class="cerrar-popup elemento-header">CERRAR</button>
+    </form>
+    <h2 class="titulo-carrito">CARRITO</h2>
+    <section id="contenedor-carro"></section>
+    </dialog>
+
     <header id="id-encabezado" class="encabezado">
-      <a href="index.html" class="logo-encabezado">
-          <img src="/recursos/imagenes/benavidez_logo.png" alt="logo" width="100px">
-      </a>
-      <nav class="navegacion-paginas">
-          <a href="index.html" class="ancla-pagina">
-              Menu
-          </a>
-          <a href="catalogo.html" class="ancla-pagina">
-              Tienda
-          </a>
-          <a href="mayorista.html" class="ancla-pagina">
-              Mayorista
-          </a>
-      </nav>
-      <div class="contenedor-lupa contenedor-centrado">
+    <a href="index.html" class="logo-encabezado">
+        <img src="/recursos/imagenes/benavidez_logo.png" alt="logo" width="100px">
+    </a>
+    <nav class="navegacion-paginas">
+        <a href="index.html" class="ancla-pagina">
+            Menu
+        </a>
+        <a href="catalogo.html" class="ancla-pagina">
+            Tienda
+        </a>
+        <a href="mayorista.html" class="ancla-pagina">
+            Mayorista
+        </a>
+    </nav>
+    <div class="contenedor-lupa contenedor-centrado">
         <textarea name="filtro-modelo" class="filtro-modelo" id="id-filtro-modelo" rows="1" style="resize: none;"></textarea>
         <aside role="listbox" class="filtro-resultados"></aside>
         <button class="imagen-lupa elemento-header" id="id-lupa">
             <img src="/recursos/imagenes/lupa.svg" alt="lupa.svg">
         </button>
-      </div>
-      <button class="imagen-carrito elemento-header" id="id-popup-carrito">
+    </div>
+    <button class="imagen-carrito elemento-header" id="id-popup-carrito">
         <img src="recursos/imagenes/carrito.png" alt="Carrito">
-      </button>
-  </header>
+    </button>
+</header>
 
     <main class="contenedor-tienda">
 
-      <div class="sidebar">
+    <div class="sidebar">
         <h1 class="titulo-menu">Catalogo Notebooks</h1>
 
         <ul class="lista-menu">
 
-          <li class="dropdown">
+        <li class="dropdown">
             <a href="#">
-              <span class="Categorias">Categorias</span>
-              <span class="material-icons arrow">expanded_more</span> 
+            <span class="Categorias">Categorias</span>
+            <span class="material-icons arrow">expanded_more</span> 
             </a>
             <ul class="dropdown-content contenido-categorias">
             </ul>
-          </li>
+        </li>
 
-          <li class="dropdown">
+        <li class="dropdown">
             <a href="#"> 
-              <span class="text"> Marcas</span>
-              <span class="material-icons arrow">expanded_more</span> 
+            <span class="text"> Marcas</span>
+            <span class="material-icons arrow">expanded_more</span> 
             </a>
             <ul class="dropdown-content contenido-marcas">
             </ul>
-          </li>
-          
-          <!-- <li>
+        </li>
+        
+        <!-- <li>
             <a href="https://w.app/BenavidezTech" target="_blank">
-              <span class="material-icons icon">help_outline</span>
-              <span class="text"> Contacto Recomendaciones</span>
+            <span class="material-icons icon">help_outline</span>
+            <span class="text"> Contacto Recomendaciones</span>
             </a>
-          </li> -->
-          
+        </li> -->
+        
         </ul>
 
-      </div>
+    </div>
 
-      <!-- Catalogo Nuevo -->
+    <!-- Catalogo Nuevo -->
 
-      <div class="catalogo"></div> 
+    <div class="catalogo"></div> 
     
     </main>
 
     <footer id="id-pie" class="pie">
-      <section class="marcas-pie">
+    <section class="marcas-pie">
           <a href="">
               <img src="recursos/imagenes/marcas/apple.png" alt="Logo Apple">
           </a>

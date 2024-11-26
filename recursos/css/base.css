@@ -85,15 +85,15 @@ button{
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 } */
- .encabezado{
+.encabezado{
   background-color: var(--color-header);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 40px); 
   gap: 10px;
- }
+}
 .logo-encabezado img {
-  width: 60px;
+  width: 60px;          /*acomodar  tamaño */
   margin: 0;
   padding-left: 5px;
 }
