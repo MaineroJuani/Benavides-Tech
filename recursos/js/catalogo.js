@@ -1,4 +1,4 @@
-import {cargar_catalogo,cargarBotonesCatalogo,filtradoBoton_catalogo, funciones_comunes} from "./funciones.js"
+import {cargar_catalogo,cargarBotonesCatalogo, funciones_comunes} from "./funciones.js"
 
 funciones_comunes();
 

@@ -220,11 +220,48 @@ export function cargarBotonesCatalogo(contenedor,marcas){
 
             // eventos de filtrado por botones
             const botonMarcas = document.querySelectorAll(`.${clase}`);
-            botonMarcas.forEach(boton => {
-                boton.addEventListener("click", () => {
-                    filtradoBoton_catalogo(boton,contenedor);
+            const catalogo = document.querySelector('.catalogo');
+
+            if (marcas == true){
+                botonMarcas.forEach(boton => {
+                    boton.addEventListener("click", () => {
+                        filtradoBoton_marcas(boton,catalogo);
+                    })
+                })
+            }
+            else{
+                botonMarcas.forEach(boton => {
+                    boton.addEventListener("click", () => {
+                        filtradoBoton_catalogo(boton,catalogo);
+                    })
+                })
+            }
         })
-    })
+}
+
+export function filtradoBoton_catalogo(boton,catalogo){
+    fetch('/recursos/js/productos.json')
+        .then(response => response.json())
+        .then(data => {
+            const computadoras = data
+            const computadorasFiltradas = computadoras.computadoras.filter(computadora =>{
+                console.log(computadora.categoria)
+                console.log(boton.dataset.id)
+                return computadora.categoria == boton.dataset.id
+            })
+            renderizado_catalogo(catalogo,computadorasFiltradas)
+        })
+}
+
+export function filtradoBoton_marcas(boton,catalogo){
+    fetch('/recursos/js/productos.json')
+        .then(response => response.json())
+        .then(data => {
+            const computadoras = data
+            const computadorasFiltradas = computadoras.computadoras.filter(computadora =>{
+                return computadora.marca == boton.dataset.id
+            })
+            renderizado_catalogo(catalogo,computadorasFiltradas)
         })
 }
 
@@ -234,20 +271,6 @@ export function cargar_catalogo(contenedor){
         .then(data => {
             const computadoras = data
             renderizado_catalogo(contenedor,computadoras.computadoras)
-        })
-}
-
-export function filtradoBoton_catalogo(boton,contenedor){
-    fetch('/recursos/js/productos.json')
-        .then(response => response.json())
-        .then(data => {
-            const computadoras = data
-            const computadorasFiltradas = computadoras.computadoras.filter(computadora =>{
-                return computadora.marca == boton.dataset.id
-            })
-            console.log(computadorasFiltradas)
-            console.log(contenedor)
-            renderizado_catalogo(contenedor,computadorasFiltradas)
         })
 }
 
