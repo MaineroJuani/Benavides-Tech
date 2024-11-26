@@ -200,14 +200,17 @@ export function cargarBotonesCatalogo(contenedor,marcas){
         .then(data => {
             let categorias;
             let clase;
+            let funcion;
 
             if (marcas == true){
                 categorias = data.marcas;
                 clase = "filtro-marcas";
+                funcion = (boton) => filtradoBoton_marcas(boton, catalogo);
             }
             else{
                 categorias = data.categorias;
                 clase = "filtro-categorias";
+                funcion = (boton) => filtradoBoton_catalogo(boton, catalogo);
             }
 
             categorias.forEach((categoria)=>{
@@ -222,20 +225,11 @@ export function cargarBotonesCatalogo(contenedor,marcas){
             const botonMarcas = document.querySelectorAll(`.${clase}`);
             const catalogo = document.querySelector('.catalogo');
 
-            if (marcas == true){
-                botonMarcas.forEach(boton => {
-                    boton.addEventListener("click", () => {
-                        filtradoBoton_marcas(boton,catalogo);
-                    })
+            botonMarcas.forEach(boton => {
+                boton.addEventListener("click", () => {
+                    funcion(boton)
                 })
-            }
-            else{
-                botonMarcas.forEach(boton => {
-                    boton.addEventListener("click", () => {
-                        filtradoBoton_catalogo(boton,catalogo);
-                    })
-                })
-            }
+            })
         })
 }
 
