@@ -183,7 +183,8 @@ button{
     height: 80px;
   }
   .logo-encabezado img {
-    width: 120px;
+    padding-top: 10px;
+    width: 180px;
     padding-left: 20px;
   }
   .navegacion-paginas{
