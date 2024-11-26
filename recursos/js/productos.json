@@ -86,7 +86,7 @@
             "precio": 1360000,
             "descripcion": "",
             "categoria": [1],
-            "imagen": "recursos/imagenes/notebooks/hp/victus_core_i5 _16gb.png",
+            // "imagen": "recursos/imagenes/notebooks/hp",
             "detalle_imagen": "victus_core_i5 _16gb.png"
         },
         {
