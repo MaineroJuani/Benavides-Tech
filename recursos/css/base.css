@@ -291,6 +291,7 @@ button{
 
 /* Listados */
 .informacion-adicional-pie{
+  background-color: var(--color-header);
   display: flex;
   flex-direction: column-reverse;
   align-items: start;
