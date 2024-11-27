@@ -93,8 +93,8 @@ button{
   gap: 10px;
 }
 .logo-encabezado img {
-  width: 60px;          /*acomodar  tamaño */
-  margin: 0;
+  width: 100px;          /*acomodar  tamaño */
+  margin: 5px;
   padding-left: 5px;
 }
 .navegacion-paginas{
@@ -381,8 +381,10 @@ button{
   width: 100px;
 }
 .redes-sociales-pie img{
-  max-width: 100%;
-  max-height: 100%;
+  width: 100px;
+  height: 100px;
+  /* max-width: 100%;
+  max-height: 100%; */
   object-fit: contain;
 }
 
@@ -464,6 +466,13 @@ button{
     height: 100px;
     width: 100px;
   }
+
+  .redes-sociales-pie img{
+    width: 100px;
+    height: 100px;
+  }
+
+
 }
 
 /* Pop-up */
