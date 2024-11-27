@@ -122,6 +122,10 @@ export function auto_categorias(categoriasId){
             .then(response => response.text())
             .then(data => {
                 document.getElementById(categoriasId).innerHTML = data;
+
+                // Filtrado de categoria
+                const categorias = document.querySelectorAll(".link-categoria");
+                filtradosCatalogo(categorias,"categoria");
             })
             .catch(error => console.error('Error al cargar contenedor categorias:', error));
     }
@@ -205,12 +209,12 @@ export function cargarBotonesCatalogo(contenedor,marcas){
             if (marcas == true){
                 categorias = data.marcas;
                 clase = "filtro-marcas";
-                funcion = (boton) => filtradoBoton_marcas(boton, catalogo);
+                funcion = (id) => filtradoBoton_marcas(id, catalogo);
             }
             else{
                 categorias = data.categorias;
                 clase = "filtro-categorias";
-                funcion = (boton) => filtradoBoton_catalogo(boton, catalogo);
+                funcion = (id) => filtradoBoton_categorias(id, catalogo);
             }
 
             categorias.forEach((categoria)=>{
@@ -227,37 +231,46 @@ export function cargarBotonesCatalogo(contenedor,marcas){
 
             botonMarcas.forEach(boton => {
                 boton.addEventListener("click", () => {
-                    funcion(boton)
+                    const id = boton.dataset.id
+                    funcion(id)
                 })
             })
         })
 }
 
-export function filtradoBoton_catalogo(boton,catalogo){
+export function filtradoBoton_categorias(id,catalogo){
     fetch('/recursos/js/productos.json')
         .then(response => response.json())
         .then(data => {
             const computadoras = data
             const computadorasFiltradas = computadoras.computadoras.filter(computadora =>{
-                console.log(computadora.categoria)
-                console.log(boton.dataset.id)
-                return computadora.categoria.includes(Number(boton.dataset.id))
+                return computadora.categoria.includes(Number(id))
             })
-            console.log(computadorasFiltradas)
             renderizado_catalogo(catalogo,computadorasFiltradas)
         })
 }
 
-export function filtradoBoton_marcas(boton,catalogo){
+export function filtradoBoton_marcas(id,catalogo){
     fetch('/recursos/js/productos.json')
         .then(response => response.json())
         .then(data => {
             const computadoras = data
             const computadorasFiltradas = computadoras.computadoras.filter(computadora =>{
-                return computadora.marca == boton.dataset.id
+                return computadora.marca == id
             })
             renderizado_catalogo(catalogo,computadorasFiltradas)
         })
+}
+
+export function filtradosCatalogo(elementos,nombreFiltro){
+    elementos.forEach(elemento => {
+        elemento.addEventListener("click", (cambioPagina) => {
+            cambioPagina.preventDefault();
+            localStorage.setItem(`${nombreFiltro}Seleccionada`, elemento.dataset.id);
+            const linkCatalogo = cambioPagina.currentTarget.getAttribute("href");
+            window.location.href = linkCatalogo;
+        })
+    })
 }
 
 export function cargar_catalogo(contenedor){
