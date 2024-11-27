@@ -205,12 +205,12 @@ export function cargarBotonesCatalogo(contenedor,marcas){
             if (marcas == true){
                 categorias = data.marcas;
                 clase = "filtro-marcas";
-                funcion = (boton) => filtradoBoton_marcas(boton, catalogo);
+                funcion = (id) => filtradoBoton_marcas(id, catalogo);
             }
             else{
                 categorias = data.categorias;
                 clase = "filtro-categorias";
-                funcion = (boton) => filtradoBoton_catalogo(boton, catalogo);
+                funcion = (id) => filtradoBoton_catalogo(id, catalogo);
             }
 
             categorias.forEach((categoria)=>{
@@ -227,33 +227,32 @@ export function cargarBotonesCatalogo(contenedor,marcas){
 
             botonMarcas.forEach(boton => {
                 boton.addEventListener("click", () => {
-                    funcion(boton)
+                    const id = boton.dataset.id
+                    funcion(id)
                 })
             })
         })
 }
 
-export function filtradoBoton_catalogo(boton,catalogo){
+export function filtradoBoton_catalogo(id,catalogo){
     fetch('/recursos/js/productos.json')
         .then(response => response.json())
         .then(data => {
             const computadoras = data
             const computadorasFiltradas = computadoras.computadoras.filter(computadora =>{
-                console.log(computadora.categoria)
-                console.log(boton.dataset.id)
-                return computadora.categoria.includes(Number(boton.dataset.id))
+                return computadora.categoria.includes(Number(id))
             })
             renderizado_catalogo(catalogo,computadorasFiltradas)
         })
 }
 
-export function filtradoBoton_marcas(boton,catalogo){
+export function filtradoBoton_marcas(id,catalogo){
     fetch('/recursos/js/productos.json')
         .then(response => response.json())
         .then(data => {
             const computadoras = data
             const computadorasFiltradas = computadoras.computadoras.filter(computadora =>{
-                return computadora.marca == boton.dataset.id
+                return computadora.marca == id
             })
             renderizado_catalogo(catalogo,computadorasFiltradas)
         })

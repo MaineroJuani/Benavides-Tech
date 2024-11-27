@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     marcas.forEach(marca => {
         marca.addEventListener("click", (cambioPagina) => {
             cambioPagina.preventDefault();
-            localStorage.setItem("marcaSeleccionada", marca);
+            localStorage.setItem("marcaSeleccionada", marca.dataset.id);
             const linkCatalogo = cambioPagina.currentTarget.getAttribute("href");
             window.location.href = linkCatalogo;
         })
