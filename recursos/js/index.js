@@ -1,5 +1,5 @@
 // Funciones importadas
-import {auto_categorias, inicializarCarrusel, funciones_comunes, filtradoBoton_marcas} from "./funciones.js"
+import {auto_categorias, inicializarCarrusel, filtradosCatalogo, funciones_comunes} from "./funciones.js"
 
 funciones_comunes();
 
@@ -18,17 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     inicializarCarrusel('.computadoras','.prev-button','.next-button','.carrusel-track','.nav-button',CantidadComputadoras);
 
-    // Filtrado de categoria
-    const categorias = document.querySelectorAll(".imagen-computadora");
-
     // Filtrado de marcas
     const marcas = document.querySelectorAll(".link-marca-pie");
-    marcas.forEach(marca => {
-        marca.addEventListener("click", (cambioPagina) => {
-            cambioPagina.preventDefault();
-            localStorage.setItem("marcaSeleccionada", marca.dataset.id);
-            const linkCatalogo = cambioPagina.currentTarget.getAttribute("href");
-            window.location.href = linkCatalogo;
-        })
-    })
+    filtradosCatalogo(marcas,"marca");
+    // El filtrado de categorias esta en la funcion auto_categorias
 });

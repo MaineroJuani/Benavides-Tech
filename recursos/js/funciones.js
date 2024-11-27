@@ -122,6 +122,10 @@ export function auto_categorias(categoriasId){
             .then(response => response.text())
             .then(data => {
                 document.getElementById(categoriasId).innerHTML = data;
+
+                // Filtrado de categoria
+                const categorias = document.querySelectorAll(".link-categoria");
+                filtradosCatalogo(categorias,"categoria");
             })
             .catch(error => console.error('Error al cargar contenedor categorias:', error));
     }
@@ -210,7 +214,7 @@ export function cargarBotonesCatalogo(contenedor,marcas){
             else{
                 categorias = data.categorias;
                 clase = "filtro-categorias";
-                funcion = (id) => filtradoBoton_catalogo(id, catalogo);
+                funcion = (id) => filtradoBoton_categorias(id, catalogo);
             }
 
             categorias.forEach((categoria)=>{
@@ -234,7 +238,7 @@ export function cargarBotonesCatalogo(contenedor,marcas){
         })
 }
 
-export function filtradoBoton_catalogo(id,catalogo){
+export function filtradoBoton_categorias(id,catalogo){
     fetch('/recursos/js/productos.json')
         .then(response => response.json())
         .then(data => {
@@ -256,6 +260,17 @@ export function filtradoBoton_marcas(id,catalogo){
             })
             renderizado_catalogo(catalogo,computadorasFiltradas)
         })
+}
+
+export function filtradosCatalogo(elementos,nombreFiltro){
+    elementos.forEach(elemento => {
+        elemento.addEventListener("click", (cambioPagina) => {
+            cambioPagina.preventDefault();
+            localStorage.setItem(`${nombreFiltro}Seleccionada`, elemento.dataset.id);
+            const linkCatalogo = cambioPagina.currentTarget.getAttribute("href");
+            window.location.href = linkCatalogo;
+        })
+    })
 }
 
 export function cargar_catalogo(contenedor){

@@ -1,4 +1,4 @@
-import {cargar_catalogo, filtradoBoton_marcas, cargarBotonesCatalogo, funciones_comunes} from "./funciones.js"
+import {cargar_catalogo, filtradoBoton_marcas, filtradoBoton_categorias, cargarBotonesCatalogo, funciones_comunes} from "./funciones.js"
 
 funciones_comunes();
 
@@ -10,10 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Revisar si recibo filtro del index.html
     const marcaSeleccionada = localStorage.getItem("marcaSeleccionada");
+    const categoriaSeleccionada = localStorage.getItem("categoriaSeleccionada");
     if (marcaSeleccionada) {
-        console.log("Marca seleccionada:", marcaSeleccionada);
         filtradoBoton_marcas(marcaSeleccionada, contenedor)
         localStorage.removeItem("marcaSeleccionada");
+    }
+    else if (categoriaSeleccionada) {
+        filtradoBoton_categorias(categoriaSeleccionada, contenedor)
+        localStorage.removeItem("categoriaSeleccionada");
     }
 
     // Cargar Boton Marcas
