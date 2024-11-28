@@ -292,7 +292,7 @@ function renderizado_catalogo(contenedor, computadoras){
     computadoras.forEach((computadora)=>{
         contenidoHtml +=  `
             <div class="producto">
-            <a href="/compra.html" class="link-compra">
+            <a href="/compra.html" class="link-compra" data-id=${computadora.id}>
                 <div class="nombre-producto"><h2>${computadora.modelo}</h2></div>
                 <div class="tamaño-imagen">
                 <img src="${computadora.imagen}" alt="${computadora.detalle_imagen}" class="imagen-producto" />
@@ -305,24 +305,110 @@ function renderizado_catalogo(contenedor, computadoras){
     })
 
     contenedor.innerHTML = contenidoHtml
+
+    // Redireccion a la pagina de compras
+    const anclaCompras = document.querySelectorAll(".link-compra");
+    anclaCompras.forEach(computadora => {
+        computadora.addEventListener("click", (cambioPagina) => {
+            cambioPagina.preventDefault();
+            localStorage.setItem("computadoraSeleccionada", computadora.dataset.id);
+            const linkCompra = cambioPagina.currentTarget.getAttribute("href");
+            window.location.href = linkCompra;
+        })
+    })
 }
 
-export function renderizado_compras(contenedor, computadora){
-    let contenidoHtml = ``
-    computadoras.forEach((computadora)=>{
-        contenidoHtml +=  `
-            <div class="producto">
-            <a href="/compra.html" class="link-compra">
-                <div class="nombre-producto"><h2>${computadora.modelo}</h2></div>
-                <div class="tamaño-imagen">
-                <img src="${computadora.imagen}" alt="${computadora.detalle_imagen}" class="imagen-producto" />
-                </div>
-                <div class="precio-producto">$${computadora.precio.toLocaleString("es-ES")}</div>
-                <button class="boton-comprar">Ver Más</button>
-            </a>
-            </div>
-        `
-    })
+export function renderizado_compras(id){
+    fetch('/recursos/js/productos.json')
+        .then(response => response.json())
+        .then(data => {
+            const computadoras = data
+            const computadora = computadoras.computadoras.filter(compu =>{
+                return compu.id == Number(id)
+            })
+            const imagen = document.querySelector(".imagen img")
+            imagen.src = computadora[0].imagen
+            imagen.alt = computadora[0].modelo
 
-    contenedor.innerHTML = contenidoHtml
+            const precio = document.querySelector(".precio-compra p")
+            precio.textContent = `$${computadora[0].precio.toLocaleString("es-ES")}`
+
+            const botonComprar = document.querySelector(".boton-comprar button")
+            botonComprar.setAttribute = ("data-precio",computadora[0].precio)
+
+            const titulo = document.querySelector(".derecha h1")
+            titulo.textContent = computadora[0].modelo
+
+            const marca = document.querySelector(".marca p")
+            marca.textContent = computadora[0].modelo
+        })
+    // let contenidoHtml = ``
+    
+
+    // computadoras.forEach((computadora)=>{
+    //     contenidoHtml +=  `
+    //         <div class="izquierda">
+    //             <section class="general">
+    //                 <div class="imagen">
+    //                     <img src="/recursos/imagenes/notebooks/apple/macbook_air_m2.png" alt="MacBook Air M2">
+    //                 </div>
+        
+    //                 <div class="precio-compra">
+    //                     <p>$1.900.000</p>
+    //                 </div>
+        
+    //                 <div class="boton-comprar">
+    //                     <button>
+    //                         Comprar ahora
+    //                     </button>
+    //                 </div>
+    //             </section>
+    //         </div>
+
+
+    //         <div class="derecha">
+    //             <h1>MacBook Air M2</h1>
+
+    //             <section class="caracteristicas">
+    //                 <div class="marca">
+    //                     <img src="recursos/imagenes/caracteristicas/marca.png" alt="Icono Etiqueta">
+    //                     <h3>Marca:</h3>
+    //                     <p>Apple</p>
+    //                 </div>
+    //                 <div class="procesador">
+    //                     <img src="recursos/imagenes/caracteristicas/procesador.png " alt="Icono Procesador">
+    //                     <h3>Procesador:</h3>
+    //                     <p>Apple Chip M2</p>
+    //                 </div>
+    //                 <div class="graficos">
+    //                     <img src="recursos/imagenes/caracteristicas/grafica.png" alt="Icono Graficos">
+    //                     <h3>Graficos:</h3>
+    //                     <p>Graficos Integrados Chip M2 (8 nucleos)</p>
+    //                 </div>
+    //                 <div class="Almacenamiento">
+    //                     <img src="recursos/imagenes/caracteristicas/png.png" alt="Icono SSD">
+    //                     <h3>Almacenamiento Interno: </h3>
+    //                     <p>256 GB</p>
+                        
+    //                 </div>
+    //                 <div class="RAM">
+    //                     <img src="recursos/imagenes/caracteristicas/ram.png" alt="Icono RAM">
+    //                     <h3>RAM: </h3>
+    //                     <p>8 GB</p>
+    //                 </div>
+    //                 <div class="Pantalla">
+    //                     <img src="recursos/imagenes/caracteristicas/pantalla.png" alt="Icono Pantalla">
+    //                     <h3>Pantalla: </h3>
+    //                     <p>13.6 Pulgadas</p>
+    //                 </div>
+        
+    //                 <div class="descripcion-compra">
+    //                     <p>La MacBook Air M2 es la última versión de la popular laptop ultradelgada de Apple, lanzada en 2022. Está equipada con el chip M2 de Apple, que ofrece un rendimiento notablemente mejorado en comparación con su predecesora, junto con una eficiencia energética superior. Presenta una pantalla Retina de 13.6 pulgadas, un diseño más delgado y liviano, y una batería que puede durar hasta 18 horas. Ideal para usuarios que buscan potencia en un formato compacto y portátil.</p>
+    //                 </div>
+    //             </section>
+    //         </div>
+    //     `
+    // })
+
+    // contenedor.innerHTML = contenidoHtml
 }

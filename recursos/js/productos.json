@@ -45,6 +45,7 @@
     ],
     "computadoras": [
         {
+            "id": 1,
             "marca": [1],
             "modelo": "Macbook Air M2",
             "precio": 1900000,
@@ -54,6 +55,7 @@
             "detalle_imagen": "macbook_air_m2.png"
         },
         {
+            "id": 2,
             "marca": [1],
             "modelo": "MacBook Pro M2",
             "precio": 2214999,
@@ -63,6 +65,7 @@
             "detalle_imagen": "macbook_pro_m2.png"
         },
         {
+            "id": 3,
             "marca": [1],
             "modelo": "Macbook Pro M1",
             "precio": 1750000,
@@ -72,6 +75,7 @@
             "detalle_imagen": "macbook_pro_m1.png"
         },
         {
+            "id": 4,
             "marca": [2],
             "modelo": "HP Victus Core i5 8gb",
             "precio": 1394000,
@@ -81,6 +85,7 @@
             "detalle_imagen": "victus_core_i5-8gb.png"
         },
         {
+            "id": 5,
             "marca": [2],
             "modelo": "HP Victus Core i5 16gb",
             "precio": 1360000,
@@ -90,6 +95,7 @@
             "detalle_imagen": "victus_core_i5 _16gb.png"
         },
         {
+            "id": 6,
             "marca": [2],
             "modelo": "HP Victus Core i7",
             "precio": 1800000,
@@ -99,6 +105,7 @@
             "detalle_imagen": "victus_core_i7.png"
         },
         {
+            "id": 7,
             "marca": [3],
             "modelo": "Lenovo idePad3 slim",
             "precio": 1000000,
@@ -108,6 +115,7 @@
             "detalle_imagen": "ide_pad3_slim.png"
         },
         {
+            "id": 8,
             "marca": [3],
             "modelo": "Lenovo LOQ Core",
             "precio": 1500000,
@@ -117,6 +125,7 @@
             "detalle_imagen": "loq_core.png"
         },
         {
+            "id": 9,
             "marca": [3],
             "modelo": "Lenovo E16 R7",
             "precio": 1969000,
@@ -126,6 +135,7 @@
             "detalle_imagen": "e16_r7.png"
         },
         {
+            "id": 10,
             "marca": [4],
             "modelo": "MSI GE78HX 13VG RAIDER",
             "precio": 4725299,
@@ -135,6 +145,7 @@
             "detalle_imagen": "ge78hx_13vg_raider.png"
         },
         {
+            "id": 11,
             "marca": [4],
             "modelo": "MSI CREATOR M16 B13VE-642AR",
             "precio": 2911999,
@@ -144,6 +155,7 @@
             "detalle_imagen": "creator_m16_b13ve-642ar.png"
         },
         {
+            "id": 12,
             "marca": [4],
             "modelo": "MSI GF63 THIN i5",
             "precio": 1469999,
@@ -153,6 +165,7 @@
             "detalle_imagen": "gf63_thin_i5.png"
         },
         {
+            "id": 13,
             "marca": [5],
             "modelo": "Notebook Asus X515ea-ej3968 Fhd I3",
             "precio": 769299,
@@ -162,6 +175,7 @@
             "detalle_imagen": "x515ea-ej3968_fhd_i3.png"
         },
         {
+            "id": 14,
             "marca": [5],
             "modelo": "Notebook Gamer ASUS TUF Gaming F15 FX506LHB-HN324W",
             "precio": 1501999,
@@ -171,6 +185,7 @@
             "detalle_imagen": "tuf_gaming_f15_fx506lhb-hn3242.png"
         },
         {
+            "id": 15,
             "marca": [5],
             "modelo": "Notebook Asus TUF A16 Ryzen 7 16GB 512GB Radeon RX770",
             "precio": 2159999,
