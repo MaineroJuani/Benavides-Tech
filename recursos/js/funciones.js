@@ -13,6 +13,11 @@ export function funciones_comunes(){
             cargarComputadoras_Popup(popupProductos)
         }
     })
+    
+    // Filtrado de marcas
+    const marcas = document.querySelectorAll(".link-marca-pie");
+    filtradosCatalogo(marcas,"marca");
+    // El filtrado de categorias esta en la funcion auto_categorias
 
     
     // Abrir resultados de busqueda
@@ -262,7 +267,7 @@ export function filtradoBoton_marcas(id,catalogo){
         })
 }
 
-export function filtradosCatalogo(elementos,nombreFiltro){
+function filtradosCatalogo(elementos,nombreFiltro){
     elementos.forEach(elemento => {
         elemento.addEventListener("click", (cambioPagina) => {
             cambioPagina.preventDefault();
