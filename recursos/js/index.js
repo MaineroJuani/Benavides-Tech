@@ -1,5 +1,5 @@
 // Funciones importadas
-import {auto_categorias, inicializarCarrusel, funciones_comunes} from "./funciones.js"
+import {auto_categorias, inicializarCarrusel, redireccion_compras, funciones_comunes} from "./funciones.js"
 
 funciones_comunes();
 
@@ -17,4 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
         inicializarCarrusel('.categoria','.prev-button2','.next-button2','.carrusel-track-categoria','.nav-button2',1);
     }
     inicializarCarrusel('.computadoras','.prev-button','.next-button','.carrusel-track','.nav-button',CantidadComputadoras);
+
+    // Redireccion a la pagina de compras
+    const anclaCompras = document.querySelectorAll(".imagen_computadora a");
+    redireccion_compras(anclaCompras)
 });

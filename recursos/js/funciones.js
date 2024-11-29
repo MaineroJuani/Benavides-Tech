@@ -308,7 +308,11 @@ function renderizado_catalogo(contenedor, computadoras){
 
     // Redireccion a la pagina de compras
     const anclaCompras = document.querySelectorAll(".link-compra");
-    anclaCompras.forEach(computadora => {
+    redireccion_compras(anclaCompras)
+}
+
+export function redireccion_compras(ancla){
+    ancla.forEach(computadora => {
         computadora.addEventListener("click", (cambioPagina) => {
             cambioPagina.preventDefault();
             localStorage.setItem("computadoraSeleccionada", computadora.dataset.id);
