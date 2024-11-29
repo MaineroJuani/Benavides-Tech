@@ -315,7 +315,7 @@ export function redireccion_compras(ancla){
     ancla.forEach(computadora => {
         computadora.addEventListener("click", (cambioPagina) => {
             cambioPagina.preventDefault();
-            localStorage.setItem("computadoraSeleccionada", computadora.dataset.id);
+            sessionStorage.setItem("computadoraSeleccionada", computadora.dataset.id);
             const linkCompra = cambioPagina.currentTarget.getAttribute("href");
             window.location.href = linkCompra;
         })
@@ -338,7 +338,7 @@ export function renderizado_compras(id){
             precio.textContent = `$${computadora[0].precio.toLocaleString("es-ES")}`
 
             const botonComprar = document.querySelector(".boton-comprar button")
-            botonComprar.setAttribute = ("data-precio",computadora[0].precio)
+            botonComprar.setAttribute("data-id",computadora[0].id)
 
             const titulo = document.querySelector(".derecha h1")
             titulo.textContent = computadora[0].modelo
