@@ -1,4 +1,4 @@
-import { funciones_comunes, renderizado_compras } from "./funciones.js";
+import { funciones_comunes, renderizado_compras, traerCarrito } from "./funciones.js";
 
 funciones_comunes();
 
@@ -10,15 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Meter computadora al carrito
     const botonComprar = document.querySelector(".boton-comprar button")
     botonComprar.addEventListener("click", () => {
-        const carritoSinProcesar = sessionStorage.getItem("Carrito");
-        let carrito = [];
+        const carrito = traerCarrito()
         const compuNueva = botonComprar.dataset.id
-        console.log(compuNueva);
-
-        // Verificar si hay datos almacenados
-        if (carritoSinProcesar) {
-            carrito = JSON.parse(carritoSinProcesar);
-        }
 
         // Verificar si no esta esa compu cargada
         let i;
@@ -31,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if(i >= carrito.length){
             carrito.push([compuNueva, 1]);
         }
-        console.log(carrito);
         sessionStorage.setItem("Carrito", JSON.stringify(carrito));
     })
 })

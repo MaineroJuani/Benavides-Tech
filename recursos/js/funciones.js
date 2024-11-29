@@ -95,28 +95,90 @@ function cargarComputadoras_Popup(contenedor){
     fetch('/recursos/js/productos.json')
         .then(response => response.json())
         .then(data => {
-            const computadoras = data
-            computadoras.computadoras.forEach((computadora)=>{
-                contenidoHtml +=  `
-                    <article class="producto-popup">
-                        <a href="/compra.html" class="link-compra-carrito">
-                            <div class="imagen-producto-carrito">
-                                <img src="${computadora.imagen}" alt="${computadora.detalle_imagen}" class="imagen-producto" />
-                            </div>
-                            <div class="nombre-popup"><h2>${computadora.modelo}</h2></div>
-                        </a>
-                        <div class="cantidad-producto-popup">
-                            <button class="boton-quitar boton-carrito">-</button>
-                            <div class="cantidad-popup">1</div>
-                            <button class="boton-agregar boton-carrito">+</button>
-                        </div>
-                        <div class="precio-popup">$${computadora.precio.toLocaleString("es-ES")}</div>
-                    </article>
-                `
+            const computadoras = data.computadoras
+            const carrito = traerCarrito();
+
+            for (let i = 0; i < carrito.length; i++){
+                computadoras.some((computadora) => {
+                    if (computadora.id == carrito[i][0]){
+                        contenidoHtml +=  `
+                            <article class="producto-popup" id="contenedor-producto${i}">
+                                <a href="/compra.html" class="link-compra-carrito" data-id="${carrito[i][0]}">
+                                    <div class="imagen-producto-carrito">
+                                        <img src="${computadora.imagen}" alt="${computadora.detalle_imagen}" class="imagen-producto" />
+                                    </div>
+                                    <div class="nombre-popup"><h2>${computadora.modelo}</h2></div>
+                                </a>
+                                <div class="cantidad-producto-popup">
+                                    <button class="boton-quitar boton-carrito" data-id="${i}">-</button>
+                                    <div class="cantidad-popup" id="producto${i}" data-cantidad="${carrito[i][1]}">${carrito[i][1]}</div>
+                                    <button class="boton-agregar boton-carrito" data-id="${i}">+</button>
+                                </div>
+                                <div class="precio-popup" id="precio-popup${i}" data-precio="${computadora.precio}">$${(computadora.precio*carrito[i][1]).toLocaleString("es-ES")}</div>
+                            </article>
+                        `
+                        return true;
+                    }
                 })
-                            
+            }
             contenedor.innerHTML = contenidoHtml
+
+            // Modificar la cantidad de productos
+            const restarCantidad = document.querySelectorAll(".boton-quitar")
+            restarCantidad.forEach((boton) => {
+                boton.addEventListener("click", () => {
+                    modificarCantidad_Popup(-1, boton.dataset.id, carrito)
+                })
+            })
+            const sumarCantidad = document.querySelectorAll(".boton-agregar")
+            sumarCantidad.forEach((boton) => {
+                boton.addEventListener("click", () => {
+                    modificarCantidad_Popup(1, boton.dataset.id, carrito)
+                })
+            })
+
+            // Redireccion a la pagina de compras
+            const anclaCompras = document.querySelectorAll(".link-compra-carrito");
+            redireccion_compras(anclaCompras)
         })
+}
+
+function modificarCantidad_Popup(modificacion, indiceCarrito, carrito){
+    const contenedorCantidad = document.querySelector(`#producto${indiceCarrito}`)
+    const contenedorPrecio = document.querySelector(`#precio-popup${indiceCarrito}`)
+
+    // Actualizar cantidad y precio
+    let cantidadProducto = contenedorCantidad.dataset.cantidad
+    let precioProducto = contenedorPrecio.dataset.precio
+
+    cantidadProducto = Number(cantidadProducto) + modificacion
+    precioProducto = Number(precioProducto) * cantidadProducto
+
+    if (cantidadProducto > 0){
+        carrito[indiceCarrito][1] = cantidadProducto
+        contenedorCantidad.dataset.cantidad = cantidadProducto
+
+        contenedorCantidad.textContent = cantidadProducto
+        contenedorPrecio.textContent = precioProducto.toLocaleString("es-ES")
+    }
+    else {
+        carrito.splice(indiceCarrito,1)
+        const contenedorProducto = document.querySelector(`#contenedor-producto${indiceCarrito}`)
+        contenedorProducto.remove();
+    }
+
+    sessionStorage.setItem("Carrito", JSON.stringify(carrito));
+}
+
+export function traerCarrito(){
+    const carritoSinProcesar = sessionStorage.getItem("Carrito");
+    let carrito = [];
+
+    // Verificar si hay datos almacenados
+    if (carritoSinProcesar) {
+        carrito = JSON.parse(carritoSinProcesar);
+    }
+    return carrito;
 }
 
 // Cargar las categorias
