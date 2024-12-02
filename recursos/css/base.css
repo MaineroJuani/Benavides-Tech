@@ -1,15 +1,15 @@
 /* Fuentes */
 @font-face {
-    font-family: "Poppins";
-    src: url(fuentes/Poppins-Regular.ttf);
+  font-family: "Poppins";
+  src: url(fuentes/Poppins-Regular.ttf);
 }
 @font-face {
-    font-family: "Roboto";
-    src: url(fuentes/Roboto-Regular.ttf);
+  font-family: "Roboto";
+  src: url(fuentes/Roboto-Regular.ttf);
 }
 
 *{
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 :root{
@@ -27,23 +27,25 @@
 }
 
 body{
-    display: flex;
-    flex-direction: column;
-    margin: 0;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
 
-    background-color: var(--color-fondo);
+  background-color: var(--color-fondo);
 }
 
 /* cosas globales */
 /* fuente parrafo*/
 p{
-    font-family: "Roboto";
+  font-family: "Roboto";
 }
 /* imagenes automaticas */
 img{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 textarea{
   resize: none;
@@ -58,14 +60,29 @@ button{
 }
 /* bordeado de contenedores */
 .bordeado{
-    border-radius: 18px;
-    overflow: hidden;
+  border-radius: 18px;
+  overflow: hidden;
 }
 /* Tipos de contenedores */
 .contenedor-centrado{
   display: flex;
   align-items: center;
   justify-content:center;
+}
+.contenedor-centrado-inicio{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+.contenedor-centrado-around{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.contenedor-centrado-evenly{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 /* fin cosas globales */
