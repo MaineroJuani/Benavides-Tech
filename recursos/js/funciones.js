@@ -46,6 +46,9 @@ export function funciones_comunes(){
     textareaBuscador.addEventListener("input", () => {
         verificarBusqueda(resultadosBusqueda,textareaBuscador.value)
     })
+
+    // Poner URL en formulario del footer
+    // colocar_URL();
 }
 
 function verificarBusqueda(resultadosBusqueda,textareaBuscadorTexto){
@@ -198,13 +201,25 @@ export function auto_categorias(categoriasId){
     }
 }
 
+// Colocar URL de la pagina en el formulario
+export function colocar_URL(contenedor){
+    const url = window.location.href;
+
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = '_next';
+    input.value = url;
+
+    contenedor.appendChild(input);
+}
+
 // Carruseles
 export function inicializarCarrusel(elemento, prev, next,contenedor,nav,CantidadComputadoras){
     let currentIndex = 0; // Índice actual del carrusel
     const computadoras = document.querySelectorAll(elemento); // Selecciona todos los elementos con la clase 'computadoras'
 
     const computedStyle = getComputedStyle(computadoras[0]);
-    const anchoComputadora = parseFloat(computedStyle.width) // Ancho de cada computadora (elemento)
+    const anchoComputadora = parseFloat(computedStyle.width)
     const margenIzquierdo = parseFloat(computedStyle.marginLeft)
     const margenDerecho = parseFloat(computedStyle.marginRight)
     const anchoTotalComputadora = anchoComputadora + margenIzquierdo + margenDerecho //Tamaño total del elemento
