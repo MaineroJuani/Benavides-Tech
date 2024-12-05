@@ -48,7 +48,8 @@ export function funciones_comunes(){
     })
 
     // Poner URL en formulario del footer
-    // colocar_URL();
+    const contenedorPromociones = document.querySelector(".formulario-ofertas"); 
+    colocar_URL(contenedorPromociones);
 }
 
 function verificarBusqueda(resultadosBusqueda,textareaBuscadorTexto){
