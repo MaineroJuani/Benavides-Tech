@@ -407,7 +407,9 @@ function crear_eliminarFiltros(){
 
     // Crear evento del ancla
     ancla.addEventListener("click", () => {
-        
+        const contenedorCatalogo = document.querySelector(".catalogo");
+        cargar_catalogo(contenedorCatalogo)
+        contenedorEliminarFiltro.innerHTML = "";
     })
 }
 
