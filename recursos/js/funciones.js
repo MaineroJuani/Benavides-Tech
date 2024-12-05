@@ -34,11 +34,15 @@ export function funciones_comunes(){
     // Perdida del foco
     textareaBuscador.addEventListener("blur", () => {
         perdidaFoco = true;
+        console.log(perdidaFoco)
     });
+
     // Se deja de presionar click
     document.addEventListener("mouseup", () => {
         if (perdidaFoco == true) {
-            resultadosBusqueda.innerHTML = ""
+            setTimeout(() => {
+                resultadosBusqueda.innerHTML = "";
+            }, 100);
         }
     });
 
@@ -75,7 +79,7 @@ function cargarComputadoras_BarraBusqueda(contenedor, textareaTexto){
                 const modeloComputadora = computadora.modelo.toLowerCase();
                 if (modeloComputadora.includes(textoBusqueda)) {
                     contenidoHtml +=  `
-                        <a href="compra.html" class="elemento-resultado">
+                        <a href="compra.html" class="elemento-resultado" data-id="${computadora.id}">
                             <picture class="imagen-resultado">
                             <img src="${computadora.imagen}" alt="${computadora.detalle_imagen}" >
                             </picture>
@@ -90,6 +94,9 @@ function cargarComputadoras_BarraBusqueda(contenedor, textareaTexto){
             }
         
             contenedor.innerHTML = contenidoHtml
+
+            const anclaCompras = document.querySelectorAll(".elemento-resultado")
+            redireccion_compras(anclaCompras)
         })
 }
 
