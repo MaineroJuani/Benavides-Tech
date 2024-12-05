@@ -16,6 +16,20 @@ main {
 
 /* fin posicionamiento*/
 
+/* Pop-up carrito */
+.contenedor-producto-agregado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+}
+.imagen-producto-agregado{
+    height: 200px;
+    width: 200px;
+}
+
+/* Fin pop-up carrito */
 
 .general {
     display: flex;
@@ -24,7 +38,7 @@ main {
     margin: 20px; /* Margen para separar de otros elementos */
 }
 
-.imagen {
+.imagen, .imagen-producto-agregado {
     border: 2px solid #6200ea; /* Borde morado alrededor de la imagen */
     border-radius: 10px; /* Bordes redondeados */
     padding: 5px; /* Espacio interno */
@@ -167,13 +181,3 @@ main {
     text-align: left; /* Alinea el texto a la izquierda */
 }
 }
-
-
-
-
-
-
-
-
-
-

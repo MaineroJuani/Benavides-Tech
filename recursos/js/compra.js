@@ -1,4 +1,4 @@
-import { funciones_comunes, renderizado_compras, traerCarrito } from "./funciones.js";
+import { funciones_comunes, renderizado_compras, renderizado_producto_agregado, traerCarrito } from "./funciones.js";
 
 funciones_comunes();
 
@@ -25,5 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
             carrito.push([compuNueva, 1]);
         }
         sessionStorage.setItem("Carrito", JSON.stringify(carrito));
+
+        // Mostrar mensaje producto agregado
+        const popupProductoAgregado = document.querySelector("#popup-producto-agregado")
+        renderizado_producto_agregado(popupProductoAgregado, computadoraSeleccionada)
     })
 })

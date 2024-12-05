@@ -477,3 +477,28 @@ export function renderizado_compras(id){
             descripcion.textContent = computadora[0].descripcion
         })
 }
+
+export function renderizado_producto_agregado(popup,id){
+    fetch('/recursos/js/productos.json')
+        .then(response => response.json())
+        .then(data => {
+            const computadoras = data.computadoras
+            const computadora = filtrado_computadoras_id(computadoras,id)
+
+            const imagen = document.querySelector(".imagen-producto-agregado img")
+            imagen.src = computadora[0].imagen
+            imagen.alt = computadora[0].modelo
+
+            const nombreProducto = document.querySelector(".contenedor-producto-agregado p")
+            nombreProducto.textContent = computadora[0].modelo
+
+            popup.showModal()
+        })
+}
+
+function filtrado_computadoras_id(computadoras,id){
+    const computadora = computadoras.filter(compu =>{
+        return compu.id == Number(id)
+    })
+    return computadora
+}
