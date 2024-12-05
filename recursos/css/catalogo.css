@@ -45,7 +45,6 @@ body{
 .lista-menu li a{
     display: flex;
     align-items: center;
-    text-decoration: none;
     color: white;
     padding: 10px 15px;
     border-radius: 8px;

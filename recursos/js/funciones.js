@@ -330,6 +330,7 @@ export function filtradoBoton_categorias(id,catalogo){
                 return computadora.categoria.includes(Number(id))
             })
             renderizado_catalogo(catalogo,computadorasFiltradas)
+            crear_eliminarFiltros()
         })
 }
 
@@ -342,6 +343,7 @@ export function filtradoBoton_marcas(id,catalogo){
                 return computadora.marca == id
             })
             renderizado_catalogo(catalogo,computadorasFiltradas)
+            crear_eliminarFiltros()
         })
 }
 
@@ -387,6 +389,26 @@ function renderizado_catalogo(contenedor, computadoras){
     // Redireccion a la pagina de compras
     const anclaCompras = document.querySelectorAll(".link-compra");
     redireccion_compras(anclaCompras)
+}
+
+function crear_eliminarFiltros(){
+    // Crear el ancla y colocarla en html
+    const contenedorEliminarFiltro = document.querySelector('#eliminar-filtro');
+
+    const ancla = document.createElement('a');
+    ancla.href = '#';
+
+    const span = document.createElement('span');
+    span.className = "Categorias";
+    span.textContent = 'Eliminar Filtro';
+
+    ancla.appendChild(span);
+    contenedorEliminarFiltro.appendChild(ancla);
+
+    // Crear evento del ancla
+    ancla.addEventListener("click", () => {
+        
+    })
 }
 
 export function redireccion_compras(ancla){

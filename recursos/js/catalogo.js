@@ -6,9 +6,8 @@ funciones_comunes();
 document.addEventListener('DOMContentLoaded', () => {
     // Cargar computadoras en catalogo
     const contenedor = document.querySelector('.catalogo');
-    cargar_catalogo(contenedor);
 
-    // Revisar si recibo filtro del index.html
+    // Revisar si recibe filtro
     const marcaSeleccionada = localStorage.getItem("marcaSeleccionada");
     const categoriaSeleccionada = localStorage.getItem("categoriaSeleccionada");
     if (marcaSeleccionada) {
@@ -18,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
     else if (categoriaSeleccionada) {
         filtradoBoton_categorias(categoriaSeleccionada, contenedor)
         localStorage.removeItem("categoriaSeleccionada");
+    }
+    else { //Por si acaso no recibe un filtro
+        cargar_catalogo(contenedor);
     }
 
     // Cargar Boton Marcas
