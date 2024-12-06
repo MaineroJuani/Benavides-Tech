@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
         CantidadComputadoras = 3;
     }
     else{
-        inicializarCarrusel('.categoria','.prev-button2','.next-button2','.carrusel-track-categoria','.nav-button2',1);
+        inicializarCarrusel('.categoria','#prev-button2','#next-button2','.carrusel-track-categoria','.nav-button2',1);
     }
-    inicializarCarrusel('.computadoras','.prev-button','.next-button','.carrusel-track','.nav-button',CantidadComputadoras);
+    inicializarCarrusel('.computadoras','#prev-button','#next-button','.carrusel-track','.nav-button',CantidadComputadoras);
 
     // Redireccion a la pagina de compras
     const anclaCompras = document.querySelectorAll(".imagen_computadora a");

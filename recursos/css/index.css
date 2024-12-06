@@ -4,35 +4,33 @@
 }
 
 .banner{
-  width: 100%;
   height: 450px;
   object-fit: cover;
 }
 
-.titulo-principal{
+.titulo-principal, .boton-scroll{
   position: absolute;
-  top: 13%;
-  left: 50%;
-  width: 80%;
   transform: translate(-50%, -50%);
+  left: 50%;
   color: white;
-  text-align: center;
+}
+
+.titulo-principal{
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+  top: 13%;
+  width: 80%;
+  text-align: center;
   font-size: 18px;
 }
 
 .boton-scroll {
-  position: absolute;
-  top: 43%; /* Ajusta para colocar el botón en la imagen */
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #fff;
+  top: 43%;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); 
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  font-size: 16px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); 
   transition: background-color 0.3s;
+  font-size: 16px;
   z-index: 1;
 }
 
@@ -96,7 +94,7 @@
 }
   
   
-.nav-button {
+.nav-button, .nav-button2 {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -105,15 +103,15 @@
 
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
-.nav-button:hover{
+.nav-button:hover, .nav-button2:hover{
   background-color: #ffffff;
 }
 
-.nav-button:focus {
+.nav-button:focus, .nav-button2:focus {
   outline: 0;
 }
 
-.nav-button svg {
+.nav-button svg, .nav-button2 svg {
   width: 24px;
   height: 100%;
   color: rgb(0, 0, 0);
@@ -127,24 +125,25 @@
   right: 10px;
 }
 
-.computadoras {
-height: 250px;
-width: 210px;
-margin: 0px 18px;
+.computadoras, .categoria {
 flex-direction: column;
-
 border: 1px solid transparent;
 border-radius: 8px;
 box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 overflow: hidden;
-
 transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; 
 }
 
-.computadoras:hover {
+.computadoras:hover, .categoria:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
   border: 1px solid rgb(78, 55, 138);
+}
+
+.computadoras {
+  height: 250px;
+  width: 210px;
+  margin: 0px 18px;
 }
 
 .nombre_computadora {
@@ -208,69 +207,19 @@ transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   background-color: var(--color-contenedor);
   overflow: hidden;
   position: relative;
-  transition: transform 0.5s ease-in-out;
 }
 .categoria{
   height: 390px;
   width: 90vw;
   margin: 0 5vw;
-  flex-direction: column;
-
-  border: 1px solid transparent;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-
-  overflow: hidden;
-
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; 
-}
-
-.categoria:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-  border: 1px solid rgb(78, 55, 138);
 }
 
 
 .carrusel-track-categoria {
-flex-grow: 2;
-display: flex;
-justify-content: space-around;
-transition: transform 0.5s ease-in-out;
-position: relative;
+  flex-grow: 2;
+  position: relative;
+  transition: transform 0.5s ease-in-out;
 }
-
-
-.nav-button2 {
-position: absolute;
-top: 50%;
-transform: translateY(-50%);
-background-color: rgb(226, 226, 226,0.1);
-z-index: 2;
-transition: transform 0.3s ease, background-color 0.3s ease;
-}
-.nav-button2:hover{
-  background-color: #ffffff;
-}
-
-.nav-button2:focus {
-outline: 0;
-}
-
-.nav-button2 svg {
-width: 24px;
-height: 100%;
-color: rgb(0, 0, 0);
-}
-
-.prev-button2 {
-left: 10px;
-}
-
-.next-button2 {
-right: 10px;
-}
-
 
 
 @media (min-width: 768px){
@@ -284,9 +233,7 @@ right: 10px;
     width: 100%;
   }
   .categoria{
-    height: 390px;
     width: 390px;
     margin: 0px;
-    flex-direction: column;
   }
 }

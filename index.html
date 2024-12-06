@@ -12,17 +12,17 @@
 </head>
 <body>
     <dialog class="popup-carro" id="popup-carro">
-        <form class="formulario-carrito" method="dialog">
+        <form class="formulario-carrito contenedor-centrado-final" method="dialog">
             <button class="cerrar-popup elemento-header">CERRAR</button>
         </form>
-        <h2 class="titulo-carrito">CARRITO</h2>
+        <h2 class="titulo-carrito contenedor-centrado">CARRITO</h2>
         <section id="contenedor-carro"></section>
     </dialog>
     <header id="id-encabezado" class="encabezado">
         <a href="index.html" class="logo-encabezado">
             <img src="/recursos/imagenes/benavidez_logo.png" alt="logo" width="100px">
         </a>
-        <nav class="navegacion-paginas">
+        <nav class="navegacion-paginas contenedor-centrado-between">
             <a href="index.html" class="ancla-pagina">
                 Menu
             </a>
@@ -34,7 +34,7 @@
             </a>
         </nav>
         <div class="contenedor-lupa contenedor-centrado">
-            <textarea name="filtro-modelo" class="filtro-modelo" id="id-filtro-modelo" rows="1" style="resize: none;"></textarea>
+            <textarea name="filtro-modelo" class="filtro-modelo" id="id-filtro-modelo" rows="1"></textarea>
             <aside role="listbox" class="filtro-resultados"></aside>
             <button class="imagen-lupa elemento-header" id="id-lupa">
                 <img src="/recursos/imagenes/lupa.svg" alt="lupa.svg">
@@ -63,7 +63,7 @@
 
             <div class="contenedor_destacados contenedor-centrado-inicio">
                 
-                <button class="nav-button prev-button">
+                <button class="nav-button prev-button" id="prev-button">
                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left"
                         class="svg-inline--fa fa-chevron-left fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 320 512">
@@ -143,7 +143,7 @@
         
                 </div>
 
-                <button class="nav-button next-button">
+                <button class="nav-button next-button" id="next-button">
                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right"
                         class="svg-inline--fa fa-chevron-right fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 320 512">
@@ -158,7 +158,7 @@
         </section>
 
         <div class="contenedor-categorias bordeado contenedor-centrado-inicio" id="id-categorias">
-            <button class="nav-button2 prev-button2">
+            <button class="nav-button2 prev-button" id="prev-button2">
                 <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left"
                     class="svg-inline--fa fa-chevron-left fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 320 512">
@@ -168,7 +168,7 @@
                 </svg>
             </button>
             
-            <div class="carrusel-track-categoria">
+            <div class="carrusel-track-categoria contenedor-inicio-around">
                 <div class="categoria contenedor-centrado-inicio">
                     <div class="nombre_computadora contenedor-centrado-evenly" >
                         <p>GAMER</p>
@@ -224,7 +224,7 @@
                 </div>
             </div>
             
-            <button class="nav-button2 next-button2">
+            <button class="nav-button2 next-button" id="next-button2">
                 <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-right"
                     class="svg-inline--fa fa-chevron-right fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 320 512">
@@ -238,7 +238,7 @@
     </main>
     
     <footer id="id-pie" class="pie">
-        <section class="marcas-pie">
+        <section class="marcas-pie contenedor-centrado-around">
             <a href="catalogo.html" class="link-marca-pie" data-id="1">
                 <img src="recursos/imagenes/marcas/apple.png" alt="Logo Apple">
             </a>
@@ -256,7 +256,7 @@
             </a>
         </section>
     
-        <section class="pie-entrega-cuotas">
+        <section class="pie-entrega-cuotas contenedor-centrado-inicio">
     
             <div class="pie-entrega contenedor-centrado">
                 <div class="entrega-cuotas-imagen">
@@ -278,7 +278,7 @@
     
         </section>
     
-        <section class="informacion-adicional-pie">
+        <section class="informacion-adicional-pie contenedor-centrado-between">
     
                 <div class="listado-pie contenedor-centrado">
                     <h2>TIENDAS FISICAS</h2>

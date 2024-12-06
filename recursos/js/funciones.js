@@ -79,7 +79,7 @@ function cargarComputadoras_BarraBusqueda(contenedor, textareaTexto){
                 const modeloComputadora = computadora.modelo.toLowerCase();
                 if (modeloComputadora.includes(textoBusqueda)) {
                     contenidoHtml +=  `
-                        <a href="compra.html" class="elemento-resultado" data-id="${computadora.id}">
+                        <a href="compra.html" class="elemento-resultado contenedor-centrado-inicio" data-id="${computadora.id}">
                             <picture class="imagen-resultado">
                             <img src="${computadora.imagen}" alt="${computadora.detalle_imagen}" >
                             </picture>
@@ -118,14 +118,14 @@ function cargarComputadoras_Popup(contenedor){
                                     <div class="imagen-producto-carrito">
                                         <img src="${computadora.imagen}" alt="${computadora.detalle_imagen}" class="imagen-producto" />
                                     </div>
-                                    <div class="nombre-popup"><h2>${computadora.modelo}</h2></div>
+                                    <div class="nombre-popup contenedor-centrado-inicio"><h2>${computadora.modelo}</h2></div>
                                 </a>
                                 <div class="cantidad-producto-popup">
                                     <button class="boton-quitar boton-carrito" data-id="${i}">-</button>
-                                    <div class="cantidad-popup" id="producto${i}" data-cantidad="${carrito[i][1]}">${carrito[i][1]}</div>
+                                    <div class="cantidad-popup contenedor-centrado" id="producto${i}" data-cantidad="${carrito[i][1]}">${carrito[i][1]}</div>
                                     <button class="boton-agregar boton-carrito" data-id="${i}">+</button>
                                 </div>
-                                <div class="precio-popup" id="precio-popup${i}" data-precio="${computadora.precio}">$${(computadora.precio*carrito[i][1]).toLocaleString("es-ES")}</div>
+                                <div class="precio-popup contenedor-centrado-inicio" id="precio-popup${i}" data-precio="${computadora.precio}">$${(computadora.precio*carrito[i][1]).toLocaleString("es-ES")}</div>
                             </article>
                         `
                         return true;
@@ -268,7 +268,7 @@ export function inicializarCarrusel(elemento, prev, next,contenedor,nav,Cantidad
     }
 
     function stopAutoplay() {
-    clearInterval(autoplayInterval);
+        clearInterval(autoplayInterval);
     }
 
     startAutoplay(3000);
