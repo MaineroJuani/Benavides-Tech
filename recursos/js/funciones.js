@@ -121,9 +121,9 @@ function cargarComputadoras_Popup(contenedor){
                                     <div class="nombre-popup contenedor-centrado-inicio"><h2>${computadora.modelo}</h2></div>
                                 </a>
                                 <div class="cantidad-producto-popup">
-                                    <button class="boton-quitar boton-carrito" data-id="${i}">-</button>
+                                    <button class="boton-quitar boton-carrito boton-morado-oscuro" data-id="${i}">-</button>
                                     <div class="cantidad-popup contenedor-centrado" id="producto${i}" data-cantidad="${carrito[i][1]}">${carrito[i][1]}</div>
-                                    <button class="boton-agregar boton-carrito" data-id="${i}">+</button>
+                                    <button class="boton-agregar boton-carrito boton-morado-oscuro" data-id="${i}">+</button>
                                 </div>
                                 <div class="precio-popup contenedor-centrado-inicio" id="precio-popup${i}" data-precio="${computadora.precio}">$${(computadora.precio*carrito[i][1]).toLocaleString("es-ES")}</div>
                             </article>
@@ -378,14 +378,14 @@ function renderizado_catalogo(contenedor, computadoras){
     let contenidoHtml = ``
     computadoras.forEach((computadora)=>{
         contenidoHtml +=  `
-            <div class="producto">
+            <div class="producto bordeado-morado-claro">
             <a href="/compra.html" class="link-compra" data-id=${computadora.id}>
                 <div class="nombre-producto"><h2>${computadora.modelo}</h2></div>
-                <div class="tamaño-imagen">
+                <div class="tamaño-imagen contenedor-centrado">
                 <img src="${computadora.imagen}" alt="${computadora.detalle_imagen}" class="imagen-producto" />
                 </div>
                 <div class="precio-producto">$${computadora.precio.toLocaleString("es-ES")}</div>
-                <button class="boton-comprar">Ver Más</button>
+                <button class="boton-comprar boton-morado-oscuro">Ver Más</button>
             </a>
             </div>
         `

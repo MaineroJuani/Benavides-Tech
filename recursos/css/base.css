@@ -62,6 +62,20 @@ button{
   border-radius: 18px;
   overflow: hidden;
 }
+.bordeado-morado-claro{
+  border: 2px solid #6200ea;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+/* tipos botones */
+.boton-morado-oscuro {
+  background-color: var(--color-morado-oscuro); 
+  color: white; 
+}
+.boton-morado-oscuro:hover {
+  background-color: var(--color-morado-claro); /* Color de fondo al pasar el mouse */
+}
 /* Tipos de contenedores */
 .contenedor-centrado{
   display: flex;
@@ -500,13 +514,8 @@ button{
 .boton-carrito{
   height: 30px;
   width: 30px;
-  background-color: var(--color-morado-oscuro); 
-  color: white; 
   font-size: 20px;
   text-align: center;
-}
-.boton-carrito:hover {
-  background-color: var(--color-morado-claro);
 }
 .boton-carrito:active {
   transform: scale(0.95);
