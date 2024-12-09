@@ -537,6 +537,13 @@ button{
 .precio-popup{
   flex: 1;
 }
+.contenedor-precio-finalizar{
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 20px;
+}
+.boton-finalizar-compra{
+}
 
 @media (min-width: 768px){
   .popup-carro{
