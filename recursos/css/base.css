@@ -464,7 +464,7 @@ button{
   }
 }
 
-/* Pop-up */
+/* Pop-up carro*/
 .popup-carro{
   position:fixed;
   margin:0;
@@ -577,4 +577,21 @@ button{
     flex: 0;
     width: 20%;
   }
+}
+
+/* Pop-up pagos */
+.popup-pagos{
+  position:fixed;
+  inset: unset;
+  margin:0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* width:90%; */
+  /* min-height:100dvh; */
+  border:none;
+}
+.contenedor-pagos{
+  width: 300px;
+  height: 300px;
 }
