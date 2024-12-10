@@ -241,13 +241,17 @@ export function auto_categorias(categoriasId){
             .then(data => {
                 document.getElementById(categoriasId).innerHTML = data;
 
-                // Filtrado de categoria
                 const categorias = document.querySelectorAll(".link-categoria");
                 filtradosCatalogo(categorias,"categoria");
             })
             .catch(error => console.error('Error al cargar contenedor categorias:', error));
     }
+    else {
+        const categorias = document.querySelectorAll(".link-categoria");
+        filtradosCatalogo(categorias,"categoria");
+    }
 }
+
 
 // Colocar URL de la pagina en el formulario
 export function colocar_URL(contenedor){
@@ -399,8 +403,9 @@ function filtradosCatalogo(elementos,nombreFiltro){
         elemento.addEventListener("click", (cambioPagina) => {
             cambioPagina.preventDefault();
             localStorage.setItem(`${nombreFiltro}Seleccionada`, elemento.dataset.id);
+            console.log(`${nombreFiltro}Seleccionada`,elemento.dataset.id);
             const linkCatalogo = cambioPagina.currentTarget.getAttribute("href");
-            window.location.href = linkCatalogo;
+            // window.location.href = linkCatalogo;
         })
     })
 }
