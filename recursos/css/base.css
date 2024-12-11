@@ -74,7 +74,8 @@ button{
   color: white; 
 }
 .boton-morado-oscuro:hover {
-  background-color: var(--color-morado-claro); /* Color de fondo al pasar el mouse */
+  background-color: var(--color-morado-claro);
+  text-shadow: 0 0 5px rgba(245, 245, 245, 0.436);
 }
 /* Tipos de contenedores */
 .contenedor-centrado{
