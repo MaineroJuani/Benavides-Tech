@@ -466,16 +466,18 @@ button{
 }
 
 /* Pop-up carro*/
-.popup-carro{
+.popup-carro, .popup-pagos{
   position:fixed;
-  margin:0;
   inset: unset;
+  margin:0;
+  border:none;
+}
+.popup-carro{
   right:0;
   bottom:0;
   top:0;
   width:90%;
   min-height:100dvh;
-  border:none;
 }
 .formulario-carrito{
   height: 50px;
@@ -541,9 +543,12 @@ button{
 .contenedor-precio-finalizar{
   display: flex;
   justify-content: space-between;
+  height: 50px;
   padding: 0px 20px;
 }
-.boton-finalizar-compra{
+.monto-final{
+  display: flex;
+  align-items: center;
 }
 
 @media (min-width: 768px){
@@ -582,15 +587,9 @@ button{
 
 /* Pop-up pagos */
 .popup-pagos{
-  position:fixed;
-  inset: unset;
-  margin:0;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* width:90%; */
-  /* min-height:100dvh; */
-  border:none;
 }
 .contenedor-pagos{
   width: 300px;
