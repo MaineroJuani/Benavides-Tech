@@ -84,7 +84,7 @@ function cargarComputadoras_BarraBusqueda(contenedor, textareaTexto){
                             <picture class="imagen-resultado">
                             <img src="${computadora.imagen}" alt="${computadora.detalle_imagen}" >
                             </picture>
-                            <h2 class="descripcion-resultado">${computadora.modelo}</h2>
+                            <h2 class="descripcion-resultado puntos-suspensivos">${computadora.modelo}</h2>
                         </a>
                     `
                     cantidadElementos--;
@@ -120,7 +120,7 @@ function cargarComputadoras_Popup(contenedor,contenedorPrecioFinalizar){
                                     <div class="imagen-producto-carrito">
                                         <img src="${computadora.imagen}" alt="${computadora.detalle_imagen}" class="imagen-producto" />
                                     </div>
-                                    <div class="nombre-popup contenedor-centrado-inicio"><h2>${computadora.modelo}</h2></div>
+                                    <div class="nombre-popup puntos-suspensivos contenedor-centrado-inicio"><h2 class="puntos-suspensivos">${computadora.modelo}</h2></div>
                                 </a>
                                 <div class="cantidad-producto-popup">
                                     <button class="boton-quitar boton-carrito boton-morado-oscuro" data-id="${carrito[i][0]}">-</button>
@@ -405,7 +405,7 @@ function filtradosCatalogo(elementos,nombreFiltro){
             localStorage.setItem(`${nombreFiltro}Seleccionada`, elemento.dataset.id);
             console.log(`${nombreFiltro}Seleccionada`,elemento.dataset.id);
             const linkCatalogo = cambioPagina.currentTarget.getAttribute("href");
-            // window.location.href = linkCatalogo;
+            window.location.href = linkCatalogo;
         })
     })
 }
@@ -446,7 +446,7 @@ function renderizado_catalogo(contenedor, computadoras){
 function crear_eliminarFiltros(){
     // Crear el ancla y colocarla en html
     const contenedorEliminarFiltro = document.querySelector('#eliminar-filtro');
-
+    contenedorEliminarFiltro.innerHTML = ""
     const ancla = document.createElement('a');
     ancla.href = '#';
 

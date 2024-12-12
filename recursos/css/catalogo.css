@@ -1,13 +1,6 @@
-*{
+main *{
     margin: 0;
-    /* padding: 0; */
 }
-
-/* body{
-    margin: 0;
-    font-family: Poppins;
-} */
-
 
 /*Sidebar */
 
@@ -142,26 +135,24 @@
 /*-- movimiento = hover --*/
 
 .producto:hover {
-    transform: translateY(-5px); /* mueve la imagen */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* sombra */
-    border: 1px solid rgb(78, 55, 138); /* borde brillante cuando paso el mouse */
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgb(78, 55, 138);
 }
 
 /* Estilos para el nombre del producto */
 .nombre-producto {
-    background-color: var(--color-morado-oscuro); /* Fondo de color para el nombre */
+    background-color: var(--color-morado-oscuro); 
     padding: 10px; 
     border-radius: 5px; 
-    margin-bottom: 10px; /* Espacio abajo del nombre */
+    margin-bottom: 10px;
     color: var(--fuente-blanca);
 
-    /* brillo del nombre*/
-    transition: color 0.3s ease; /* Transición suave */
+    transition: color 0.3s ease; 
 }
-    /* brillo del nombre*/
 .producto:hover .nombre-producto {
     color: white;
-    text-shadow: 0 0 5px rgba(245, 245, 245, 0.436); /*brillo sutil */
+    text-shadow: 0 0 5px rgba(245, 245, 245, 0.436);
 }
 
 

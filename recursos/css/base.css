@@ -57,6 +57,12 @@ button{
   background-color: transparent;
   border: 0;
 }
+
+.puntos-suspensivos{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
 /* bordeado de contenedores */
 .bordeado{
   border-radius: 18px;
@@ -132,10 +138,8 @@ button{
   grid-template-rows: repeat(2, 40px); 
   gap: 10px;
 }
-.logo-encabezado img {
-  width: 100px;
-  margin: 5px;
-  padding-left: 5px;
+.logo-encabezado {
+  margin-top: 5px;
 }
 .navegacion-paginas{
   grid-column: span 2;
@@ -177,8 +181,6 @@ button{
   width: 250px;
   color: var(--color-morado-claro);
   font-size: 18px;
-  white-space: nowrap;
-  overflow: hidden;
 }
 
 /* Despues cambiar */
@@ -204,9 +206,6 @@ button{
   flex: 1;
   height: 30px;
   font-size: 15px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
 }
 
 @media (min-width: 768px){
@@ -422,11 +421,13 @@ button{
   
   /* Listados */
   .informacion-adicional-pie{
-      flex-direction: row;
-      padding: 0px;
+    flex-direction: row;
+    padding: 0px;
+    display: flex;
+    align-items: start;
   }
   .informacion-adicional-pie div{ /* Los contenedores que dividen en 4 */
-      width: 25%;
+    width: 25%;
   }
   
   /* Resto */
@@ -501,12 +502,8 @@ button{
   height: 50px;
   width: 50px;
 }
-.nombre-popup{
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
 .nombre-popup h2{
+  width: 100%;
   font-size: 15px;
 }
 .cantidad-producto-popup{
@@ -545,6 +542,7 @@ button{
   justify-content: space-between;
   height: 50px;
   padding: 0px 20px;
+  margin-top: 20px;
 }
 .monto-final{
   display: flex;
