@@ -35,7 +35,6 @@ export function funciones_comunes(){
     // Perdida del foco
     textareaBuscador.addEventListener("blur", () => {
         perdidaFoco = true;
-        console.log(perdidaFoco)
     });
 
     // Se deja de presionar click
