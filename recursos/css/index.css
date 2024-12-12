@@ -38,8 +38,6 @@
   background-color: var(--color-morado-claro); 
 }
 
-
-/* media query del inicio */
 @media (min-width: 768px){
   
   .banner{

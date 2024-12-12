@@ -128,8 +128,6 @@ button{
 
 /* fin cosas globales */
 
-
-
 /* Encabezado */
 .encabezado{
   background-color: var(--color-header);
@@ -182,8 +180,6 @@ button{
   color: var(--color-morado-claro);
   font-size: 18px;
 }
-
-/* Despues cambiar */
 .filtro-resultados{
   position: absolute;
   top: 40px;
@@ -289,7 +285,6 @@ button{
 }
 
 /* informacion adicional pie */
-
 /* Listados */
 .informacion-adicional-pie{
   background-color: var(--color-header);
@@ -581,15 +576,4 @@ button{
     flex: 0;
     width: 20%;
   }
-}
-
-/* Pop-up pagos */
-.popup-pagos{
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.contenedor-pagos{
-  width: 300px;
-  height: 300px;
 }

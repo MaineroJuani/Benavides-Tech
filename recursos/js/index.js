@@ -1,4 +1,3 @@
-// Funciones importadas
 import {auto_categorias, inicializarCarrusel, redireccion_compras, funciones_comunes} from "./funciones.js"
 
 funciones_comunes();

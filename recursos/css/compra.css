@@ -1,6 +1,5 @@
 
 /* posicionamiento*/
-
 main {
     flex-direction: column;
     margin: 20px;
@@ -10,11 +9,9 @@ main {
     flex: 1;
     margin: 10px;
 }
-
-
 /* fin posicionamiento*/
 
-/* Pop-up carrito */
+/* Pop-up producto agregado */
 .contenedor-producto-agregado {
     flex-direction: column;
 }
@@ -23,7 +20,7 @@ main {
     width: 200px;
 }
 
-/* Fin pop-up carrito */
+/* Fin pop-up producto agregado */
 
 .general {
     flex-direction: column;
@@ -84,8 +81,6 @@ main {
     padding: 8px;
     margin-right: 10px;
 }
-
-
 .caracteristicas h3 {
     margin: 0;
     font-size: 1em;

@@ -141,16 +141,6 @@ function cargarComputadoras_Popup(contenedor,contenedorPrecioFinalizar){
                     <h2 class="monto-final" data-precio="${montoTotal}">Total: $${montoTotal.toLocaleString("es-ES")}</h2>
                     <button class="boton-finalizar-compra bordeado boton-morado-oscuro">Continuar Compra</button>
                 `
-                document.querySelector(".boton-finalizar-compra").addEventListener("click", ()=>{
-                    const popupCarro = document.querySelector("#popup-carro")
-                    popupCarro.close();
-                    const popupPagos = document.querySelector("#popup-pagos")
-                    if (popupPagos.open) {
-                        popupCarro.close();
-                    }else{
-                        popupPagos.showModal();
-                    }
-                })
             }
 
             // Modificar la cantidad de productos
@@ -319,13 +309,10 @@ export function inicializarCarrusel(elemento, prev, next,contenedor,nav,Cantidad
     document.querySelectorAll(nav).forEach(button => {
         button.addEventListener('click', ()=>{
             stopAutoplay();
-            startAutoplay(3000)  //Debatible
+            startAutoplay(3000)
         });
     });
 }
-
-
-
 
 // Renderizados
 
