@@ -139,7 +139,7 @@ function cargarComputadoras_Popup(contenedor,contenedorPrecioFinalizar){
             if (carrito.length > 0){
                 contenedorPrecioFinalizar.innerHTML = `
                     <h2 class="monto-final" data-precio="${montoTotal}">Total: $${montoTotal.toLocaleString("es-ES")}</h2>
-                    <button class="boton-finalizar-compra boton-morado-oscuro">Continuar Compra</button>
+                    <button class="boton-finalizar-compra bordeado boton-morado-oscuro">Continuar Compra</button>
                 `
                 document.querySelector(".boton-finalizar-compra").addEventListener("click", ()=>{
                     const popupCarro = document.querySelector("#popup-carro")
