@@ -55,7 +55,7 @@
             "pantalla": "13.6 Pulgadas",
             "precio": 1900000,
             "descripcion": "La MacBook Air M2 es la última versión de la popular laptop ultradelgada de Apple, lanzada en 2022. Está equipada con el chip M2 de Apple, que ofrece un rendimiento notablemente mejorado en comparación con su predecesora, junto con una eficiencia energética superior. Presenta una pantalla Retina de 13.6 pulgadas, un diseño más delgado y liviano, y una batería que puede durar hasta 18 horas. Ideal para usuarios que buscan potencia en un formato compacto y portátil.",
-            "categoria": [1,2],
+            "categoria": [1,2,5],
             "imagen": "recursos/imagenes/notebooks/apple/macbook_air_m2.png",
             "detalle_imagen": "macbook_air_m2.png"
         },
@@ -100,7 +100,7 @@
             "pantalla": "15.6 Pulgadas",
             "precio": 1394000,
             "descripcion": "La HP Victus con procesador Intel Core i5 y 8GB de RAM es una laptop versátil para gaming casual y productividad. Tiene una pantalla de alta resolución, gráficos dedicados NVIDIA y almacenamiento SSD, lo que asegura un rendimiento fluido y tiempos de carga rápidos.",
-            "categoria": [1],
+            "categoria": [1,5],
             "imagen": "recursos/imagenes/notebooks/hp/victus_core_i5-8gb.png",
             "detalle_imagen": "victus_core_i5-8gb.png"
         },
@@ -145,7 +145,7 @@
             "pantalla": "14 Pulgadas",
             "precio": 1000000,
             "descripcion": "La Lenovo idePad3 Slim es una notebook compacta y ligera, diseñada para usuarios que buscan productividad y portabilidad. Equipada con un procesador Intel Core, almacenamiento SSD y una pantalla Full HD, es perfecta para tareas diarias y entretenimiento.",
-            "categoria": [4],
+            "categoria": [4,5],
             "imagen": "recursos/imagenes/notebooks/lenovo/ide_pad3_slim.png",
             "detalle_imagen": "ide_pad3_slim.png"
         },
@@ -160,7 +160,7 @@
             "pantalla": "15.6 Pulgadas",
             "precio": 1500000,
             "descripcion": "La Lenovo LOQ Core combina un procesador Intel Core con gráficos dedicados NVIDIA para gaming moderado y tareas creativas. Con 16GB de RAM y almacenamiento SSD, ofrece un rendimiento balanceado en un diseño robusto y moderno.",
-            "categoria": [3],
+            "categoria": [3,5],
             "imagen": "recursos/imagenes/notebooks/lenovo/loq_core.png",
             "detalle_imagen": "loq_core.png"
         },
@@ -235,7 +235,7 @@
             "pantalla": "15.6 Pulgadas",
             "precio": 769299,
             "descripcion": "La Asus X515ea es una laptop accesible con procesador Intel Core i3, pantalla Full HD y almacenamiento SSD. Diseñada para estudiantes y tareas básicas, combina funcionalidad y portabilidad en un diseño moderno.",
-            "categoria": [4],
+            "categoria": [4,5],
             "imagen": "recursos/imagenes/notebooks/asus/x515ea-ej3968_fhd_i3.png",
             "detalle_imagen": "x515ea-ej3968_fhd_i3.png"
         },
