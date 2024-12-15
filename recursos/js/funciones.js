@@ -64,7 +64,7 @@ function verificarBusqueda(resultadosBusqueda,textareaBuscadorTexto){
         resultadosBusqueda.innerHTML = ""
     }
 }
-
+//cargar computadoras en barra de busqueda
 function cargarComputadoras_BarraBusqueda(contenedor, textareaTexto){
     let contenidoHtml = ``
 
