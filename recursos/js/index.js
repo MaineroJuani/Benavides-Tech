@@ -1,7 +1,7 @@
 import {auto_categorias, inicializarCarrusel, redireccion_compras, funciones_comunes} from "./funciones.js"
 
 funciones_comunes();
-
+//hola
 // Cambiar categoria para pc
 auto_categorias('id-categorias');
 
