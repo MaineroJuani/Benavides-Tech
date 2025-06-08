@@ -1,0 +1,26 @@
+{
+  "name": "benavides-tech",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaineroJuani/Benavides-Tech.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaineroJuani/Benavides-Tech/issues"
+  },
+  "homepage": "https://github.com/MaineroJuani/Benavides-Tech#readme",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "dependencies": {
+    "node": "^22.16.0"
+  }
+}
