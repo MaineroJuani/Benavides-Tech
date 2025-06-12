@@ -70,3 +70,22 @@ export async function eliminarUno(req, res){
         res.status(500).json({mensaje: "Error en el servidor"})
     }
 }
+// Extras
+export async function obtenerMarcas(req, res){
+    try {
+        const datos = await modelos.obtenerMarcas();
+        res.json(datos)
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({mensaje: "Error en el servidor"})
+    }
+}
+export async function obtenerCategorias(req, res){
+    try {
+        const datos = await modelos.obtenerCategorias();
+        res.json(datos)
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({mensaje: "Error en el servidor"})
+    }
+}

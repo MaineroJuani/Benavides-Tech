@@ -25,10 +25,16 @@ export async function renderizarListado(respuesta) {
             datosProductos.forEach((producto) => {
                 filas += `
                     <tr>
-                        <td>${producto.nombre}</td>
+                        <td>${producto.modelo}</td>
                         <td>${producto.marca}</td>
+                        <td>${producto.categoria}</td>
+                        <td>${producto.procesador}</td>
+                        <td>${producto.graficos}</td>
+                        <td>${producto.almacenamiento}</td>
+                        <td>${producto.ram}</td>
+                        <td>${producto.pantalla}</td>
                         <td>${producto.precio}</td>
-                        <td>${producto.stock}</td>
+                        <td>${producto.imagen}</td>
                         <td><a href="./editar.html?id=${producto.id}">Editar</a></td>
                     </tr>
                 `;

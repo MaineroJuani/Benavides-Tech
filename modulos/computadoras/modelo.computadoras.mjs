@@ -56,3 +56,22 @@ export async function eliminarUno(id){
         throw new Error(error)
     }
 }
+// Extras
+export async function obtenerMarcas(){
+    try {
+        const query = "SELECT * FROM marcas"
+        const result = await pool.query(query)
+        return result.rows
+    } catch (error) {
+        throw new Error(error)
+    }
+}
+export async function obtenerCategorias(){
+    try {
+        const query = "SELECT * FROM categorias"
+        const result = await pool.query(query)
+        return result.rows
+    } catch (error) {
+        throw new Error(error)
+    }
+}

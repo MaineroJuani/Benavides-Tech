@@ -116,7 +116,34 @@ form label{
     justify-content: flex-start;
     margin-bottom: 15px;
 }
+form div{
+    display: flex;
+    gap: 50px;
+}
+form div div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+form div div label{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+form div label{
+    width: auto;
+}
 form label input{
+    width:100%;
+    font-size: inherit;
+    font-family: inherit;
+    padding:5px 10px;
+    margin-block: 10px;
+    color:#007a49;
+}
+form label select{
     width:100%;
     font-size: inherit;
     font-family: inherit;
