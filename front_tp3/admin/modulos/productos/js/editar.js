@@ -7,12 +7,23 @@ import {
     altaRegistro,
     obtenerRegistros,
     eliminarRegistro,
+    obtenerMarcas,
+    obtenerCategorias,
 } from '../../../recursos/js/utilidades.js';
 // ---------------------------------------------------------
+
+// Constantes
 const id = obtenerParametroId();
 const formulario = document.getElementById('form-editar');
 const botonEliminar = document.getElementById('eliminar-registro');
 const mensajes = document.getElementById('mensajes');
+
+// Renderizado de Form
+const marcas = await obtenerRegistros('/api/v1/computadoras/marcas');
+obtenerMarcas(marcas);
+const categorias = await obtenerRegistros('/api/v1/computadoras/categorias');
+obtenerCategorias(categorias);
+
 // Asignar escuchador evento boton eliminar
 botonEliminar.addEventListener('click', async (evento) => {
     evento.preventDefault();
@@ -56,5 +67,5 @@ formulario.addEventListener('submit', async (evento) => {
     }
 });
 // Renderizar datos en formulario
-const resultado = await obtenerRegistros('/api/v1/productos/' + id);
+const resultado = await obtenerRegistros('/api/v1/computadoras/' + id);
 renderizarFormulario(resultado, formulario);

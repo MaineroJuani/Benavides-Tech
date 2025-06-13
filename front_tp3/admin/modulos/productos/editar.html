@@ -26,22 +26,52 @@
         <div class="mensajes" id="mensajes"></div>
         <section>
             <form id="form-editar">
-                <label for="nombre">
-                    NOMBRE
-                    <input type="text" name="nombre" id="nombre" required>
+                <label for="modelo">
+                    MODELO
+                    <input type="text" name="modelo" id="modelo" required>
                 </label>
-                <label for="marca">
-                    MARCA
-                    <input type="text" name="marca" id="marca" required>
+                <label for="procesador">
+                    PROCESADOR
+                    <input type="text" name="procesador" id="procesador" required>
+                </label>
+                <label for="graficos">
+                    GRAFICOS
+                    <input type="text" name="graficos" id="graficos" required>
+                </label>
+                <label for="almacenamiento">
+                    ALMACENAMIENTO
+                    <input type="text" name="almacenamiento" id="almacenamiento" required>
+                </label>
+                <label for="ram">
+                    RAM
+                    <input type="text" name="ram" id="ram" required>
+                </label>
+                <label for="pantalla">
+                    PANTALLA
+                    <input type="text" name="pantalla" id="pantalla" required>
                 </label>
                 <label for="precio">
                     PRECIO
                     <input type="number" name="precio" id="precio" required>
                 </label>
-                <label for="stock">
-                    STOCK
-                    <input type="number" name="stock" id="stock" step="1" required>
+                <label for="descripcion">
+                    DESCRIPCION
+                    <input type="text" name="descripcion" id="descripcion" required>
                 </label>
+                <label for="imagen">
+                    IMAGEN
+                    <input type="text" name="imagen" id="imagen" required>
+                </label>
+                <label for="detalle_imagen">
+                    DETALLE IMAGEN
+                    <input type="text" name="detalle_imagen" id="detalle_imagen" required>
+                </label>
+                <label for="marca_id">
+                    MARCA
+                    <select name="marca_id" id="marca_id" required></select>
+                </label>
+                <label for="">CATEGORIAS</label>
+                <div id="contenedor_categorias"></div>
                 <button type="submit">Modificar</button>
             </form>
         </section>

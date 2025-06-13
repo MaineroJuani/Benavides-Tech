@@ -3,10 +3,24 @@ export async function renderizarFormulario(registros, formulario) {
         const datos = await registros.json()
         if (registros.ok) {
             // Llenar form
-            formulario.nombre.value = datos[0].nombre;
-            formulario.marca.value = datos[0].marca;
+            formulario.modelo.value = datos[0].modelo;
+            formulario.procesador.value = datos[0].procesador;
+            formulario.graficos.value = datos[0].graficos;
+            formulario.almacenamiento.value = datos[0].almacenamiento;
+            formulario.ram.value = datos[0].ram;
+            formulario.pantalla.value = datos[0].pantalla;
             formulario.precio.value = datos[0].precio;
-            formulario.stock.value = datos[0].stock;
+            formulario.descripcion.value = datos[0].descripcion;
+            formulario.imagen.value = datos[0].imagen;
+            formulario.detalle_imagen.value = datos[0].detalle_imagen;
+            formulario.marca_id.value = datos[0].marca_id;
+
+            // Chequear categorias
+            console.log(datos[0].categoria_id)
+            const checkboxFormulario = formulario.querySelectorAll('input[name="categoria_id"]')
+            checkboxFormulario.forEach((checkbox) => {
+                checkbox.checked = datos[0].categoria_id.includes(Number(checkbox.value));
+            });
         } else {
             console.log('Registro no encontrado');
         }

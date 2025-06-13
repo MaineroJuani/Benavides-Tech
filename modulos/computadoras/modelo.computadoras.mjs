@@ -11,7 +11,7 @@ export async function obtenerTodos(){
 }
 export async function obtenerUno(id){
     try {
-        const query = "SELECT C.id,STRING_AGG(CA.nombre, ', ') as categoria,C.modelo,M.nombre as marca, C.procesador, C.graficos, C.almacenamiento,C.ram,C.pantalla,C.precio,C.descripcion,C.imagen,C.detalle_imagen FROM computadoras as C INNER JOIN computadora_categoria as CC ON CC.computadora_id = C.ID INNER JOIN categorias as CA ON CA.id = CC.categoria_id INNER JOIN marcas as M ON M.id = C.marca_id GROUP BY C.id,C.modelo,M.nombre, C.procesador, C.graficos, C.almacenamiento,C.ram,C.pantalla,C.precio,C.descripcion,C.imagen,C.detalle_imagen HAVING C.id = $1"
+        const query = "SELECT C.id,STRING_AGG(CA.nombre, ', ') as categoria,ARRAY_AGG(CA.id) AS categoria_id,C.modelo,M.nombre as marca,M.id as marca_id, C.procesador, C.graficos, C.almacenamiento,C.ram,C.pantalla,C.precio,C.descripcion,C.imagen,C.detalle_imagen FROM computadoras as C INNER JOIN computadora_categoria as CC ON CC.computadora_id = C.ID INNER JOIN categorias as CA ON CA.id = CC.categoria_id INNER JOIN marcas as M ON M.id = C.marca_id GROUP BY C.id,C.modelo,M.nombre,M.id, C.procesador, C.graficos, C.almacenamiento,C.ram,C.pantalla,C.precio,C.descripcion,C.imagen,C.detalle_imagen HAVING C.id = $1"
         const result = await pool.query(query,[id])
         return result.rows
     } catch (error) {

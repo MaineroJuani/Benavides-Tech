@@ -117,6 +117,9 @@ form label{
     margin-bottom: 15px;
 }
 form div{
+    margin-bottom: 15px;
+}
+form div{
     display: flex;
     gap: 50px;
 }
@@ -134,6 +137,7 @@ form div div label{
 
 form div label{
     width: auto;
+    margin: 0;
 }
 form label input{
     width:100%;

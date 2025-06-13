@@ -3,6 +3,11 @@ export function procesarFormulario(formulario) {
     const datosFormulario = Object.fromEntries(formData);
     const categoriasSeleccionadas = formData.getAll("categoria_id");
     datosFormulario.categoria_id = categoriasSeleccionadas.map(Number);
+
+    // Verificar que categorias tenga algun elemento
+    if(datosFormulario.categoria_id.length === 0) {
+        return "Error"
+    }
     return datosFormulario;
 }
 export function obtenerParametroId() {
