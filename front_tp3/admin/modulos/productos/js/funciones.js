@@ -16,7 +16,6 @@ export async function renderizarFormulario(registros, formulario) {
             formulario.marca_id.value = datos[0].marca_id;
 
             // Chequear categorias
-            console.log(datos[0].categoria_id)
             const checkboxFormulario = formulario.querySelectorAll('input[name="categoria_id"]')
             checkboxFormulario.forEach((checkbox) => {
                 checkbox.checked = datos[0].categoria_id.includes(Number(checkbox.value));

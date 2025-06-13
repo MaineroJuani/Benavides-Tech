@@ -30,7 +30,7 @@ botonEliminar.addEventListener('click', async (evento) => {
     if (confirm('Eliminar registro?')) {
 
         const respuesta = await eliminarRegistro(
-            `/api/v1/productos/${id}`
+            `/admin/api/v1/computadoras/${id}`
         );
         // Respuestas
         const { mensaje } = await respuesta.json();
@@ -52,10 +52,15 @@ formulario.addEventListener('submit', async (evento) => {
     evento.preventDefault();
     // Obtener datos formulario
     const datosFormulario = procesarFormulario(formulario);
+    // Verificar que tengan categoria
+    if (datosFormulario === 'Error'){
+        mensajes.innerHTML = "No se selecciono ninguna categoria";
+        return;
+    }
     // Enviar datos al back
     try {
         await altaRegistro(
-            `/api/v1/productos/${id}`,
+            `/admin/api/v1/computadoras/${id}`,
             'PUT',
             datosFormulario
         );

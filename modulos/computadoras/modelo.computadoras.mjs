@@ -38,10 +38,20 @@ export async function crearUno(objComputadora){
     }
 }
 export async function actualizarUno(id, objComputadora){
-    const {modelo,procesador,graficos,almacenamiento,ram,pantalla,precio,descripcion,imagen,detalle_imagen,marca_id} = objComputadora
+    console.log(objComputadora)
+    const {modelo,procesador,graficos,almacenamiento,ram,pantalla,precio,descripcion,imagen,detalle_imagen,marca_id,categoria_id} = objComputadora
     try {
-        const query = "UPDATE computadoras SET modelo = $1,procesador = $2,graficos = $3,almacenamiento = $4,ram = $5,pantalla = $6,precio = $7,descripcion = $8,imagen = $9,detalle_imagen = $10,marca_id = $11 WHERE id = $12;"
-        const result = await pool.query(query,[modelo,procesador,graficos,almacenamiento,ram,pantalla,precio,descripcion,imagen,detalle_imagen,marca_id, id])
+        const queryUpdate = "UPDATE computadoras SET modelo = $1,procesador = $2,graficos = $3,almacenamiento = $4,ram = $5,pantalla = $6,precio = $7,descripcion = $8,imagen = $9,detalle_imagen = $10,marca_id = $11 WHERE id = $12;"
+        const result = await pool.query(queryUpdate,[modelo,procesador,graficos,almacenamiento,ram,pantalla,precio,descripcion,imagen,detalle_imagen,marca_id, id])
+
+        const queryBorrar = "DELETE FROM computadora_categoria WHERE computadora_id = $1"
+        await pool.query(queryBorrar,[id])
+
+        const queryCategoria = "INSERT INTO computadora_categoria(computadora_id,categoria_id) VALUES ($1,$2)"
+        categoria_id.forEach(async categoria => {
+            await pool.query(queryCategoria,[id,categoria])
+        })
+
         return result.rowCount
     } catch (error) {
         throw new Error(error)
