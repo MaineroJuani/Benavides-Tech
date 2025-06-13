@@ -46,7 +46,7 @@ export async function renderizarListado(respuesta) {
                         <td>${producto.almacenamiento}</td>
                         <td>${producto.ram}</td>
                         <td>${producto.pantalla}</td>
-                        <td>${producto.precio}</td>
+                        <td>${producto.precio}</td>$
                         <td>${producto.imagen}</td>
                         <td><a href="./editar.html?id=${producto.id}">Editar</a></td>
                     </tr>

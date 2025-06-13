@@ -396,13 +396,16 @@ function filtradosCatalogo(elementos,nombreFiltro){
     })
 }
 
-export function cargar_catalogo(contenedor){
-    fetch('/recursos/js/productos.json')
-        .then(response => response.json())
-        .then(data => {
-            const computadoras = data
-            renderizado_catalogo(contenedor,computadoras.computadoras)
-        })
+export async function cargar_catalogo(ruta,contenedor){
+    try {
+        const datos = await fetch(ruta);
+        const datosConvertidos = await datos.json()
+        console.log(datosConvertidos)
+        renderizado_catalogo(contenedor,datosConvertidos)
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
 }
 
 function renderizado_catalogo(contenedor, computadoras){

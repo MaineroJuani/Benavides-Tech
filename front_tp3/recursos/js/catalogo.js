@@ -17,7 +17,8 @@ else if (categoriaSeleccionada) {
     localStorage.removeItem("categoriaSeleccionada");
 }
 else { //Por si acaso no recibe un filtro
-    cargar_catalogo(contenedor);
+    const ruta = "api/v1/computadoras"
+    cargar_catalogo(ruta,contenedor);
 }
 
 // Cargar Boton Marcas
