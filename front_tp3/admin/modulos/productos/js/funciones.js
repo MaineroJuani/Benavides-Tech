@@ -11,7 +11,6 @@ export async function renderizarFormulario(registros, formulario) {
             formulario.pantalla.value = datos[0].pantalla;
             formulario.precio.value = datos[0].precio;
             formulario.descripcion.value = datos[0].descripcion;
-            formulario.imagen.value = datos[0].imagen;
             formulario.detalle_imagen.value = datos[0].detalle_imagen;
             formulario.marca_id.value = datos[0].marca_id;
 
@@ -35,7 +34,9 @@ export async function renderizarListado(respuesta) {
             const contenedorProductos =
                 document.getElementById('contenedor-productos');
             let filas = '';
+
             datosProductos.forEach((producto) => {
+                console.log(producto.imagen)
                 filas += `
                     <tr>
                         <td>${producto.modelo}</td>
@@ -46,8 +47,12 @@ export async function renderizarListado(respuesta) {
                         <td>${producto.almacenamiento}</td>
                         <td>${producto.ram}</td>
                         <td>${producto.pantalla}</td>
-                        <td>${producto.precio}</td>$
-                        <td>${producto.imagen}</td>
+                        <td>${producto.precio}</td>
+                        <td>${
+                            producto.imagen
+                                ? `<img src="/computadoras/${producto.imagen}" alt="${producto.detalle_imagen}">`
+                                : ''
+                        }</td>
                         <td><a href="./editar.html?id=${producto.id}">Editar</a></td>
                     </tr>
                 `;

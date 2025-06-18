@@ -1,14 +1,11 @@
 export function procesarFormulario(formulario) {
     const formData = new FormData(formulario);
-    const datosFormulario = Object.fromEntries(formData);
-    const categoriasSeleccionadas = formData.getAll("categoria_id");
-    datosFormulario.categoria_id = categoriasSeleccionadas.map(Number);
 
     // Verificar que categorias tenga algun elemento
-    if(datosFormulario.categoria_id.length === 0) {
+    if (!formData.getAll("categoria_id").length) {
         return "Error"
     }
-    return datosFormulario;
+    return formData;
 }
 export function obtenerParametroId() {
     const params = new URL(location.href).searchParams;
@@ -63,10 +60,7 @@ export async function altaRegistro(ruta, metodo, datos) {
     try {
         const respuesta = await fetch(ruta, {
             method: metodo,
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(datos)
+            body: datos
         });
         return respuesta;
     } catch (error) {

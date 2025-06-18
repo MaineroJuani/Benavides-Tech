@@ -1,4 +1,10 @@
 import pool from '../conexion.bd.mjs'
+import { rm } from 'fs/promises'
+import { dirname , join } from "path";
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 export async function obtenerTodos(){
     try {
@@ -27,22 +33,45 @@ export async function crearUno(objComputadora, nombreImagen){
         const idComputadora = resultadoCompu.rows[0].id;
 
         let resultadoCategoria = ''
-        categoria_id.forEach(async categoria => {
-            const queryCategoria = "INSERT INTO computadora_categoria(computadora_id,categoria_id) VALUES ($1,$2)"
-            resultadoCategoria = await pool.query(queryCategoria,[idComputadora,categoria])
-        });
+        const queryCategoria = "INSERT INTO computadora_categoria(computadora_id,categoria_id) VALUES ($1,$2)"
+
+        if (typeof(categoria_id) === 'string'){
+            resultadoCategoria = await pool.query(queryCategoria,[idComputadora,categoria_id])
+        }
+        else{
+            categoria_id.forEach(async categoria => {
+                resultadoCategoria = await pool.query(queryCategoria,[idComputadora,categoria])
+            });
+        }
 
         return resultadoCategoria.rowCount
     } catch (error) {
         throw new Error(error)
     }
 }
-export async function actualizarUno(id, objComputadora){
-    console.log(objComputadora)
-    const {modelo,procesador,graficos,almacenamiento,ram,pantalla,precio,descripcion,imagen,detalle_imagen,marca_id,categoria_id} = objComputadora
+export async function actualizarUno(id, objComputadora, nombreImagen){
+    const {modelo,procesador,graficos,almacenamiento,ram,pantalla,precio,descripcion,detalle_imagen,marca_id,categoria_id} = objComputadora
     try {
-        const queryUpdate = "UPDATE computadoras SET modelo = $1,procesador = $2,graficos = $3,almacenamiento = $4,ram = $5,pantalla = $6,precio = $7,descripcion = $8,imagen = $9,detalle_imagen = $10,marca_id = $11 WHERE id = $12;"
-        const result = await pool.query(queryUpdate,[modelo,procesador,graficos,almacenamiento,ram,pantalla,precio,descripcion,imagen,detalle_imagen,marca_id, id])
+        let result
+        if (!nombreImagen){
+            const queryUpdate = "UPDATE computadoras SET modelo = $1,procesador = $2,graficos = $3,almacenamiento = $4,ram = $5,pantalla = $6,precio = $7,descripcion = $8,detalle_imagen = $9,marca_id = $10 WHERE id = $11;"
+            result = await pool.query(queryUpdate,[modelo,procesador,graficos,almacenamiento,ram,pantalla,precio,descripcion,detalle_imagen,marca_id, id])
+        }
+        else{
+            const resultadoImagenVieja = await pool.query('SELECT imagen FROM computadoras WHERE id=$1',[id])
+
+            const queryUpdate = "UPDATE computadoras SET modelo = $1,procesador = $2,graficos = $3,almacenamiento = $4,ram = $5,pantalla = $6,precio = $7,descripcion = $8,imagen = $9,detalle_imagen = $10,marca_id = $11 WHERE id = $12"
+            result = await pool.query(queryUpdate,[modelo,procesador,graficos,almacenamiento,ram,pantalla,precio,descripcion,nombreImagen,detalle_imagen,marca_id, id])
+            
+            if (result.rowCount > 0) {
+                try {
+                    const nombreImagenVieja = resultadoImagenVieja.rows[0].imagen
+                    await rm(join(__dirname, '../../front_tp3/recursos/imagenes/computadoras/', nombreImagenVieja))
+                } catch (error) {
+                    throw new Error(error)
+                }
+            }
+        }
 
         const queryBorrar = "DELETE FROM computadora_categoria WHERE computadora_id = $1"
         await pool.query(queryBorrar,[id])
@@ -59,9 +88,18 @@ export async function actualizarUno(id, objComputadora){
 }
 export async function eliminarUno(id){
     try {
-        const query = "DELETE FROM computadoras WHERE id = $1"
-        const result = await pool.query(query,[id])
-        return result.rowCount
+        const resultado = await pool.query('DELETE FROM computadoras WHERE id=$1 RETURNING imagen',[id])
+        const nombreImagen = resultado.rows[0].imagen
+
+        if (resultado.rowCount > 0) {
+            try {
+                await rm(join(__dirname, '../../front_tp3/recursos/imagenes/computadoras/', nombreImagen))
+            } catch (error) {
+                throw new Error(error)
+            }
+        }
+        return resultado.rowCount
+
     } catch (error) {
         throw new Error(error)
     }

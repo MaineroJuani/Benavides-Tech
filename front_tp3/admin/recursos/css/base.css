@@ -69,6 +69,10 @@ table tbody td{
     background-color: #fff;
     border-bottom: 1px solid #999;
 }
+table tbody td img{
+    max-width: 100px;
+    max-height: 100px;
+}
 table tbody td a{
     padding:5px;
     color:#fff;

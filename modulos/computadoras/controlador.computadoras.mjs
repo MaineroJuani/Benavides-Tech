@@ -26,9 +26,7 @@ export async function obtenerUno(req, res){
 }
 export async function crearUno(req, res){
     const computadora = req.body;
-    const filename = req.file
-    console.log(computadora)
-    console.log(filename)
+    const { filename } = req.file
     try {
         const datos = await modelos.crearUno(computadora, filename);
         if(datos <= 0){
@@ -45,8 +43,9 @@ export async function crearUno(req, res){
 export async function actualizarUnoUno(req, res){
     const id = Number(req.params.id);
     const computadora = req.body;
+    const filename = req.file?.filename || "";
     try {
-        const datos = await modelos.actualizarUno(id,computadora);
+        const datos = await modelos.actualizarUno(id,computadora,filename);
         if(datos <= 0){
             res.status(404).json({mensaje: "Producto no Existente"})
         }
