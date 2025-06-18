@@ -18,11 +18,11 @@ export async function obtenerUno(id){
         throw new Error(error)
     }
 }
-export async function crearUno(objComputadora){
-    const {modelo,procesador,graficos,almacenamiento,ram,pantalla,precio,descripcion,imagen,detalle_imagen,marca_id,categoria_id} = objComputadora
+export async function crearUno(objComputadora, nombreImagen){
+    const {modelo,procesador,graficos,almacenamiento,ram,pantalla,precio,descripcion,detalle_imagen,marca_id,categoria_id} = objComputadora
     try {
         const queryCompu = "INSERT INTO computadoras(modelo,procesador,graficos,almacenamiento,ram,pantalla,precio,descripcion,imagen,detalle_imagen,marca_id) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11) RETURNING id"
-        const resultadoCompu = await pool.query(queryCompu,[modelo,procesador,graficos,almacenamiento,ram,pantalla,precio,descripcion,imagen,detalle_imagen,marca_id])
+        const resultadoCompu = await pool.query(queryCompu,[modelo,procesador,graficos,almacenamiento,ram,pantalla,precio,descripcion,nombreImagen,detalle_imagen,marca_id])
 
         const idComputadora = resultadoCompu.rows[0].id;
 

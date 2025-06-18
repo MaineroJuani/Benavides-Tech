@@ -14,3 +14,4 @@ app.use("/",rutasFront)
 app.use("/admin",rutasAdmin)
 
 app.use(express.static("front_tp3"))
+app.use('/imagenes', express.static('./front_tp3/recursos/imagenes/computadoras'))

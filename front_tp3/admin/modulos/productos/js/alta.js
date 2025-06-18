@@ -5,6 +5,7 @@ import {
     obtenerMarcas,
     obtenerCategorias,
 } from '../../../recursos/js/utilidades.js';
+
 // ----------------------------------------------
 // Renderizado de Form
 const marcas = await obtenerRegistros('/api/v1/computadoras/marcas');
