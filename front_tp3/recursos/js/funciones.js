@@ -400,7 +400,6 @@ export async function cargar_catalogo(ruta,contenedor){
     try {
         const datos = await fetch(ruta);
         const datosConvertidos = await datos.json()
-        console.log(datosConvertidos)
         renderizado_catalogo(contenedor,datosConvertidos)
     } catch (error) {
         console.log(error);
@@ -411,12 +410,17 @@ export async function cargar_catalogo(ruta,contenedor){
 function renderizado_catalogo(contenedor, computadoras){
     let contenidoHtml = ``
     computadoras.forEach((computadora)=>{
+        console.log(computadora.imagen)
         contenidoHtml +=  `
             <div class="producto bordeado-morado-claro">
             <a href="/compra.html" class="link-compra" data-id=${computadora.id}>
                 <div class="nombre-producto"><h2>${computadora.modelo}</h2></div>
                 <div class="tamaño-imagen contenedor-centrado">
-                <img src="${computadora.imagen}" alt="${computadora.detalle_imagen}" class="imagen-producto" />
+                ${
+                computadora.imagen
+                    ? `<img src="/computadoras/${computadora.imagen}" alt="${computadora.detalle_imagen}" class="imagen-producto" />`
+                    : ''
+                }
                 </div>
                 <div class="precio-producto">$${computadora.precio.toLocaleString("es-ES")}</div>
                 <button class="boton-comprar boton-morado-oscuro">Ver Más</button>

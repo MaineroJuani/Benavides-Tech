@@ -8,6 +8,7 @@ const __dirname = dirname(__filename);
 
 export async function obtenerTodos(){
     try {
+        // Hacer map para concatenar ruta en result.rows
         const query = "SELECT C.id,STRING_AGG(CA.nombre, ', ') as categoria,C.modelo,M.nombre as marca, C.procesador, C.graficos, C.almacenamiento,C.ram,C.pantalla,C.precio,C.descripcion,C.imagen,C.detalle_imagen FROM computadoras as C INNER JOIN computadora_categoria as CC ON CC.computadora_id = C.ID INNER JOIN categorias as CA ON CA.id = CC.categoria_id INNER JOIN marcas as M ON M.id = C.marca_id GROUP BY C.id,C.modelo,M.nombre, C.procesador, C.graficos, C.almacenamiento,C.ram,C.pantalla,C.precio,C.descripcion,C.imagen,C.detalle_imagen"
         const result = await pool.query(query)
         return result.rows
