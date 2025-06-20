@@ -36,7 +36,6 @@ export async function renderizarListado(respuesta) {
             let filas = '';
 
             datosProductos.forEach((producto) => {
-                console.log(producto.imagen)
                 filas += `
                     <tr>
                         <td>${producto.modelo}</td>
@@ -50,7 +49,7 @@ export async function renderizarListado(respuesta) {
                         <td>${producto.precio}</td>
                         <td>${
                             producto.imagen
-                                ? `<img src="/computadoras/${producto.imagen}" alt="${producto.detalle_imagen}">`
+                                ? `<img src="${producto.imagen}" alt="${producto.detalle_imagen}">`
                                 : ''
                         }</td>
                         <td><a href="./editar.html?id=${producto.id}">Editar</a></td>

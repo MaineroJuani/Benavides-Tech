@@ -1,3 +1,8 @@
+// Variables globales
+const rutaTodos = 'api/v1/computadoras';
+const rutaMarcas = "/api/v1/computadoras/marcas";
+const rutaCategoria = "/api/v1/computadoras/categorias";
+
 // Funciones comunes
 export function funciones_comunes(){
     // Abrir pop-up
@@ -100,67 +105,70 @@ function cargarComputadoras_BarraBusqueda(contenedor, textareaTexto){
         })
 }
 
-function cargarComputadoras_Popup(contenedor,contenedorPrecioFinalizar){
+async function cargarComputadoras_Popup(contenedor,contenedorPrecioFinalizar){
     let contenidoHtml = ``
     let montoTotal = 0
+    
+    try {
+        const datos = await fetch(rutaTodos);
+        const computadoras = await datos.json()
 
-    fetch('/recursos/js/productos.json')
-        .then(response => response.json())
-        .then(data => {
-            const computadoras = data.computadoras
-            const carrito = traerCarrito();
+        const carrito = traerCarrito();
 
-            for (let i = 0; i < carrito.length; i++){
-                computadoras.some((computadora) => {
-                    if (computadora.id == carrito[i][0]){
-                        contenidoHtml +=  `
-                            <article class="producto-popup" id="contenedor-producto${carrito[i][0]}">
-                                <a href="/compra.html" class="link-compra-carrito" data-id="${carrito[i][0]}">
-                                    <div class="imagen-producto-carrito">
-                                        <img src="${computadora.imagen}" alt="${computadora.detalle_imagen}" class="imagen-producto" />
-                                    </div>
-                                    <div class="nombre-popup puntos-suspensivos contenedor-centrado-inicio"><h2 class="puntos-suspensivos">${computadora.modelo}</h2></div>
-                                </a>
-                                <div class="cantidad-producto-popup">
-                                    <button class="boton-quitar boton-carrito boton-morado-oscuro" data-id="${carrito[i][0]}">-</button>
-                                    <div class="cantidad-popup contenedor-centrado" id="producto${carrito[i][0]}" data-cantidad="${carrito[i][1]}">${carrito[i][1]}</div>
-                                    <button class="boton-agregar boton-carrito boton-morado-oscuro" data-id="${carrito[i][0]}">+</button>
+        for (let i = 0; i < carrito.length; i++){
+            computadoras.some((computadora) => {
+                if (computadora.id == carrito[i][0]){
+                    contenidoHtml +=  `
+                        <article class="producto-popup" id="contenedor-producto${carrito[i][0]}">
+                            <a href="/compra.html" class="link-compra-carrito" data-id="${carrito[i][0]}">
+                                <div class="imagen-producto-carrito">
+                                    <img src="${computadora.imagen}" alt="${computadora.detalle_imagen}" class="imagen-producto" />
                                 </div>
-                                <div class="precio-popup contenedor-centrado-inicio" id="precio-popup${carrito[i][0]}" data-precio="${computadora.precio}">$${(computadora.precio*carrito[i][1]).toLocaleString("es-ES")}</div>
-                            </article>
-                        `
-                        montoTotal = montoTotal + (computadora.precio*carrito[i][1])
-                        return true;
-                    }
-                })
-            }
-
-            contenedor.innerHTML = contenidoHtml
-            if (carrito.length > 0){
-                contenedorPrecioFinalizar.innerHTML = `
-                    <h2 class="monto-final" data-precio="${montoTotal}">Total: $${montoTotal.toLocaleString("es-ES")}</h2>
-                    <button class="boton-finalizar-compra bordeado boton-morado-oscuro">Continuar Compra</button>
-                `
-            }
-
-            // Modificar la cantidad de productos
-            const restarCantidad = document.querySelectorAll(".boton-quitar")
-            restarCantidad.forEach((boton) => {
-                boton.addEventListener("click", () => {
-                    modificarCantidad_Popup(-1, boton.dataset.id, carrito, contenedorPrecioFinalizar)
-                })
+                                <div class="nombre-popup puntos-suspensivos contenedor-centrado-inicio"><h2 class="puntos-suspensivos">${computadora.modelo}</h2></div>
+                            </a>
+                            <div class="cantidad-producto-popup">
+                                <button class="boton-quitar boton-carrito boton-morado-oscuro" data-id="${carrito[i][0]}">-</button>
+                                <div class="cantidad-popup contenedor-centrado" id="producto${carrito[i][0]}" data-cantidad="${carrito[i][1]}">${carrito[i][1]}</div>
+                                <button class="boton-agregar boton-carrito boton-morado-oscuro" data-id="${carrito[i][0]}">+</button>
+                            </div>
+                            <div class="precio-popup contenedor-centrado-inicio" id="precio-popup${carrito[i][0]}" data-precio="${computadora.precio}">$${(computadora.precio*carrito[i][1]).toLocaleString("es-ES")}</div>
+                        </article>
+                    `
+                    montoTotal = montoTotal + (computadora.precio*carrito[i][1])
+                    return true;
+                }
             })
-            const sumarCantidad = document.querySelectorAll(".boton-agregar")
-            sumarCantidad.forEach((boton) => {
-                boton.addEventListener("click", () => {
-                    modificarCantidad_Popup(1, boton.dataset.id, carrito, contenedorPrecioFinalizar)
-                })
-            })
+        }
 
-            // Redireccion a la pagina de compras
-            const anclaCompras = document.querySelectorAll(".link-compra-carrito");
-            redireccion_compras(anclaCompras)
+        contenedor.innerHTML = contenidoHtml
+        if (carrito.length > 0){
+            contenedorPrecioFinalizar.innerHTML = `
+                <h2 class="monto-final" data-precio="${montoTotal}">Total: $${montoTotal.toLocaleString("es-ES")}</h2>
+                <button class="boton-finalizar-compra bordeado boton-morado-oscuro">Continuar Compra</button>
+            `
+        }
+
+        // Modificar la cantidad de productos
+        const restarCantidad = document.querySelectorAll(".boton-quitar")
+        restarCantidad.forEach((boton) => {
+            boton.addEventListener("click", () => {
+                modificarCantidad_Popup(-1, boton.dataset.id, carrito, contenedorPrecioFinalizar)
+            })
         })
+        const sumarCantidad = document.querySelectorAll(".boton-agregar")
+        sumarCantidad.forEach((boton) => {
+            boton.addEventListener("click", () => {
+                modificarCantidad_Popup(1, boton.dataset.id, carrito, contenedorPrecioFinalizar)
+            })
+        })
+
+        // Redireccion a la pagina de compras
+        const anclaCompras = document.querySelectorAll(".link-compra-carrito");
+        redireccion_compras(anclaCompras)
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
 }
 
 function modificarCantidad_Popup(modificacion, idProducto, carrito, contenedorPrecioFinalizar){
@@ -316,72 +324,80 @@ export function inicializarCarrusel(elemento, prev, next,contenedor,nav,Cantidad
 
 // Renderizados
 
-export function cargarBotonesCatalogo(contenedor,marcas){
+export async function cargarBotonesCatalogo(contenedor,marcas){
     let contenidoHtml = ``
+    let categorias;
+    let clase;
+    let funcion;
 
-    fetch('/recursos/js/productos.json')
-        .then(response => response.json())
-        .then(data => {
-            let categorias;
-            let clase;
-            let funcion;
+    try {
+        if (marcas == true){
+            const datos = await fetch(rutaMarcas);
+            categorias = await datos.json()
+            clase = "filtro-marcas";
+            funcion = (id) => filtradoBoton_marcas(id, catalogo);
+        }
+        else{
+            const datos = await fetch(rutaCategoria);
+            categorias = await datos.json()
+            clase = "filtro-categorias";
+            funcion = (id) => filtradoBoton_categorias(id, catalogo);
+        }
 
-            if (marcas == true){
-                categorias = data.marcas;
-                clase = "filtro-marcas";
-                funcion = (id) => filtradoBoton_marcas(id, catalogo);
-            }
-            else{
-                categorias = data.categorias;
-                clase = "filtro-categorias";
-                funcion = (id) => filtradoBoton_categorias(id, catalogo);
-            }
+        categorias.forEach((categoria)=>{
+            contenidoHtml +=  `
+                <li> <a href="#" class="${clase}" data-id=${categoria.id}> <span class="dot" style="color:#bb64e0">•</span>${categoria.nombre}</a> </li>
+            `
+        })
 
-            categorias.forEach((categoria)=>{
-                contenidoHtml +=  `
-                    <li> <a href="#" class="${clase}" data-id=${categoria.id}> <span class="dot" style="color:#bb64e0">•</span>${categoria.nombre}</a> </li>
-                `
-            })
-        
-            contenedor.innerHTML = contenidoHtml
+        contenedor.innerHTML = contenidoHtml
 
-            // eventos de filtrado por botones
-            const botonMarcas = document.querySelectorAll(`.${clase}`);
-            const catalogo = document.querySelector('.catalogo');
+        // eventos de filtrado por botones
+        const botonMarcas = document.querySelectorAll(`.${clase}`);
+        const catalogo = document.querySelector('.catalogo');
 
-            botonMarcas.forEach(boton => {
-                boton.addEventListener("click", () => {
-                    const id = boton.dataset.id
-                    funcion(id)
-                })
+        botonMarcas.forEach(boton => {
+            boton.addEventListener("click", () => {
+                const id = boton.dataset.id
+                funcion(id)
             })
         })
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
 }
 
-export function filtradoBoton_categorias(id,catalogo){
-    fetch('/recursos/js/productos.json')
-        .then(response => response.json())
-        .then(data => {
-            const computadoras = data
-            const computadorasFiltradas = computadoras.computadoras.filter(computadora =>{
-                return computadora.categoria.includes(Number(id))
+export async function filtradoBoton_categorias(id,catalogo){
+    try {
+        const datos = await fetch(rutaTodos);
+        const computadoras = await datos.json()
+
+        const computadorasFiltradas = computadoras.filter(computadora =>{
+            return computadora.categoria_id.includes(Number(id))
+        })
+        renderizado_catalogo(catalogo,computadorasFiltradas)
+        crear_eliminarFiltros()
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+}
+
+export async function filtradoBoton_marcas(id,catalogo){
+    try {
+        const datos = await fetch(rutaTodos);
+        const computadoras = await datos.json()
+
+        const computadorasFiltradas = computadoras.filter(computadora =>{
+                return computadora.marca_id == id
             })
             renderizado_catalogo(catalogo,computadorasFiltradas)
             crear_eliminarFiltros()
-        })
-}
-
-export function filtradoBoton_marcas(id,catalogo){
-    fetch('/recursos/js/productos.json')
-        .then(response => response.json())
-        .then(data => {
-            const computadoras = data
-            const computadorasFiltradas = computadoras.computadoras.filter(computadora =>{
-                return computadora.marca == id
-            })
-            renderizado_catalogo(catalogo,computadorasFiltradas)
-            crear_eliminarFiltros()
-        })
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
 }
 
 function filtradosCatalogo(elementos,nombreFiltro){
@@ -410,7 +426,6 @@ export async function cargar_catalogo(ruta,contenedor){
 function renderizado_catalogo(contenedor, computadoras){
     let contenidoHtml = ``
     computadoras.forEach((computadora)=>{
-        console.log(computadora.imagen)
         contenidoHtml +=  `
             <div class="producto bordeado-morado-claro">
             <a href="/compra.html" class="link-compra" data-id=${computadora.id}>
@@ -418,7 +433,7 @@ function renderizado_catalogo(contenedor, computadoras){
                 <div class="tamaño-imagen contenedor-centrado">
                 ${
                 computadora.imagen
-                    ? `<img src="/computadoras/${computadora.imagen}" alt="${computadora.detalle_imagen}" class="imagen-producto" />`
+                    ? `<img src="${computadora.imagen}" alt="${computadora.detalle_imagen}" class="imagen-producto" />`
                     : ''
                 }
                 </div>
@@ -453,7 +468,7 @@ function crear_eliminarFiltros(){
     // Crear evento del ancla
     ancla.addEventListener("click", () => {
         const contenedorCatalogo = document.querySelector(".catalogo");
-        cargar_catalogo(contenedorCatalogo)
+        cargar_catalogo(rutaTodos,contenedorCatalogo)
         contenedorEliminarFiltro.innerHTML = "";
     })
 }
@@ -469,61 +484,58 @@ export function redireccion_compras(ancla){
     })
 }
 
-export function renderizado_compras(id){
-    fetch('/recursos/js/productos.json')
-        .then(response => response.json())
-        .then(data => {
-            const computadoras = data.computadoras
-            const computadora = computadoras.filter(compu =>{
-                return compu.id == Number(id)
-            })
-            const imagen = document.querySelector(".imagen img")
-            imagen.src = computadora[0].imagen
-            imagen.alt = computadora[0].modelo
+export async function renderizado_compras(id){
+    try {
+        const datos = await fetch(rutaTodos+"/"+id);
+        const computadoras = await datos.json()
+        
+        console.log(computadoras)
 
-            const precio = document.querySelector(".precio-compra p")
-            precio.textContent = `$${computadora[0].precio.toLocaleString("es-ES")}`
+        const imagen = document.querySelector(".imagen img")
+        imagen.src = computadoras[0].imagen
+        imagen.alt = computadoras[0].modelo
 
-            const botonComprar = document.querySelector(".boton-comprar button")
-            botonComprar.setAttribute("data-id",computadora[0].id)
+        const precio = document.querySelector(".precio-compra p")
+        precio.textContent = `$${computadoras[0].precio.toLocaleString("es-ES")}`
 
-            const titulo = document.querySelector(".derecha h1")
-            titulo.textContent = computadora[0].modelo
+        const botonComprar = document.querySelector(".boton-comprar button")
+        botonComprar.setAttribute("data-id",computadoras[0].id)
 
-            const marca = document.querySelector(".marca p")
-            const marcas = data.marcas
-            const marcaId = computadora[0].marca[0];
-            const marcaEncontrada = marcas.find(marca => marca.id == marcaId);
-            marca.textContent = marcaEncontrada.nombre
+        const titulo = document.querySelector(".derecha h1")
+        titulo.textContent = computadoras[0].modelo
 
-            const procesador = document.querySelector(".procesador p")
-            procesador.textContent = computadora[0].procesador
+        const marca = document.querySelector(".marca p")
+        marca.textContent = computadoras[0].marca
 
-            const graficos = document.querySelector(".graficos p")
-            graficos.textContent = computadora[0].graficos
+        const procesador = document.querySelector(".procesador p")
+        procesador.textContent = computadoras[0].procesador
 
-            const almacenamiento = document.querySelector(".Almacenamiento p")
-            almacenamiento.textContent = computadora[0].almacenamiento
+        const graficos = document.querySelector(".graficos p")
+        graficos.textContent = computadoras[0].graficos
 
-            const RAM = document.querySelector(".RAM p")
-            RAM.textContent = computadora[0].ram
+        const almacenamiento = document.querySelector(".Almacenamiento p")
+        almacenamiento.textContent = computadoras[0].almacenamiento
 
-            const pantalla = document.querySelector(".Pantalla p")
-            pantalla.textContent = computadora[0].pantalla
+        const RAM = document.querySelector(".RAM p")
+        RAM.textContent = computadoras[0].ram
 
-            const descripcion = document.querySelector(".descripcion-compra p")
-            descripcion.textContent = computadora[0].descripcion
-        })
+        const pantalla = document.querySelector(".Pantalla p")
+        pantalla.textContent = computadoras[0].pantalla
+
+        const descripcion = document.querySelector(".descripcion-compra p")
+        descripcion.textContent = computadoras[0].descripcion
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
 }
 
-export function renderizado_producto_agregado(popup,id){
-    fetch('/recursos/js/productos.json')
-        .then(response => response.json())
-        .then(data => {
-            const computadoras = data.computadoras
-            const computadora = filtrado_computadoras_id(computadoras,id)
+export async function renderizado_producto_agregado(popup,id){
+    try {
+        const datos = await fetch(rutaTodos+'/'+id);
+        const computadora = await datos.json()
 
-            const imagen = document.querySelector(".imagen-producto-agregado img")
+        const imagen = document.querySelector(".imagen-producto-agregado img")
             imagen.src = computadora[0].imagen
             imagen.alt = computadora[0].modelo
 
@@ -531,7 +543,10 @@ export function renderizado_producto_agregado(popup,id){
             nombreProducto.textContent = computadora[0].modelo
 
             popup.showModal()
-        })
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
 }
 
 function filtrado_computadoras_id(computadoras,id){
