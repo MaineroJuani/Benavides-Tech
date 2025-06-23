@@ -1,11 +1,17 @@
 import pg from "pg";
+import dotenv from "dotenv";
+
+dotenv.config({})
+const {BD_HOST, BD_NOMBRE, BD_USUARIO, BD_PASSWORD, BD_PUERTO} = process.env
+
 
 const config = {
-    host: "localhost",
-    port: 5432,
-    database: "tienda_notebooks",
-    user: "root",
-    password: "pass"
+
+    host: BD_HOST,
+    port: BD_PUERTO,
+    user: BD_USUARIO,
+    password: BD_PASSWORD,
+    database: BD_NOMBRE
 }
 
 const pool = new pg.Pool(config);

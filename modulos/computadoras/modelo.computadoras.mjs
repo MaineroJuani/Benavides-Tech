@@ -2,6 +2,8 @@ import pool from '../conexion.bd.mjs'
 import { rm } from 'fs/promises'
 import { dirname , join } from "path";
 import { fileURLToPath } from 'url';
+import bcrypt from 'bcryptjs';
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -131,4 +133,42 @@ export async function obtenerCategorias(){
     } catch (error) {
         throw new Error(error)
     }
+}
+// Utilizados para registro
+export async function registrarse(usuario, pass){
+    try {
+        const salt = bcrypt.genSaltSync(10);
+        const hashingPass = bcrypt.hashSync(pass, salt);
+        const resultado = await pool.query(
+            'INSERT INTO usuarios (username, password_hash) VALUES ($1, $2)',
+            [usuario, hashingPass]
+        );
+        return resultado.rowCount
+    } catch (error) {
+        throw new Error(error)
+    }
+}
+export async function autentificar(usuario, pass){
+    if (!usuario || !pass) {
+        return res.sendStatus(400);
+    }
+    // Verificamos la contraseña usando bcrypt
+    let verificado = false;
+    try {
+        // Consultamos la contraseña
+        const resultado = await pool.query(
+            'SELECT password_hash FROM usuarios WHERE username = $1',
+            [usuario]
+        );
+        // Extraemos el pass hasheado
+        const passwordHash = resultado.rows[0].password_hash
+        verificado = await bcrypt.compare(
+            pass,
+            passwordHash
+        );
+    } catch (error) {
+        return res.sendStatus(401);
+    }
+    
+    return verificado;
 }

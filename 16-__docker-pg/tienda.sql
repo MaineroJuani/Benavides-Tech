@@ -4,6 +4,15 @@ CREATE DATABASE tienda_notebooks;
 -- Conectarse a la base de datos (esto puede necesitar hacerse manualmente en algunas herramientas)
 \c tienda_notebooks;
 
+--Crear tabla con usuarios
+CREATE TABLE usuarios (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(150) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    session_id VARCHAR(255) UNIQUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
 -- Crear tabla de categorías
 CREATE TABLE categorias (
     id SERIAL PRIMARY KEY,
@@ -80,18 +89,3 @@ VALUES
 (8, 3, 'Notebook Lenovo Legion 5', 'AMD Ryzen 7', '16 GB', '512 GB SSD', '15.6" FHD 165Hz', 1349.99),
 (9, 4, 'Notebook Dell XPS 13', 'Intel Core i7', '16 GB', '512 GB SSD', '13.4" UHD+', 1899.99),
 (10, 5, 'Notebook Acer Nitro 5', 'Intel Core i5', '16 GB', '1 TB SSD', '15.6" FHD 144Hz', 1199.99);
-
-
-
-ALTER TABLE notebooks ADD COLUMN stock INT;
-
-UPDATE notebooks SET stock = 25 WHERE id = 1;
-UPDATE notebooks SET stock = 15 WHERE id = 2;
-UPDATE notebooks SET stock = 30 WHERE id = 3;
-UPDATE notebooks SET stock = 20 WHERE id = 4;
-UPDATE notebooks SET stock = 12 WHERE id = 5;
-UPDATE notebooks SET stock = 18 WHERE id = 6;
-UPDATE notebooks SET stock = 22 WHERE id = 7;
-UPDATE notebooks SET stock = 10 WHERE id = 8;
-UPDATE notebooks SET stock = 16 WHERE id = 9;
-UPDATE notebooks SET stock = 27 WHERE id = 10;

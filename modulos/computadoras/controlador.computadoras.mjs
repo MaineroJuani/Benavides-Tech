@@ -1,4 +1,9 @@
 import * as modelos from "./modelo.computadoras.mjs";
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+
+dotenv.config();
+const FRASE_PRIVADA = process.env.LLAVE_PRIVADA_JWT;
 
 export async function obtenerTodos(req, res){
     try {
@@ -86,6 +91,60 @@ export async function obtenerCategorias(req, res){
     try {
         const datos = await modelos.obtenerCategorias();
         res.json(datos)
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({mensaje: "Error en el servidor"})
+    }
+}
+export async function registrarse(req, res){
+    const { usuario, pass } = req.body;
+    if (!usuario || !pass) {
+        return res.sendStatus(400);
+    }
+
+    try {
+        const datos = await modelos.registrarse(usuario, pass);
+        if (datos > 0) {
+            res.redirect('/login');
+        } else {
+            res.sendStatus(500);
+        }
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({mensaje: "Error en el servidor"})
+    }
+}
+export async function autentificar(req, res){
+    const { usuario, pass } = req.body;
+    if (!usuario || !pass) {
+        return res.sendStatus(400);
+    }
+
+    try {
+        const verificado = await modelos.autentificar(usuario, pass)
+        if (verificado) {
+            // Creamos Token
+            const datos = {
+                usuarioId: 1,
+                rol: 0
+            }
+            jwt.sign(datos, FRASE_PRIVADA, {expiresIn: "24h"}, (error, token) => {
+                if (error) {
+                    return res.redirect("/login");
+                }
+                // Si se genero
+                // Creamos cookie
+                res.cookie("token", token, {
+                    httpOnly: true,
+                    sameSite: "strict",
+                    secure: true,
+                    maxAge: 24 * 60 * 60 * 1000
+                })
+                res.redirect('/admin/'); // Redirigimos al usuario a la página de administracion
+            })
+        } else {
+            res.sendStatus(401);
+        }
     } catch (error) {
         console.log(error)
         res.status(500).json({mensaje: "Error en el servidor"})
