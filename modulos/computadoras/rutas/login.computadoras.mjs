@@ -9,7 +9,7 @@ rutasLogin.post('/autenticacion', controlador.autentificar);
 rutasLogin.get('/logout', async (req, res) => {
     // Borramos la cookie
     res.cookie("token", "", {maxAge:0})
-    res.redirect("/login");
+    res.redirect("/");
 });
 
 export default rutasLogin;
